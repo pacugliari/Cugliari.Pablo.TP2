@@ -1,0 +1,16 @@
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.exe
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.deps.json
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.runtimeconfig.json
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.runtimeconfig.dev.json
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.dll
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\ref\Uno_Pac.dll
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\bin\Debug\net5.0\Uno_Pac.pdb
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.csproj.AssemblyReference.cache
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.AssemblyInfoInputs.cache
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.AssemblyInfo.cs
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.csproj.CoreCompileInputs.cache
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.dll
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\ref\Uno_Pac.dll
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.pdb
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL 2\Uno_Pac\obj\Debug\net5.0\Uno_Pac.genruntimeconfig.cache
