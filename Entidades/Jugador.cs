@@ -8,21 +8,35 @@ namespace Entidades
 {
     public class Jugador
     {
+        private int numeroJugador;
         private string nombre;
         private List<Carta> cartas;
         private IEstadoJugador estado;
 
         public string Nombre { get { return this.nombre; } }
 
+        public int NumeroJugador { get { return this.numeroJugador; } }
+        public Carta this[int index]
+        {
+            get {
+                Carta rta = null;
+                if (index >= 0 && index < this.cartas.Count) {
+                    rta = this.cartas[index];
+                }
+                return rta;
+            }
+        }
+
         private Jugador()
         {
             this.cartas = new List<Carta>();
         }
 
-        public Jugador(string nombre,IEstadoJugador estado):this()
+        public Jugador(string nombre,int numeroJugador,IEstadoJugador estado):this()
         {
             this.nombre = nombre;
             this.estado = estado;
+            this.numeroJugador = numeroJugador;
 
         }
 

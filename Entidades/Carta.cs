@@ -12,6 +12,10 @@ namespace Entidades
         private EColor color;
         private int numero;
 
+        public ETipo Tipo { get { return this.tipo; } }
+        public EColor Color { get { return this.color; } }
+        public int Numero { get { return this.numero; } }
+
         public Carta(ETipo tipo, EColor color)
         {
             this.tipo = tipo;
@@ -22,6 +26,7 @@ namespace Entidades
         public Carta(ETipo tipo,EColor color,int numero):this(tipo,color)
         {
             this.numero = numero;
+            
         }
 
         public static bool operator ==(Carta c1,Carta c2)
