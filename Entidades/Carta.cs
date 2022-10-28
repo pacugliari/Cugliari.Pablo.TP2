@@ -32,14 +32,18 @@ namespace Entidades
         public static bool operator ==(Carta c1,Carta c2)
         {
             bool retorno = false;
-            if(c1.color == EColor.Negro && c2.color == EColor.Negro && c1.tipo == c2.tipo)
+            if(c1 is not null && c2 is not null)
             {
-                retorno = true;
+                if (c1.color == EColor.Negro && c2.color == EColor.Negro && c1.tipo == c2.tipo)
+                {
+                    retorno = true;
+                }
+                else if (c1.color == c2.color || c1.numero == c2.numero)
+                {
+                    retorno = true;
+                }
             }
-            else if (c1.color == c2.color || c1.numero == c2.numero)
-            {
-                retorno = true;
-            }
+
             return retorno;
         }
 

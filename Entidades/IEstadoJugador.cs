@@ -8,7 +8,7 @@ namespace Entidades
 {
     public interface IEstadoJugador
     {
-        public Carta Jugar(List<Carta> cartas,Jugador jugador);
+        public void Jugar();
         public IEstadoJugador AvanzarTurno();
     }
 }

@@ -16,3 +16,9 @@ public enum ETipo
     CambioColor,
     MasCuatro
 }
+
+public enum EJugadores
+{
+    Jugador1,
+    Jugador2
+}

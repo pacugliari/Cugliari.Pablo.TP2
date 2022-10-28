@@ -12,6 +12,10 @@ namespace Entidades
         private string nombre;
         private List<Carta> cartas;
         private IEstadoJugador estado;
+        private bool recogioCarta;
+
+        public bool RecogioCarta { get { return this.recogioCarta; } set { this.recogioCarta = value; } }
+
 
         public string Nombre { get { return this.nombre; } }
 
@@ -27,9 +31,17 @@ namespace Entidades
             }
         }
 
+        public int CantidadCartas { get { return this.cartas.Count; } }
+
         private Jugador()
         {
             this.cartas = new List<Carta>();
+            for (int i = 0; i < 7; i++)
+            {
+                this.cartas.Add(null);
+            }
+
+            this.RecogioCarta = false;
         }
 
         public Jugador(string nombre,int numeroJugador,IEstadoJugador estado):this()
@@ -40,30 +52,103 @@ namespace Entidades
 
         }
 
-        public Carta Jugar()
+        public bool Jugar(int posicionCarta,out bool esCambioColor)
         {
-            Carta retorno = null;
+            bool retorno = false;
+            esCambioColor = false;
+            IEstadoJugador estadoPrevio = this.estado;
             try
             {
-                retorno = estado.Jugar(cartas,this);
+                Carta elegida = this.cartas[posicionCarta];
+                if (elegida.Color == Partida.ColorActual || (elegida.Numero == Partida.UltimaCartaTirada.Numero && Partida.UltimaCartaTirada.Color != EColor.Negro) 
+                     || elegida.Color == EColor.Negro)
+                {
+                    estado.Jugar();
+                    if (elegida.Tipo == ETipo.MasCuatro || elegida.Tipo == ETipo.CambioColor)
+                    {
+                        esCambioColor = true;
+                    }
+                    Partida.ColorActual = elegida.Color;
+                    Partida.AgregarCartaTirada = elegida;
+                    retorno = true;
+                    this.cartas[posicionCarta] = null;
+                }
             }
-            catch (Exception)
+            catch (Exception )
             {
                 //PUEDE TIRAR EXCEPCION SI EL ESTADO DEL JUGADOR ES NO DISPONIBLE
-                throw;
+            }
+            finally
+            {
+                if (retorno)
+                {
+                    if (Partida.JugadorActual.recogioCarta)
+                        Partida.JugadorActual.recogioCarta = false;
+                    Partida.SiguienteJugador();
+                }
+                    
+
             }
 
             return retorno;
         }
 
-        public void AgregarCartas(List<Carta> cartas)
+        private int BuscarPosicionVacia()
         {
+            int posicion = -1;
+            for (int i = 0; i < this.cartas.Count; i++)
+            {
+                if (this.cartas[i] is null)
+                {
+                    posicion = i;
+                    break;
+                }
+
+            }
+            return posicion;
+        }
+
+        public List<int> AgregarCartas(List<Carta> cartas)
+        {
+            List<int> posiciones = new List<int>();
+            int posicionAgregada = -1;
             foreach (Carta item in cartas)
             {
-                this.cartas.Add(item);
+                posicionAgregada = this.BuscarPosicionVacia();
+                if (posicionAgregada != -1)
+                {
+                    this.cartas[posicionAgregada] = item;
+                    posiciones.Add(posicionAgregada);
+                }
+                posicionAgregada = -1;
             }
+            return posiciones;
+        }
+
+        public void CambiarEstado()
+        {
+            this.estado = this.estado.AvanzarTurno();
+        }
+
+        public List<int> ActualizarJugador()
+        {
+            Carta ultimaCartaTirada = Partida.UltimaCartaTirada;
+            List<int> posiciones = new List<int>();
+            if(ultimaCartaTirada.Tipo == ETipo.MasCuatro)
+            {
+                posiciones = this.AgregarCartas(Mazo.ObtenerCartas(4));
+            }else if (ultimaCartaTirada.Tipo == ETipo.MasDos)
+            {
+                posiciones = this.AgregarCartas(Mazo.ObtenerCartas(2));
+
+            }else if (ultimaCartaTirada.Tipo == ETipo.Salteo || ultimaCartaTirada.Tipo == ETipo.Invertir)
+            {
+                //Partida.SiguienteJugador();
+            }
+            return posiciones;
         }
     }
+
 
     public class JugadorDisponible : IEstadoJugador
     {
@@ -72,34 +157,9 @@ namespace Entidades
             return new JugadorOcupado();
         }
 
-        public Carta Jugar(List<Carta> cartas,Jugador jugador)
+        public void Jugar()
         {
-            Carta cartaATirar = this.BuscarCartaATirar(cartas);
-
-            if (cartaATirar is null)//NO TIENE CARTAS PARA TIRAR
-            {
-                //JUNTA UNA DEL MAZO
-                List<Carta> cartasLevantadas = Mazo.ObtenerCartas(1);
-
-                if(cartasLevantadas is null)//EL MAZO SE QUEDO SIN CARTAS
-                {
-                    Mazo.MezclarCartasTiradas();
-                    cartasLevantadas = Mazo.ObtenerCartas(1);
-
-                }
-                jugador.AgregarCartas(cartasLevantadas);
-                cartaATirar = this.BuscarCartaATirar(cartas);
-            }
-
-            if (cartas.Count == 1)
-            {
-                //EXCEPCION GRITAR UNO
-            }else if (cartas.Count == 0)
-            {
-                //EXCEPCION GRITAR GANO
-            }
-
-            return cartaATirar;
+            
         }
 
         private Carta BuscarCartaATirar(List<Carta> cartas)
@@ -125,10 +185,11 @@ namespace Entidades
             return new JugadorDisponible();
         }
 
-        public Carta Jugar(List<Carta> cartas, Jugador jugador)
+        public void Jugar()
         {
             //DEFINIR NUEVA EXEPCION
             throw new NotImplementedException();
+
         }
     }
 

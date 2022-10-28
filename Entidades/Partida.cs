@@ -5,18 +5,26 @@ namespace Entidades
 {
     public class Partida
     {
-        private List<Jugador> jugadores;
+        private static List<Jugador> jugadores;
+        private static Jugador jugadorActual;
         private DateTime tiempoInicio;
         private DateTime tiempoFin;
         private Mazo mazo;
         private static Stack<Carta> cartasTiradas;
-        private int indiceJugadorActual;
-        private EColor colorActual;
+        private static int indiceJugadorActual;
+        private static EColor colorActual;
 
         public static Carta UltimaCartaTirada { get { return Partida.cartasTiradas.Peek(); } }
         public static Stack<Carta> CartasTiradas { get { return Partida.cartasTiradas; } }
+        public static Carta AgregarCartaTirada { set { Partida.cartasTiradas.Push(value); } }
 
-        public List<Jugador> Jugadores { get { return this.jugadores; } }
+        public static int IndiceJugadorActual { get { return Partida.indiceJugadorActual; } }
+
+        public static Jugador JugadorActual { get { return Partida.jugadorActual; } }
+
+        public static List<Jugador> Jugadores { get { return Partida.jugadores; } }
+
+        public static EColor ColorActual { get { return Partida.colorActual; } set { Partida.colorActual = value; } }
 
 
         static Partida()
@@ -25,25 +33,38 @@ namespace Entidades
         }
         public Partida(string nombreJugadorUno,string nombreJugadorDos)
         {
-            this.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,1,new JugadorDisponible()),
+            Partida.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,1,new JugadorDisponible()),
                 new Jugador(nombreJugadorDos, 2, new JugadorOcupado()) };
             this.tiempoInicio = DateTime.Now;
             this.mazo = new Mazo();
-            
 
-            this.jugadores[0].AgregarCartas(Mazo.ObtenerCartas(7));
-            this.jugadores[1].AgregarCartas(Mazo.ObtenerCartas(7));
+            Partida.jugadores[0].AgregarCartas(Mazo.ObtenerCartas(3));
+            Partida.jugadores[1].AgregarCartas(Mazo.ObtenerCartas(3));
             Partida.cartasTiradas.Push(Mazo.ObtenerCartas(1)[0]);
+            Partida.colorActual = Partida.UltimaCartaTirada.Color;
+            Partida.indiceJugadorActual = 1;
+            Partida.jugadorActual = Partida.jugadores[0];
         }
 
-        public void JugarRonda()
+        public static Jugador SiguienteJugador()
         {
-            foreach (Jugador item in this.jugadores)
+            Partida.JugadorActual.RecogioCarta = false;
+            Partida.jugadorActual.CambiarEstado();
+            if (Partida.jugadorActual.NumeroJugador == 1)
             {
-                Carta cartaTirada = item.Jugar();
-                if(cartaTirada is not null)
-                    Partida.cartasTiradas.Push(cartaTirada);
+                Partida.jugadorActual = Partida.jugadores[1];
+                Partida.indiceJugadorActual = 2;
+                
             }
+            else
+            {
+                Partida.jugadorActual = Partida.jugadores[0];
+                Partida.indiceJugadorActual = 1;
+            }
+            Partida.jugadorActual.CambiarEstado();
+            Partida.jugadorActual.ActualizarJugador();
+
+            return Partida.jugadorActual;
         }
 
 

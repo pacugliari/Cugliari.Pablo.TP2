@@ -243,6 +243,16 @@ namespace InicioForm.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo {
+            get {
+                object obj = ResourceManager.GetObject("fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap g_0 {
             get {
                 object obj = ResourceManager.GetObject("g_0", resourceCulture);
@@ -516,6 +526,16 @@ namespace InicioForm.Properties {
         internal static System.Drawing.Bitmap r_skip {
             get {
                 object obj = ResourceManager.GetObject("r_skip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap skip {
+            get {
+                object obj = ResourceManager.GetObject("skip", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
