@@ -20,7 +20,27 @@ namespace Entidades
         {
             this.tipo = tipo;
             this.color = color;
-            this.numero = -1;
+            switch (tipo)
+            {
+                case ETipo.MasDos:
+                    this.numero = -1;
+                    break;
+                case ETipo.Salteo:
+                    this.numero = -2;
+                    break;
+                case ETipo.Invertir:
+                    this.numero = -3;
+                    break;
+                case ETipo.CambioColor:
+                    this.numero = -4;
+                    break;
+                case ETipo.MasCuatro:
+                    this.numero = -5;
+                    break;
+                default:
+                    this.numero = 0;
+                    break;
+            }
         }
 
         public Carta(ETipo tipo,EColor color,int numero):this(tipo,color)

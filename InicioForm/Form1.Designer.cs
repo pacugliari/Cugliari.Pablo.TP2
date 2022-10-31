@@ -51,10 +51,14 @@ namespace InicioForm
             this.btnMazo = new System.Windows.Forms.Button();
             this.btnTiradas = new System.Windows.Forms.Button();
             this.btnColorActual = new System.Windows.Forms.Button();
-            this.btnGritarUno = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnPasarTurno = new System.Windows.Forms.Button();
+            this.lblJugador = new System.Windows.Forms.Label();
+            this.pbUnoJ1 = new System.Windows.Forms.PictureBox();
+            this.pbUnoJ2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAyuda
@@ -278,18 +282,6 @@ namespace InicioForm
             this.btnColorActual.TabIndex = 18;
             this.btnColorActual.UseVisualStyleBackColor = false;
             // 
-            // btnGritarUno
-            // 
-            this.btnGritarUno.BackColor = System.Drawing.Color.Transparent;
-            this.btnGritarUno.FlatAppearance.BorderSize = 0;
-            this.btnGritarUno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGritarUno.Location = new System.Drawing.Point(667, 364);
-            this.btnGritarUno.Name = "btnGritarUno";
-            this.btnGritarUno.Size = new System.Drawing.Size(66, 66);
-            this.btnGritarUno.TabIndex = 19;
-            this.btnGritarUno.UseVisualStyleBackColor = false;
-            this.btnGritarUno.Click += new System.EventHandler(this.btnGritarUno_Click);
-            // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
@@ -363,14 +355,47 @@ namespace InicioForm
             this.btnPasarTurno.UseVisualStyleBackColor = false;
             this.btnPasarTurno.Click += new System.EventHandler(this.btnPasarTurno_Click);
             // 
+            // lblJugador
+            // 
+            this.lblJugador.AutoSize = true;
+            this.lblJugador.BackColor = System.Drawing.Color.Transparent;
+            this.lblJugador.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblJugador.Location = new System.Drawing.Point(12, 337);
+            this.lblJugador.Name = "lblJugador";
+            this.lblJugador.Size = new System.Drawing.Size(122, 46);
+            this.lblJugador.TabIndex = 21;
+            this.lblJugador.Text = "asdasd";
+            // 
+            // pbUnoJ1
+            // 
+            this.pbUnoJ1.BackColor = System.Drawing.Color.Transparent;
+            this.pbUnoJ1.BackgroundImage = global::InicioForm.Properties.Resources.uno_;
+            this.pbUnoJ1.Location = new System.Drawing.Point(706, 355);
+            this.pbUnoJ1.Name = "pbUnoJ1";
+            this.pbUnoJ1.Size = new System.Drawing.Size(188, 138);
+            this.pbUnoJ1.TabIndex = 24;
+            this.pbUnoJ1.TabStop = false;
+            // 
+            // pbUnoJ2
+            // 
+            this.pbUnoJ2.BackColor = System.Drawing.Color.Transparent;
+            this.pbUnoJ2.BackgroundImage = global::InicioForm.Properties.Resources.uno__21;
+            this.pbUnoJ2.Location = new System.Drawing.Point(129, 203);
+            this.pbUnoJ2.Name = "pbUnoJ2";
+            this.pbUnoJ2.Size = new System.Drawing.Size(188, 138);
+            this.pbUnoJ2.TabIndex = 25;
+            this.pbUnoJ2.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.pbUnoJ2);
+            this.Controls.Add(this.pbUnoJ1);
+            this.Controls.Add(this.lblJugador);
             this.Controls.Add(this.btnPasarTurno);
-            this.Controls.Add(this.btnGritarUno);
             this.Controls.Add(this.btnColorActual);
             this.Controls.Add(this.btnMazo);
             this.Controls.Add(this.btnCarta7J2);
@@ -397,7 +422,10 @@ namespace InicioForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uno Pac";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -426,6 +454,9 @@ namespace InicioForm
         private System.Windows.Forms.Button btnGritarUno;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnPasarTurno;
+        private System.Windows.Forms.Label lblJugador;
+        private System.Windows.Forms.PictureBox pbUnoJ1;
+        private System.Windows.Forms.PictureBox pbUnoJ2;
     }
 }
 

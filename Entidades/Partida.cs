@@ -13,6 +13,9 @@ namespace Entidades
         private static Stack<Carta> cartasTiradas;
         private static int indiceJugadorActual;
         private static EColor colorActual;
+        public static bool yaSeSalteo;
+
+
 
         public static Carta UltimaCartaTirada { get { return Partida.cartasTiradas.Peek(); } }
         public static Stack<Carta> CartasTiradas { get { return Partida.cartasTiradas; } }
@@ -30,6 +33,8 @@ namespace Entidades
         static Partida()
         {
             Partida.cartasTiradas = new Stack<Carta>();
+            Partida.yaSeSalteo = false;
+            Partida.colorActual = EColor.Verde;
         }
         public Partida(string nombreJugadorUno,string nombreJugadorDos)
         {
@@ -62,10 +67,11 @@ namespace Entidades
                 Partida.indiceJugadorActual = 1;
             }
             Partida.jugadorActual.CambiarEstado();
-            Partida.jugadorActual.ActualizarJugador();
-
             return Partida.jugadorActual;
         }
+
+
+
 
 
     }

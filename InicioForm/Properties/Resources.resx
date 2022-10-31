@@ -121,98 +121,89 @@
   <data name="y_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\y_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colorVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colorVerde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="r_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="r_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\r_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="g_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="r_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="g_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wild" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wild.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gritarUno" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gritarUno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="colorAmarillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colorAmarillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="g_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\g_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="r_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="b_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="g_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="g_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uno!" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uno!.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="r_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\r_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="g_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="wild_draw4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wild_draw4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="colorAmarillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colorAmarillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="g_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gritarUno" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gritarUno.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\play.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="g_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\g_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,91 +211,109 @@
   <data name="back-side" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back-side.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colorRojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colorRojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="colorAzul" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colorAzul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="r_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="r_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="g_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\g_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="g_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\g_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="b_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="y_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wild" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wild.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colorVerde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorRojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colorRojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wild_draw4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wild_draw4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uno!_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uno!_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="g_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\g_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_reverse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_reverse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="r_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="colorAzul" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colorAzul.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="y_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uno!_21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uno!_21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

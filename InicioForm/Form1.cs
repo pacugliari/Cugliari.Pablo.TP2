@@ -39,8 +39,10 @@ namespace InicioForm
 
             this.btnJugar.Visible = true;
             this.btnAyuda.Visible = true;
+            this.pbUnoJ1.Visible = false;
+            this.pbUnoJ2.Visible = false;
             this.btnMazo.BackgroundImage = Properties.Resources.back_side;
-            this.btnGritarUno.BackgroundImage = Properties.Resources.gritarUno;
+
         }
 
         private void btnJugar_Click(object sender, EventArgs e)
@@ -60,7 +62,8 @@ namespace InicioForm
             this.jugadorUno = Partida.Jugadores[0];
             this.jugadorDos = Partida.Jugadores[1];
             this.btnPasarTurno.Visible = false;
-
+            this.pbUnoJ1.Visible = false;
+            this.pbUnoJ2.Visible = false;
 
             /*foreach (var item in this.partida.Jugadores)
             {
@@ -74,6 +77,8 @@ namespace InicioForm
             this.actualizar();
         }
 
+
+
         private void actualizar()
         {
 
@@ -84,13 +89,17 @@ namespace InicioForm
                 this.hayCambioColor = false;
             }
 
-            if (!Partida.JugadorActual.RecogioCarta)
+           if (!Partida.JugadorActual.RecogioCarta && Partida.JugadorActual.CantidadCartas != 7)
                 this.btnPasarTurno.Visible = false;
 
+            
             List<int> posiciones = Partida.JugadorActual.ActualizarJugador();
+
+
             foreach (int item in posiciones)
             {
-                if(Partida.JugadorActual.NumeroJugador == 1)
+
+                if (Partida.JugadorActual.NumeroJugador == 1)
                 {
                     this.cartasJ1[item].Visible = true;
                 }
@@ -98,8 +107,8 @@ namespace InicioForm
                 {
                     this.cartasJ2[item].Visible = true;
                 }
-            }
 
+            }
 
             foreach (Jugador item in Partida.Jugadores)
             {
@@ -123,6 +132,14 @@ namespace InicioForm
                         break;
                 }
 
+                if (!Partida.yaSeSalteo && (Partida.UltimaCartaTirada.Tipo != ETipo.Numero && Partida.UltimaCartaTirada.Tipo != ETipo.CambioColor))
+                {
+                    Partida.SiguienteJugador();
+                    Partida.yaSeSalteo = true;
+                }
+
+
+                this.lblJugador.Text = Partida.JugadorActual.Nombre;
         }
 
 
@@ -400,11 +417,54 @@ namespace InicioForm
             return retorno;
         }
 
+        private void MensajeGanador()
+        {
+            MessageBox.Show($"GANADOR: {Partida.JugadorActual.Nombre}");
+        }
+
+        private void MensajeUno()
+        {
+            if (Partida.JugadorActual.NumeroJugador == 1)
+            {
+                this.pbUnoJ1.Visible = true;
+            }
+            else
+            {
+                this.pbUnoJ2.Visible = true;
+            }
+            //this.pbUnoJ2.Visible = false;
+            //this.pbUnoJ1.Visible = false;
+        }
+
         private void btnCarta1J1_Click(object sender, EventArgs e)
         {
+            Button boton = (Button)sender;
+            try
+            {
+                switch (boton.Name)
+                {
+                    case "btnCarta1J1":
+                        break;
+                    default:
+                        break;
+                }
+                this.btnCarta1J1.Visible = !this.jugadorUno.Jugar(0, out hayCambioColor);
+            }
+            catch (AggregateException)//0
+            {
+                this.MensajeGanador();
+                
+            }
+            catch (AccessViolationException)//1
+            {
 
-             this.btnCarta1J1.Visible = !this.jugadorUno.Jugar(0,out hayCambioColor);
-             this.actualizar();
+                this.MensajeUno();
+            }
+            finally
+            {
+                this.actualizar();
+            }
+
         }
 
         private void btnCarta2J1_Click(object sender, EventArgs e)
@@ -471,7 +531,7 @@ namespace InicioForm
         private void btnCarta5J2_Click(object sender, EventArgs e)
         {
             this.btnCarta5J2.Visible = !this.jugadorDos.Jugar(4, out hayCambioColor);
-            this.actualizar();
+           this.actualizar();
         }
 
         private void btnCarta6J2_Click(object sender, EventArgs e)
@@ -490,6 +550,11 @@ namespace InicioForm
         {
 
             List<int> posiciones;
+            if (Partida.JugadorActual.CantidadCartas == 7)
+            {
+                this.btnPasarTurno.Visible = true;
+            }
+
             if (!Partida.JugadorActual.RecogioCarta)
             {
                 if (Partida.IndiceJugadorActual == 1)
@@ -514,15 +579,12 @@ namespace InicioForm
   
         }
 
-        private void btnGritarUno_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnPasarTurno_Click(object sender, EventArgs e)
         {
             Partida.SiguienteJugador();
             this.actualizar();
+
         }
     }
 }

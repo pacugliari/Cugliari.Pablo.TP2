@@ -16,7 +16,6 @@ namespace Entidades
 
         public bool RecogioCarta { get { return this.recogioCarta; } set { this.recogioCarta = value; } }
 
-
         public string Nombre { get { return this.nombre; } }
 
         public int NumeroJugador { get { return this.numeroJugador; } }
@@ -31,11 +30,22 @@ namespace Entidades
             }
         }
 
-        public int CantidadCartas { get { return this.cartas.Count; } }
+        public int CantidadCartas { 
+            get {
+                int retorno = 0;
+                for (int i = 0; i < this.cartas.Count; i++)
+                {
+                    if (this.cartas[i] is not null)
+                        retorno++;
+                }
+                return retorno;
+            } 
+        }
 
         private Jugador()
         {
             this.cartas = new List<Carta>();
+
             for (int i = 0; i < 7; i++)
             {
                 this.cartas.Add(null);
@@ -64,6 +74,7 @@ namespace Entidades
                      || elegida.Color == EColor.Negro)
                 {
                     estado.Jugar();
+                    Partida.yaSeSalteo = false;
                     if (elegida.Tipo == ETipo.MasCuatro || elegida.Tipo == ETipo.CambioColor)
                     {
                         esCambioColor = true;
@@ -82,9 +93,21 @@ namespace Entidades
             {
                 if (retorno)
                 {
-                    if (Partida.JugadorActual.recogioCarta)
-                        Partida.JugadorActual.recogioCarta = false;
+                    if (this.recogioCarta)
+                        this.recogioCarta = false;
+
                     Partida.SiguienteJugador();
+
+                    if (this.CantidadCartas == 0)
+                    {
+                        throw new AggregateException();
+                    }
+
+                    if (this.CantidadCartas == 1)
+                    {
+                        throw new AccessViolationException();
+                    }
+                    
                 }
                     
 
@@ -115,13 +138,23 @@ namespace Entidades
             foreach (Carta item in cartas)
             {
                 posicionAgregada = this.BuscarPosicionVacia();
+                
                 if (posicionAgregada != -1)
                 {
                     this.cartas[posicionAgregada] = item;
                     posiciones.Add(posicionAgregada);
                 }
-                posicionAgregada = -1;
+                else
+                {
+                    break;
+                }
+
             }
+            foreach (var item in posiciones)
+            {
+                System.Diagnostics.Debug.WriteLine(item.ToString());
+            }
+            
             return posiciones;
         }
 
@@ -132,19 +165,23 @@ namespace Entidades
 
         public List<int> ActualizarJugador()
         {
+            
             Carta ultimaCartaTirada = Partida.UltimaCartaTirada;
             List<int> posiciones = new List<int>();
-            if(ultimaCartaTirada.Tipo == ETipo.MasCuatro)
-            {
-                posiciones = this.AgregarCartas(Mazo.ObtenerCartas(4));
-            }else if (ultimaCartaTirada.Tipo == ETipo.MasDos)
-            {
-                posiciones = this.AgregarCartas(Mazo.ObtenerCartas(2));
 
-            }else if (ultimaCartaTirada.Tipo == ETipo.Salteo || ultimaCartaTirada.Tipo == ETipo.Invertir)
+            if (!Partida.yaSeSalteo)
             {
-                //Partida.SiguienteJugador();
+                if (ultimaCartaTirada.Tipo == ETipo.MasCuatro)
+                {
+                    posiciones = this.AgregarCartas(Mazo.ObtenerCartas(4));
+                }
+                else if (ultimaCartaTirada.Tipo == ETipo.MasDos)
+                {
+                    posiciones = this.AgregarCartas(Mazo.ObtenerCartas(2));
+
+                }
             }
+            
             return posiciones;
         }
     }
