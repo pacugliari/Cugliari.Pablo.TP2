@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Entidades
 {
@@ -7,8 +8,7 @@ namespace Entidades
     {
         private static List<Jugador> jugadores;
         private static Jugador jugadorActual;
-        private DateTime tiempoInicio;
-        private DateTime tiempoFin;
+        private static Stopwatch tiempo;
         private Mazo mazo;
         private static Stack<Carta> cartasTiradas;
         private static int indiceJugadorActual;
@@ -40,7 +40,7 @@ namespace Entidades
         {
             Partida.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,1,new JugadorDisponible()),
                 new Jugador(nombreJugadorDos, 2, new JugadorOcupado()) };
-            this.tiempoInicio = DateTime.Now;
+            Partida.tiempo = Stopwatch.StartNew();
             this.mazo = new Mazo();
 
             Partida.jugadores[0].AgregarCartas(Mazo.ObtenerCartas(3));
@@ -70,6 +70,12 @@ namespace Entidades
             return Partida.jugadorActual;
         }
 
+        public static string CalcularTiempo()
+        {
+            Partida.tiempo.Stop();
+            return Partida.tiempo.Elapsed.ToString("hh\\:mm\\:ss");
+
+        }
 
 
 

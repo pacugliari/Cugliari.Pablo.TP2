@@ -103,7 +103,7 @@ namespace InicioForm
             this.btnCarta2J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta2J1.TabIndex = 3;
             this.btnCarta2J1.UseVisualStyleBackColor = false;
-            this.btnCarta2J1.Click += new System.EventHandler(this.btnCarta2J1_Click);
+            this.btnCarta2J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta3J1
             // 
@@ -114,7 +114,7 @@ namespace InicioForm
             this.btnCarta3J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta3J1.TabIndex = 4;
             this.btnCarta3J1.UseVisualStyleBackColor = false;
-            this.btnCarta3J1.Click += new System.EventHandler(this.btnCarta3J1_Click);
+            this.btnCarta3J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta4J1
             // 
@@ -125,7 +125,7 @@ namespace InicioForm
             this.btnCarta4J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta4J1.TabIndex = 5;
             this.btnCarta4J1.UseVisualStyleBackColor = false;
-            this.btnCarta4J1.Click += new System.EventHandler(this.btnCarta4J1_Click);
+            this.btnCarta4J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta5J1
             // 
@@ -136,7 +136,7 @@ namespace InicioForm
             this.btnCarta5J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta5J1.TabIndex = 6;
             this.btnCarta5J1.UseVisualStyleBackColor = false;
-            this.btnCarta5J1.Click += new System.EventHandler(this.btnCarta5J1_Click);
+            this.btnCarta5J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta1J1
             // 
@@ -147,7 +147,7 @@ namespace InicioForm
             this.btnCarta1J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta1J1.TabIndex = 7;
             this.btnCarta1J1.UseVisualStyleBackColor = false;
-            this.btnCarta1J1.Click += new System.EventHandler(this.btnCarta1J1_Click);
+            this.btnCarta1J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta6J1
             // 
@@ -158,7 +158,7 @@ namespace InicioForm
             this.btnCarta6J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta6J1.TabIndex = 7;
             this.btnCarta6J1.UseVisualStyleBackColor = false;
-            this.btnCarta6J1.Click += new System.EventHandler(this.btnCarta6J1_Click);
+            this.btnCarta6J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta7J1
             // 
@@ -169,7 +169,7 @@ namespace InicioForm
             this.btnCarta7J1.Size = new System.Drawing.Size(106, 166);
             this.btnCarta7J1.TabIndex = 8;
             this.btnCarta7J1.UseVisualStyleBackColor = false;
-            this.btnCarta7J1.Click += new System.EventHandler(this.btnCarta7J1_Click);
+            this.btnCarta7J1.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta7J2
             // 
@@ -180,7 +180,7 @@ namespace InicioForm
             this.btnCarta7J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta7J2.TabIndex = 15;
             this.btnCarta7J2.UseVisualStyleBackColor = false;
-            this.btnCarta7J2.Click += new System.EventHandler(this.btnCarta7J2_Click);
+            this.btnCarta7J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta6J2
             // 
@@ -191,7 +191,7 @@ namespace InicioForm
             this.btnCarta6J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta6J2.TabIndex = 13;
             this.btnCarta6J2.UseVisualStyleBackColor = false;
-            this.btnCarta6J2.Click += new System.EventHandler(this.btnCarta6J2_Click);
+            this.btnCarta6J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta1J2
             // 
@@ -202,7 +202,7 @@ namespace InicioForm
             this.btnCarta1J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta1J2.TabIndex = 14;
             this.btnCarta1J2.UseVisualStyleBackColor = false;
-            this.btnCarta1J2.Click += new System.EventHandler(this.btnCarta1J2_Click);
+            this.btnCarta1J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta5J2
             // 
@@ -213,7 +213,7 @@ namespace InicioForm
             this.btnCarta5J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta5J2.TabIndex = 12;
             this.btnCarta5J2.UseVisualStyleBackColor = false;
-            this.btnCarta5J2.Click += new System.EventHandler(this.btnCarta5J2_Click);
+            this.btnCarta5J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta4J2
             // 
@@ -224,7 +224,7 @@ namespace InicioForm
             this.btnCarta4J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta4J2.TabIndex = 11;
             this.btnCarta4J2.UseVisualStyleBackColor = false;
-            this.btnCarta4J2.Click += new System.EventHandler(this.btnCarta4J2_Click);
+            this.btnCarta4J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta3J2
             // 
@@ -235,7 +235,7 @@ namespace InicioForm
             this.btnCarta3J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta3J2.TabIndex = 10;
             this.btnCarta3J2.UseVisualStyleBackColor = false;
-            this.btnCarta3J2.Click += new System.EventHandler(this.btnCarta3J2_Click);
+            this.btnCarta3J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnCarta2J2
             // 
@@ -246,7 +246,7 @@ namespace InicioForm
             this.btnCarta2J2.Size = new System.Drawing.Size(106, 166);
             this.btnCarta2J2.TabIndex = 9;
             this.btnCarta2J2.UseVisualStyleBackColor = false;
-            this.btnCarta2J2.Click += new System.EventHandler(this.btnCarta2J2_Click);
+            this.btnCarta2J2.Click += new System.EventHandler(this.btnCarta_Click);
             // 
             // btnMazo
             // 

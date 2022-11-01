@@ -62,9 +62,34 @@ namespace Entidades
 
         }
 
+        public int ObtenerPuntos()
+        {
+            int retorno = 0;
+            foreach (Carta item in this.cartas)
+            {
+                if(item is not null)
+                {
+                    switch (item.Tipo)
+                    {
+                        case ETipo.Numero:
+                            retorno += item.Numero;
+                            break;
+                        case ETipo.MasDos:
+                        case ETipo.Salteo:
+                        case ETipo.Invertir:
+                        case ETipo.CambioColor:
+                        case ETipo.MasCuatro:
+                            retorno += 30;
+                            break;
+                    }
+                }
+            }
+            return retorno;
+        }
+
         public bool Jugar(int posicionCarta,out bool esCambioColor)
         {
-            bool retorno = false;
+            bool jugoCarta = false;
             esCambioColor = false;
             IEstadoJugador estadoPrevio = this.estado;
             try
@@ -81,7 +106,7 @@ namespace Entidades
                     }
                     Partida.ColorActual = elegida.Color;
                     Partida.AgregarCartaTirada = elegida;
-                    retorno = true;
+                    jugoCarta = true;
                     this.cartas[posicionCarta] = null;
                 }
             }
@@ -91,7 +116,7 @@ namespace Entidades
             }
             finally
             {
-                if (retorno)
+                if (jugoCarta)
                 {
                     if (this.recogioCarta)
                         this.recogioCarta = false;
@@ -100,12 +125,11 @@ namespace Entidades
 
                     if (this.CantidadCartas == 0)
                     {
-                        throw new AggregateException();
-                    }
-
-                    if (this.CantidadCartas == 1)
+                        esCambioColor = false;
+                        throw new MensajeGanadorException(this.nombre);
+                    }else if (this.CantidadCartas == 1)
                     {
-                        throw new AccessViolationException();
+                        throw new MensajeUnoException(this.numeroJugador.ToString());
                     }
                     
                 }
@@ -113,7 +137,7 @@ namespace Entidades
 
             }
 
-            return retorno;
+            return jugoCarta;
         }
 
         private int BuscarPosicionVacia()
@@ -149,10 +173,6 @@ namespace Entidades
                     break;
                 }
 
-            }
-            foreach (var item in posiciones)
-            {
-                System.Diagnostics.Debug.WriteLine(item.ToString());
             }
             
             return posiciones;
@@ -199,20 +219,6 @@ namespace Entidades
             
         }
 
-        private Carta BuscarCartaATirar(List<Carta> cartas)
-        {
-            Carta ultimaTirada = Partida.UltimaCartaTirada;
-            Carta cartaATirar = null;
-            for (int i = 0; i < cartas.Count; i++)
-            {
-                cartaATirar = cartas[i];
-                if (cartaATirar == ultimaTirada)
-                {
-                    cartas.RemoveAt(i);
-                }
-            }
-            return cartaATirar;
-        }
     }
 
     public class JugadorOcupado : IEstadoJugador
