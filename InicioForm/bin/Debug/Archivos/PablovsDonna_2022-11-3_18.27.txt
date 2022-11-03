@@ -1,0 +1,13 @@
+[3/11/2022 18:27:02][INICIO DE PARTIDA]
+[3/11/2022 18:27:07][Pablo][Carta jugada -> Color: Negro Numero: -4 Tipo: CambioColor]
+[3/11/2022 18:27:11][Pablo][Exception: No es el turno del jugador seleccionado]
+[3/11/2022 18:27:17][Pablo][Exception: No es el turno del jugador seleccionado]
+[3/11/2022 18:27:24][Donna][AGARRA CARTA DEL MAZO]
+[3/11/2022 18:27:25][Donna][PASA TURNO]
+[3/11/2022 18:27:27][Pablo][Carta jugada -> Color: Verde Numero: 1 Tipo: Numero]
+[3/11/2022 18:27:27][Pablo][GRITA UNO!!!]
+[3/11/2022 18:27:29][Donna][Carta jugada -> Color: Amarillo Numero: 1 Tipo: Numero]
+[3/11/2022 18:27:30][Pablo][Carta jugada -> Color: Negro Numero: -5 Tipo: MasCuatro]
+[3/11/2022 18:27:31][GANADOR: Pablo TIEMPO: 00:00:27 PUNTOS: 65]
+[3/11/2022 18:27:31][FIN DE PARTIDA]
+

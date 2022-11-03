@@ -44,7 +44,6 @@ C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bi
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\ref\InicioForm.dll
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\InicioForm.pdb
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.csproj.AssemblyReference.cache
-C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.Form1.resources
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.Properties.Resources.resources
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.csproj.GenerateResource.cache
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.GeneratedMSBuildEditorConfig.editorconfig
@@ -59,3 +58,6 @@ C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bi
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\Entidades.pdb
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.csproj.CopyComplete
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.SeleccionColorForm.resources
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.Inicio.resources
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.PartidaForm.resources
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\InicioForm.CustomTextBox.resources

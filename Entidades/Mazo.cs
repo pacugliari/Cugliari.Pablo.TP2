@@ -22,6 +22,7 @@ namespace Entidades
         4 cartas especiales Comodín Cambio de Color y Roba Cuatro (cada una representa a los cuatro colores y tiene un 4 antecedido del signo +).
          */
 
+
         public Mazo()
         {
             Mazo.cartas = new List<Carta>();
@@ -67,6 +68,11 @@ namespace Entidades
         public static List<Carta> ObtenerCartas (int cantidad)
         {
             List<Carta> cartasObtenidas = null;
+
+            if(Mazo.cartas.Count <= cantidad)
+            {
+                Mazo.MezclarCartasTiradas();
+            }
             
             if(cantidad <= Mazo.cartas.Count)
             {

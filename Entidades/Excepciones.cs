@@ -23,4 +23,13 @@ namespace Entidades
         }
 
     }
+
+    public class JugadorNoEsTurnoException : Exception
+    {
+        public JugadorNoEsTurnoException(string message) : base(message)
+        {
+
+        }
+
+    }
 }

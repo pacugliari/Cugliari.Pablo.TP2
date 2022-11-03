@@ -1,0 +1,12 @@
+[3/11/2022 18:18:51][INICIO DE PARTIDA]
+[3/11/2022 18:18:53][Pablo][Carta jugada -> Color: Amarillo Numero: 5 Tipo: Numero]
+[3/11/2022 18:18:55][Donna][AGARRA CARTA DEL MAZO]
+[3/11/2022 18:18:57][Donna][PASA TURNO]
+[3/11/2022 18:18:58][Pablo][Carta jugada -> Color: Amarillo Numero: 6 Tipo: Numero]
+[3/11/2022 18:18:58][Donna][GRITA UNO!!!]
+[3/11/2022 18:19:01][Pablo][Exception: The method or operation is not implemented.]
+[3/11/2022 18:19:04][Donna][Carta jugada -> Color: Azul Numero: 6 Tipo: Numero]
+[3/11/2022 18:19:05][Pablo][Carta jugada -> Color: Negro Numero: -5 Tipo: MasCuatro]
+[3/11/2022 18:19:06][GANADOR: Pablo TIEMPO: 00:00:14 PUNTOS: 11]
+[3/11/2022 18:19:06][FIN DE PARTIDA]
+

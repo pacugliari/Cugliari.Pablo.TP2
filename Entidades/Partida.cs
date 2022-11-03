@@ -14,6 +14,7 @@ namespace Entidades
         private static int indiceJugadorActual;
         private static EColor colorActual;
         public static bool yaSeSalteo;
+        public static Log log;
 
 
 
@@ -43,10 +44,19 @@ namespace Entidades
             Partida.tiempo = Stopwatch.StartNew();
             this.mazo = new Mazo();
 
+            //2022-10-30 at 17.59
+            string hora = DateTime.Now.Year.ToString() + '-' + DateTime.Now.Month.ToString() + '-' + DateTime.Now.Day.ToString() + "_" +
+                DateTime.Now.Hour.ToString() + '.' + DateTime.Now.Minute.ToString();
+
+            Partida.log = new Log($"{nombreJugadorUno}vs{nombreJugadorDos}_{hora}");
+            Partida.log.AgregarAlLog($"[{DateTime.Now}][INICIO DE PARTIDA]");
+
             Partida.jugadores[0].AgregarCartas(Mazo.ObtenerCartas(3));
             Partida.jugadores[1].AgregarCartas(Mazo.ObtenerCartas(3));
             Partida.cartasTiradas.Push(Mazo.ObtenerCartas(1)[0]);
             Partida.colorActual = Partida.UltimaCartaTirada.Color;
+            if(Partida.colorActual == EColor.Negro)
+                Partida.colorActual = EColor.Verde;
             Partida.indiceJugadorActual = 1;
             Partida.jugadorActual = Partida.jugadores[0];
         }

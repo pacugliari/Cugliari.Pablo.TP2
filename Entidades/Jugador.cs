@@ -107,12 +107,14 @@ namespace Entidades
                     Partida.ColorActual = elegida.Color;
                     Partida.AgregarCartaTirada = elegida;
                     jugoCarta = true;
+                    Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Carta jugada -> Color: {elegida.Color} Numero: {elegida.Numero} " +
+                        $"Tipo: {elegida.Tipo}]");
                     this.cartas[posicionCarta] = null;
                 }
             }
-            catch (Exception )
+            catch (Exception ex)
             {
-                //PUEDE TIRAR EXCEPCION SI EL ESTADO DEL JUGADOR ES NO DISPONIBLE
+                Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Exception: {ex.Message}]");
             }
             finally
             {
@@ -129,6 +131,7 @@ namespace Entidades
                         throw new MensajeGanadorException(this.nombre);
                     }else if (this.CantidadCartas == 1)
                     {
+                        Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.Nombre}][GRITA UNO!!!]");
                         throw new MensajeUnoException(this.numeroJugador.ToString());
                     }
                     
@@ -231,7 +234,7 @@ namespace Entidades
         public void Jugar()
         {
             //DEFINIR NUEVA EXEPCION
-            throw new NotImplementedException();
+            throw new JugadorNoEsTurnoException("No es el turno del jugador seleccionado");
 
         }
     }
