@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,9 @@ namespace InicioForm
         private Jugador jugadorUno;
         private Jugador jugadorDos;
         private bool hayCambioColor;
+        Stopwatch stwt;
+        private bool hayGanador;
+
         public PartidaForm()
         {
             InitializeComponent();
@@ -29,6 +33,9 @@ namespace InicioForm
                 this.btnCarta4J2 , this.btnCarta5J2 , this.btnCarta6J2 , this.btnCarta7J2 };
 
             this.btnMazo.BackgroundImage = Properties.Resources.back_side;
+
+            this.stwt = new Stopwatch();
+            this.hayGanador = false;
 
         }
 
@@ -45,6 +52,9 @@ namespace InicioForm
             this.pbUnoJ2.Visible = false;
             this.pbManoJ1.Visible = this.pbManoJ2.Visible = false;
             this.btnColorActual.BackgroundImage = Properties.Resources.colorVerde;
+
+            this.stwt.Start();
+            this.timer1.Enabled = true;
 
             this.actualizar();
         }
@@ -410,6 +420,7 @@ namespace InicioForm
 
         private void MensajeGanador(string jugador)
         {
+            this.stwt.Stop();
             int puntosGanador = Partida.JugadorActual.ObtenerPuntos();
             string duracion = Partida.CalcularTiempo();
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
@@ -428,14 +439,9 @@ namespace InicioForm
             dato.Ganador = jugador;
             dato.PuntosGanador = puntosGanador.ToString();
             dato.Duracion = duracion;
+            SQL.AgregarDato(dato);
 
-            if (SQL.AgregarDato(dato))
-            {
-                MessageBox.Show("SI");
-            }
-            else
-                MessageBox.Show("NO");
-
+            this.hayGanador = true;
             this.Close();
 
             foreach (Control item in this.Controls)
@@ -567,5 +573,49 @@ namespace InicioForm
             this.actualizar();
 
         }
+
+        private void PartidaForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!this.hayGanador)
+            {
+                DialogResult respuesta = MessageBox.Show("Esta seguro que desea cancelar la partida actual ?", "Uno Pac", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                    respuesta = MessageBox.Show("Desea guardar los datos de la partida actual ?", "Uno Pac", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        string duracion = Partida.CalcularTiempo();
+                        //AGREGO LOG GANADOR
+                        Partida.log.AgregarAlLog($"[{DateTime.Now}][GANADOR: sin ganador TIEMPO: {duracion} PUNTOS: -]");
+                        Partida.log.AgregarAlLog($"[{DateTime.Now}][PARTIDA CANCELADA]");
+                        ArchivosDeTexto.AgregarAlArchivo(Partida.log);
+
+                        //AGREGO DATO EN SQL
+                        PartidaSQL dato = new PartidaSQL();
+                        dato.Fecha = DateTime.Now.ToString();
+                        dato.Jugador1 = Partida.Jugadores[0].Nombre;
+                        dato.Jugador2 = Partida.Jugadores[1].Nombre;
+                        dato.Ganador = "sin ganador";
+                        dato.PuntosGanador = "sin ganador";
+                        dato.Duracion = duracion;
+                        SQL.AgregarDato(dato);
+                    }
+                }
+            }
+            this.hayGanador = false;
+           
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeSpan tiempo = new TimeSpan(0, 0, 0,0, (int)this.stwt.ElapsedMilliseconds);
+            this.lblDuracion.Text = $"Duracion: {tiempo.Hours}:{tiempo.Minutes}:{tiempo.Seconds}";
+        }
+
+
     }
 }

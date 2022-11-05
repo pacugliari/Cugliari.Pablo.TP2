@@ -24,11 +24,13 @@ namespace InicioForm
             this.lbListaArchivos.Visible = true;
             this.dgvPartidas.Visible = false;
             this.lbListaArchivos.Items.Clear();
+            this.txtInfoLog.Clear();
             this.lbListaArchivos.Items.AddRange(ArchivosDeTexto.ObtenerArchivos());
         }
 
         private void lbListaArchivos_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.btnEliminar.Enabled = true;
             this.txtInfoLog.Text = ArchivosDeTexto.LeerArchivoHastaElFinal(this.lbListaArchivos.SelectedItem.ToString());
         }
 
@@ -43,6 +45,37 @@ namespace InicioForm
             {
                 this.dgvPartidas.Rows.Add(item.ToString().Split('-'));
             }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (this.lbListaArchivos.Visible)
+            {
+                ArchivosDeTexto.EliminarArchivo(this.lbListaArchivos.SelectedItem.ToString());
+                this.rbLogs_CheckedChanged(sender, e);
+            }
+            else
+            {
+                int id = int.Parse(this.dgvPartidas.CurrentRow.Cells[0].Value.ToString());
+                MessageBox.Show(id.ToString());
+                if (this.dgvPartidas.Rows.Count > 0)
+                {
+                    SQL.EliminarDato(id);
+                }
+                this.rbPartidas_CheckedChanged(sender, e);
+            }
+            this.btnEliminar.Enabled = false;
+        }
+
+        private void dgvPartidas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvPartidas.Rows.Count > 0)
+            {
+                this.dgvPartidas.CurrentRow.Selected = true;
+                this.btnEliminar.Enabled = true;
+            }
+            else
+                this.btnEliminar.Enabled = false;
         }
     }
 }

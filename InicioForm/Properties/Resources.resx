@@ -121,8 +121,8 @@
   <data name="y_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\y_8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="colorRojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\colorRojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="r_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\r_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,12 +171,6 @@
   </data>
   <data name="y_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\y_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="r_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\r_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="y_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\y_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="uno!" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uno!.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -228,6 +222,9 @@
   </data>
   <data name="r_draw2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\r_draw2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mano1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mano1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="b_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,8 +280,14 @@
   <data name="colorVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\colorVerde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="colorRojo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\colorRojo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="wild_draw4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wild_draw4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="b_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\b_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="uno!_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uno!_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,10 +322,10 @@
   <data name="b_skip" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\b_skip.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="b_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\b_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="y_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\y_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mano1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mano1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cruz" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cruz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -136,5 +136,48 @@ namespace Entidades
             return rta;
         }
 
+
+        public static bool EliminarDato(int id)
+        {
+            bool rta = true;
+
+            try
+            {
+                SQL.comando = new SqlCommand();
+
+                SQL.comando.Parameters.AddWithValue("@id", id);
+
+                string sql = "DELETE FROM partidas ";
+                sql += "WHERE id = @id";
+
+                SQL.comando.CommandType = CommandType.Text;
+                SQL.comando.CommandText = sql;
+                SQL.comando.Connection = SQL.conexion;
+
+                SQL.conexion.Open();
+
+                int filasAfectadas = SQL.comando.ExecuteNonQuery();
+
+                if (filasAfectadas == 0)
+                {
+                    rta = false;
+                }
+
+            }
+            catch (Exception)
+            {
+                rta = false;
+            }
+            finally
+            {
+                if (SQL.conexion.State == ConnectionState.Open)
+                {
+                    SQL.conexion.Close();
+                }
+            }
+
+            return rta;
+        }
+
     }
 }

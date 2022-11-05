@@ -58,6 +58,8 @@ namespace InicioForm
             this.lblJ2 = new System.Windows.Forms.Label();
             this.pbManoJ2 = new System.Windows.Forms.PictureBox();
             this.pbManoJ1 = new System.Windows.Forms.PictureBox();
+            this.lblDuracion = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).BeginInit();
@@ -411,12 +413,29 @@ namespace InicioForm
             this.pbManoJ1.TabIndex = 28;
             this.pbManoJ1.TabStop = false;
             // 
+            // lblDuracion
+            // 
+            this.lblDuracion.AutoSize = true;
+            this.lblDuracion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDuracion.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.lblDuracion.ForeColor = System.Drawing.Color.Orange;
+            this.lblDuracion.Location = new System.Drawing.Point(567, 9);
+            this.lblDuracion.Name = "lblDuracion";
+            this.lblDuracion.Size = new System.Drawing.Size(185, 42);
+            this.lblDuracion.TabIndex = 29;
+            this.lblDuracion.Text = "Duracion";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // PartidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.lblDuracion);
             this.Controls.Add(this.pbManoJ1);
             this.Controls.Add(this.pbManoJ2);
             this.Controls.Add(this.lblJ2);
@@ -452,6 +471,7 @@ namespace InicioForm
             this.Name = "PartidaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Uno Pac";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PartidaForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).EndInit();
@@ -492,6 +512,8 @@ namespace InicioForm
         private System.Windows.Forms.Label lblJ2;
         private System.Windows.Forms.PictureBox pbManoJ2;
         private System.Windows.Forms.PictureBox pbManoJ1;
+        private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

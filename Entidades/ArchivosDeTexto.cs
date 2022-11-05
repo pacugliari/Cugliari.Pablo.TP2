@@ -71,6 +71,24 @@ namespace Entidades
             return retorno;
         }
 
+        public static bool EliminarArchivo (string path)
+        {
+            bool elimino = false;
+            try
+            {
+                File.Delete(path);
+
+                elimino = true;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return elimino;
+        }
+
     }
 
 

@@ -31,6 +31,7 @@ namespace InicioForm
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoricoForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.rbPartidas = new System.Windows.Forms.RadioButton();
             this.rbLogs = new System.Windows.Forms.RadioButton();
             this.lbListaArchivos = new System.Windows.Forms.ListBox();
@@ -50,6 +51,7 @@ namespace InicioForm
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.rbPartidas);
             this.groupBox1.Controls.Add(this.rbLogs);
             this.groupBox1.Font = new System.Drawing.Font("Showcard Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -60,6 +62,19 @@ namespace InicioForm
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Historial";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Orange;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminar.Location = new System.Drawing.Point(711, 40);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(130, 29);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // rbPartidas
             // 
@@ -132,6 +147,7 @@ namespace InicioForm
             this.dgvPartidas.RowTemplate.Height = 29;
             this.dgvPartidas.Size = new System.Drawing.Size(925, 394);
             this.dgvPartidas.TabIndex = 2;
+            this.dgvPartidas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPartidas_CellClick);
             // 
             // id
             // 
@@ -202,10 +218,10 @@ namespace InicioForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InicioForm.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(1005, 552);
+            this.Controls.Add(this.dgvPartidas);
             this.Controls.Add(this.lbListaArchivos);
             this.Controls.Add(this.txtInfoLog);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvPartidas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HistoricoForm";
             this.Text = "UnoPac";
@@ -232,5 +248,6 @@ namespace InicioForm
         private System.Windows.Forms.DataGridViewTextBoxColumn ganador;
         private System.Windows.Forms.DataGridViewTextBoxColumn puntosGanador;
         private System.Windows.Forms.DataGridViewTextBoxColumn duracion;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

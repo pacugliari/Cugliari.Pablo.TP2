@@ -39,7 +39,11 @@ namespace InicioForm
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.txtNombreJ2 = new System.Windows.Forms.TextBox();
             this.txtNombreJ1 = new System.Windows.Forms.TextBox();
+            this.pbCruzJ1 = new System.Windows.Forms.PictureBox();
+            this.pbCruzJ2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ2)).BeginInit();
             this.SuspendLayout();
             // 
             // pbLogo
@@ -135,6 +139,7 @@ namespace InicioForm
             this.txtNombreJ2.Size = new System.Drawing.Size(203, 27);
             this.txtNombreJ2.TabIndex = 37;
             this.txtNombreJ2.Visible = false;
+            this.txtNombreJ2.TextChanged += new System.EventHandler(this.txtNombreJ2_TextChanged);
             // 
             // txtNombreJ1
             // 
@@ -143,6 +148,29 @@ namespace InicioForm
             this.txtNombreJ1.Size = new System.Drawing.Size(203, 27);
             this.txtNombreJ1.TabIndex = 38;
             this.txtNombreJ1.Visible = false;
+            this.txtNombreJ1.TextChanged += new System.EventHandler(this.txtNombreJ1_TextChanged);
+            // 
+            // pbCruzJ1
+            // 
+            this.pbCruzJ1.BackColor = System.Drawing.Color.Transparent;
+            this.pbCruzJ1.BackgroundImage = global::InicioForm.Properties.Resources.cruz;
+            this.pbCruzJ1.Location = new System.Drawing.Point(708, 529);
+            this.pbCruzJ1.Name = "pbCruzJ1";
+            this.pbCruzJ1.Size = new System.Drawing.Size(30, 30);
+            this.pbCruzJ1.TabIndex = 39;
+            this.pbCruzJ1.TabStop = false;
+            this.pbCruzJ1.Visible = false;
+            // 
+            // pbCruzJ2
+            // 
+            this.pbCruzJ2.BackColor = System.Drawing.Color.Transparent;
+            this.pbCruzJ2.BackgroundImage = global::InicioForm.Properties.Resources.cruz;
+            this.pbCruzJ2.Location = new System.Drawing.Point(708, 586);
+            this.pbCruzJ2.Name = "pbCruzJ2";
+            this.pbCruzJ2.Size = new System.Drawing.Size(30, 30);
+            this.pbCruzJ2.TabIndex = 40;
+            this.pbCruzJ2.TabStop = false;
+            this.pbCruzJ2.Visible = false;
             // 
             // Inicio
             // 
@@ -150,6 +178,8 @@ namespace InicioForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InicioForm.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.pbCruzJ2);
+            this.Controls.Add(this.pbCruzJ1);
             this.Controls.Add(this.txtNombreJ1);
             this.Controls.Add(this.txtNombreJ2);
             this.Controls.Add(this.btnSiguiente);
@@ -168,7 +198,10 @@ namespace InicioForm
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Inicio_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,5 +218,7 @@ namespace InicioForm
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.TextBox txtNombreJ2;
         private System.Windows.Forms.TextBox txtNombreJ1;
+        private System.Windows.Forms.PictureBox pbCruzJ1;
+        private System.Windows.Forms.PictureBox pbCruzJ2;
     }
 }
