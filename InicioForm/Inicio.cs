@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace InicioForm
 {
     public partial class Inicio : Form
     {
         private PartidaForm partifaForm;
+        private HistoricoForm historial;
 
         public Inicio()
         {
             InitializeComponent();
             this.partifaForm = new PartidaForm();
+            this.historial = new HistoricoForm();
+
         }
 
         private void btnJugar_Click(object sender, EventArgs e)
@@ -49,7 +53,8 @@ namespace InicioForm
 
         private void btnHistorial_Click(object sender, EventArgs e)
         {
-
+            this.historial.ShowDialog();
+            this.historial = new HistoricoForm();
         }
     }
 

@@ -4,6 +4,9 @@
     <Compile Update="CustomTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="HistoricoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PartidaForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -32,4 +32,13 @@ namespace Entidades
         }
 
     }
+
+    public class SqlConexionException : Exception
+    {
+        public SqlConexionException(string message) : base(message)
+        {
+
+        }
+
+    }
 }

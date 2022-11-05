@@ -23,6 +23,11 @@ namespace Entidades
             
         }
 
+        public static string[] ObtenerArchivos()
+        {
+            return Directory.GetFiles("..\\Archivos");
+        }
+
         public static bool AgregarAlArchivo(Log log)
         {
             bool agrego = false;
@@ -48,63 +53,15 @@ namespace Entidades
             return agrego;
         }
 
-        /*
-        public static bool SobreescribirElArchivo(List<Persona> lista)
-        {
-            bool agrego = false;
-            try
-            {
-                using(ArchivosDeTexto.sw = new StreamWriter(ArchivosDeTexto.path))
-                {
-                 foreach (Persona item in lista)
-                 {
-                  ArchivosDeTexto.sw.WriteLine(item.ToString());
-                 }
-                }              
-                agrego = true;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return agrego;
-        }
-
-        public static List<Persona> LeerArchivoLineaALinea()
+        public static string LeerArchivoHastaElFinal(string path)
         {
             string retorno = "";
-            List<Persona> lista = new List<Persona>();
             try
             {
-                using (ArchivosDeTexto.sr = new StreamReader(ArchivosDeTexto.path))
+                using (ArchivosDeTexto.sr = new StreamReader(path))
                 {
-                    while ((retorno = ArchivosDeTexto.sr.ReadLine()) != null)
-                    {
-                        string[] persona = retorno.Split(" - ");
-
-                        Empleado p = new Empleado(persona[0], int.Parse(persona[1]), double.Parse(persona[2]));
-
-                        lista.Add(p);
-                    }
+                    retorno = ArchivosDeTexto.sr.ReadToEnd();
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            return lista;
-        }
-
-        public static string LeerArchivoHastaElFinal()
-        {
-            string retorno = "";
-            try
-            {
-                using (ArchivosDeTexto.sr = new StreamReader(ArchivosDeTexto.path))
-                {
-                 retorno = ArchivosDeTexto.sr.ReadToEnd();
-                } 
             }
             catch (Exception e)
             {
@@ -114,8 +71,6 @@ namespace Entidades
             return retorno;
         }
 
-        */
-       
     }
 
 

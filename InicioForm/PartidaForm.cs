@@ -410,11 +410,31 @@ namespace InicioForm
 
         private void MensajeGanador(string jugador)
         {
-            string texto = $"GANADOR: {jugador} TIEMPO: {Partida.CalcularTiempo()} PUNTOS: {Partida.JugadorActual.ObtenerPuntos()}";
+            int puntosGanador = Partida.JugadorActual.ObtenerPuntos();
+            string duracion = Partida.CalcularTiempo();
+            string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
             MessageBox.Show(texto);
+
+            //AGREGO LOG GANADOR
             Partida.log.AgregarAlLog($"[{DateTime.Now}][{texto}]");
             Partida.log.AgregarAlLog($"[{DateTime.Now}][FIN DE PARTIDA]");
             ArchivosDeTexto.AgregarAlArchivo(Partida.log);
+
+            //AGREGO DATO EN SQL
+            PartidaSQL dato = new PartidaSQL();
+            dato.Fecha = DateTime.Now.ToString();
+            dato.Jugador1 = Partida.Jugadores[0].Nombre;
+            dato.Jugador2 = Partida.Jugadores[1].Nombre;
+            dato.Ganador = jugador;
+            dato.PuntosGanador = puntosGanador.ToString();
+            dato.Duracion = duracion;
+
+            if (SQL.AgregarDato(dato))
+            {
+                MessageBox.Show("SI");
+            }
+            else
+                MessageBox.Show("NO");
 
             this.Close();
 
