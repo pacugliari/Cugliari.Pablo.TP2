@@ -31,7 +31,8 @@ namespace InicioForm
         private void lbListaArchivos_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnEliminar.Enabled = true;
-            this.txtInfoLog.Text = ArchivosDeTexto.LeerArchivoHastaElFinal(this.lbListaArchivos.SelectedItem.ToString());
+            if(this.lbListaArchivos.SelectedItem is not null)
+                this.txtInfoLog.Text = ArchivosDeTexto.LeerArchivoHastaElFinal(this.lbListaArchivos.SelectedItem.ToString());
         }
 
         private void rbPartidas_CheckedChanged(object sender, EventArgs e)
@@ -57,7 +58,6 @@ namespace InicioForm
             else
             {
                 int id = int.Parse(this.dgvPartidas.CurrentRow.Cells[0].Value.ToString());
-                MessageBox.Show(id.ToString());
                 if (this.dgvPartidas.Rows.Count > 0)
                 {
                     SQL.EliminarDato(id);

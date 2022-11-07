@@ -29,7 +29,6 @@ namespace InicioForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartidaForm));
             this.btnAyuda = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,7 +49,6 @@ namespace InicioForm
             this.btnMazo = new System.Windows.Forms.Button();
             this.btnTiradas = new System.Windows.Forms.Button();
             this.btnColorActual = new System.Windows.Forms.Button();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.btnPasarTurno = new System.Windows.Forms.Button();
             this.lblJ1 = new System.Windows.Forms.Label();
             this.pbUnoJ1 = new System.Windows.Forms.PictureBox();
@@ -59,7 +57,6 @@ namespace InicioForm
             this.pbManoJ2 = new System.Windows.Forms.PictureBox();
             this.pbManoJ1 = new System.Windows.Forms.PictureBox();
             this.lblDuracion = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).BeginInit();
@@ -276,67 +273,6 @@ namespace InicioForm
             this.btnColorActual.TabIndex = 18;
             this.btnColorActual.UseVisualStyleBackColor = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "r_0.png");
-            this.imageList1.Images.SetKeyName(1, "r_1.png");
-            this.imageList1.Images.SetKeyName(2, "r_2.png");
-            this.imageList1.Images.SetKeyName(3, "r_3.png");
-            this.imageList1.Images.SetKeyName(4, "r_4.png");
-            this.imageList1.Images.SetKeyName(5, "r_5.png");
-            this.imageList1.Images.SetKeyName(6, "r_6.png");
-            this.imageList1.Images.SetKeyName(7, "r_7.png");
-            this.imageList1.Images.SetKeyName(8, "r_8.png");
-            this.imageList1.Images.SetKeyName(9, "r_9.png");
-            this.imageList1.Images.SetKeyName(10, "r_draw2.png");
-            this.imageList1.Images.SetKeyName(11, "r_reverse.png");
-            this.imageList1.Images.SetKeyName(12, "r_skip.png");
-            this.imageList1.Images.SetKeyName(13, "y_0.png");
-            this.imageList1.Images.SetKeyName(14, "y_1.png");
-            this.imageList1.Images.SetKeyName(15, "y_2.png");
-            this.imageList1.Images.SetKeyName(16, "y_3.png");
-            this.imageList1.Images.SetKeyName(17, "y_4.png");
-            this.imageList1.Images.SetKeyName(18, "y_5.png");
-            this.imageList1.Images.SetKeyName(19, "y_6.png");
-            this.imageList1.Images.SetKeyName(20, "y_7.png");
-            this.imageList1.Images.SetKeyName(21, "y_8.png");
-            this.imageList1.Images.SetKeyName(22, "y_9.png");
-            this.imageList1.Images.SetKeyName(23, "y_draw2.png");
-            this.imageList1.Images.SetKeyName(24, "y_reverse.png");
-            this.imageList1.Images.SetKeyName(25, "y_skip.png");
-            this.imageList1.Images.SetKeyName(26, "g_0.png");
-            this.imageList1.Images.SetKeyName(27, "g_1.png");
-            this.imageList1.Images.SetKeyName(28, "g_2.png");
-            this.imageList1.Images.SetKeyName(29, "g_3.png");
-            this.imageList1.Images.SetKeyName(30, "g_4.png");
-            this.imageList1.Images.SetKeyName(31, "g_5.png");
-            this.imageList1.Images.SetKeyName(32, "g_6.png");
-            this.imageList1.Images.SetKeyName(33, "g_7.png");
-            this.imageList1.Images.SetKeyName(34, "g_8.png");
-            this.imageList1.Images.SetKeyName(35, "g_9.png");
-            this.imageList1.Images.SetKeyName(36, "g_draw2.png");
-            this.imageList1.Images.SetKeyName(37, "g_reverse.png");
-            this.imageList1.Images.SetKeyName(38, "g_skip.png");
-            this.imageList1.Images.SetKeyName(39, "b_0.png");
-            this.imageList1.Images.SetKeyName(40, "b_1.png");
-            this.imageList1.Images.SetKeyName(41, "b_2.png");
-            this.imageList1.Images.SetKeyName(42, "b_3.png");
-            this.imageList1.Images.SetKeyName(43, "b_4.png");
-            this.imageList1.Images.SetKeyName(44, "b_5.png");
-            this.imageList1.Images.SetKeyName(45, "b_6.png");
-            this.imageList1.Images.SetKeyName(46, "b_7.png");
-            this.imageList1.Images.SetKeyName(47, "b_8.png");
-            this.imageList1.Images.SetKeyName(48, "b_9.png");
-            this.imageList1.Images.SetKeyName(49, "b_draw2.png");
-            this.imageList1.Images.SetKeyName(50, "b_reverse.png");
-            this.imageList1.Images.SetKeyName(51, "b_skip.png");
-            this.imageList1.Images.SetKeyName(52, "back-side.png");
-            this.imageList1.Images.SetKeyName(53, "wild.png");
-            this.imageList1.Images.SetKeyName(54, "wild_draw4.png");
-            // 
             // btnPasarTurno
             // 
             this.btnPasarTurno.BackColor = System.Drawing.SystemColors.WindowText;
@@ -425,10 +361,6 @@ namespace InicioForm
             this.lblDuracion.TabIndex = 29;
             this.lblDuracion.Text = "Duracion";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // PartidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -504,7 +436,6 @@ namespace InicioForm
         private System.Windows.Forms.Button btnTiradas;
         private System.Windows.Forms.Button btnColorActual;
         private System.Windows.Forms.Button btnGritarUno;
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button btnPasarTurno;
         private System.Windows.Forms.Label lblJ1;
         private System.Windows.Forms.PictureBox pbUnoJ1;
@@ -513,7 +444,6 @@ namespace InicioForm
         private System.Windows.Forms.PictureBox pbManoJ2;
         private System.Windows.Forms.PictureBox pbManoJ1;
         private System.Windows.Forms.Label lblDuracion;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

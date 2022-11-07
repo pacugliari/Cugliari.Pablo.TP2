@@ -21,12 +21,14 @@ namespace InicioForm
         private Jugador jugadorUno;
         private Jugador jugadorDos;
         private bool hayCambioColor;
-        Stopwatch stwt;
+        private Cronometro cronometro;
         private bool hayGanador;
 
         public PartidaForm()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
+
             this.cartasJ1 = new List<Button> {this.btnCarta1J1, this.btnCarta2J1, this.btnCarta3J1 ,
                 this.btnCarta4J1 , this.btnCarta5J1 , this.btnCarta6J1 , this.btnCarta7J1 };
             this.cartasJ2 = new List<Button> {this.btnCarta1J2, this.btnCarta2J2, this.btnCarta3J2 ,
@@ -34,8 +36,9 @@ namespace InicioForm
 
             this.btnMazo.BackgroundImage = Properties.Resources.back_side;
 
-            this.stwt = new Stopwatch();
             this.hayGanador = false;
+            this.cronometro = new Cronometro(1000);
+            this.cronometro.TiempoCumplido += this.ActualizarTiempo;
 
         }
 
@@ -53,8 +56,7 @@ namespace InicioForm
             this.pbManoJ1.Visible = this.pbManoJ2.Visible = false;
             this.btnColorActual.BackgroundImage = Properties.Resources.colorVerde;
 
-            this.stwt.Start();
-            this.timer1.Enabled = true;
+            this.cronometro.IniciarCronometro();
 
             this.actualizar();
         }
@@ -420,9 +422,9 @@ namespace InicioForm
 
         private void MensajeGanador(string jugador)
         {
-            this.stwt.Stop();
+            
             int puntosGanador = Partida.JugadorActual.ObtenerPuntos();
-            string duracion = Partida.CalcularTiempo();
+            string duracion = this.cronometro.DetenerCronometro();
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
             MessageBox.Show(texto);
 
@@ -610,10 +612,9 @@ namespace InicioForm
            
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void ActualizarTiempo(DateTime tiempo)
         {
-            TimeSpan tiempo = new TimeSpan(0, 0, 0,0, (int)this.stwt.ElapsedMilliseconds);
-            this.lblDuracion.Text = $"Duracion: {tiempo.Hours}:{tiempo.Minutes}:{tiempo.Seconds}";
+            this.lblDuracion.Text = $"Duracion: {tiempo.Hour}:{tiempo.Minute}:{tiempo.Second}";
         }
 
 

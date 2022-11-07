@@ -84,7 +84,6 @@ namespace Entidades
         {
             Partida.tiempo.Stop();
             return Partida.tiempo.Elapsed.ToString("hh\\:mm\\:ss");
-
         }
 
 

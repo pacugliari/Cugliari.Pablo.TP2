@@ -18,8 +18,14 @@ namespace Entidades
 
         public Carta(ETipo tipo, EColor color)
         {
-            this.tipo = tipo;
+            
+            if ((tipo == ETipo.MasDos || tipo==ETipo.Salteo || tipo==ETipo.Invertir || tipo == ETipo.Numero) && color == EColor.Negro)
+            {
+                throw new CreacionCartaException();
+            }
+
             this.color = color;
+            this.tipo = tipo;
             switch (tipo)
             {
                 case ETipo.MasDos:
@@ -33,9 +39,11 @@ namespace Entidades
                     break;
                 case ETipo.CambioColor:
                     this.numero = -4;
+                    this.color = EColor.Negro;
                     break;
                 case ETipo.MasCuatro:
                     this.numero = -5;
+                    this.color = EColor.Negro;
                     break;
                 default:
                     this.numero = 0;
@@ -45,23 +53,19 @@ namespace Entidades
 
         public Carta(ETipo tipo,EColor color,int numero):this(tipo,color)
         {
-            this.numero = numero;
+            if (numero >= 0 && numero <= 9)
+                this.numero = numero;
+            else
+                throw new CreacionCartaException();
             
         }
 
         public static bool operator ==(Carta c1,Carta c2)
         {
             bool retorno = false;
-            if(c1 is not null && c2 is not null)
+            if((c1 is null && c2 is null) || (c1.color == c2.color && c1.tipo == c2.tipo && c1.numero == c2.numero))
             {
-                if (c1.color == EColor.Negro && c2.color == EColor.Negro && c1.tipo == c2.tipo)
-                {
-                    retorno = true;
-                }
-                else if (c1.color == c2.color || c1.numero == c2.numero)
-                {
-                    retorno = true;
-                }
+                retorno = true;
             }
 
             return retorno;
@@ -77,6 +81,22 @@ namespace Entidades
             string texto = $"Tipo: {this.tipo.ToString()} Color: {this.color.ToString()}";
 
             return (this.tipo != ETipo.Numero) ? texto : texto + ($" Numero: {this.numero}");
+        }
+
+        public override bool Equals(object obj)
+        {
+            bool retorno = false;
+            if(obj is Carta)
+            {
+                retorno = this == ((Carta)obj);
+            }
+
+            return retorno;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();  
         }
     }
 }

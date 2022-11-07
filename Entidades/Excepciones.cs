@@ -41,4 +41,8 @@ namespace Entidades
         }
 
     }
+
+    public class CreacionCartaException : Exception
+    {
+    }
 }
