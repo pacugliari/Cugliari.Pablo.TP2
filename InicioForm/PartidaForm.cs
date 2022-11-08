@@ -9,8 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using static Entidades.Cronometro;
 
-namespace InicioForm
+namespace UnoPacGUI
 {
     public partial class PartidaForm : Form
     {
@@ -24,10 +25,9 @@ namespace InicioForm
         private Cronometro cronometro;
         private bool hayGanador;
 
-        public PartidaForm()
+        public PartidaForm(string nombreJ1, string nombreJ2)
         {
             InitializeComponent();
-            Control.CheckForIllegalCrossThreadCalls = false;
 
             this.cartasJ1 = new List<Button> {this.btnCarta1J1, this.btnCarta2J1, this.btnCarta3J1 ,
                 this.btnCarta4J1 , this.btnCarta5J1 , this.btnCarta6J1 , this.btnCarta7J1 };
@@ -40,27 +40,29 @@ namespace InicioForm
             this.cronometro = new Cronometro(1000);
             this.cronometro.TiempoCumplido += this.ActualizarTiempo;
 
-        }
-
-        public void crearPartida (string nombreJ1,string nombreJ2)
-        {
-
             this.partida = new Partida(nombreJ1, nombreJ2);
             this.lblJ1.Text = nombreJ1;
             this.lblJ2.Text = nombreJ2;
-            this.jugadorUno = Partida.Jugadores[0];
-            this.jugadorDos = Partida.Jugadores[1];
+            this.jugadorUno = this.partida.Jugadores[0];
+            this.jugadorDos = this.partida.Jugadores[1];
             this.btnPasarTurno.Visible = false;
             this.pbUnoJ1.Visible = false;
             this.pbUnoJ2.Visible = false;
             this.pbManoJ1.Visible = this.pbManoJ2.Visible = false;
             this.btnColorActual.BackgroundImage = Properties.Resources.colorVerde;
-
             this.cronometro.IniciarCronometro();
-
             this.actualizar();
-        }
 
+            Inicio.MostrarAyuda(this.btnColorActual, "Color actual de la partida");
+            Inicio.MostrarAyuda(this.btnMazo, "Click para agarrar una carta del mazo");
+            Inicio.MostrarAyuda(this.btnPasarTurno, "Click para pasar turno al siguiente jugador");
+            Inicio.MostrarAyuda(this.btnTiradas, "Cartas ya jugadas");
+            Inicio.MostrarAyuda(this.lblJ1, "Jugador 1");
+            Inicio.MostrarAyuda(this.lblJ2, "Jugador 2");
+            Inicio.MostrarAyuda(this.pbManoJ1, "Jugador Actual");
+            Inicio.MostrarAyuda(this.pbManoJ2, "Jugador Actual");
+            Inicio.MostrarAyuda(this.lblDuracion, "Tiempo transcurrido de la partida");
+        }
 
 
         private void actualizar()
@@ -70,23 +72,23 @@ namespace InicioForm
             //SI SE TIRO CARTA DE CAMBIO DE COLOR MUESTRA EL FORMULARIO DE SELECCION
             if (this.hayCambioColor)
             {
-                SeleccionColorForm color = new SeleccionColorForm();
+                SeleccionColorForm color = new SeleccionColorForm(this.partida);
                 color.ShowDialog();
                 this.hayCambioColor = false;
             }
 
             //DESHABILITA EL BOTON DE SALTEAR TURNO SI NO RECOGIO CARTA O NO TIENE 7 CARTAS
-            if (!Partida.JugadorActual.RecogioCarta && Partida.JugadorActual.CantidadCartas != 7)
+            if (!this.partida.JugadorActual.RecogioCarta && this.partida.JugadorActual.CantidadCartas != 7)
                 this.btnPasarTurno.Visible = false;
 
 
             //HABILITA LA VISIBILIDAD CARTAS AGREGADAS POR UN +2,+4
-            List<int> posiciones = Partida.JugadorActual.ActualizarJugador();
+            List<int> posiciones = this.partida.JugadorActual.ActualizarJugador(this.partida);
 
             foreach (int item in posiciones)
             {
 
-                if (Partida.JugadorActual.NumeroJugador == 1)
+                if (this.partida.JugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
                 {
                     this.cartasJ1[item].Visible = true;
                 }
@@ -99,14 +101,14 @@ namespace InicioForm
 
 
             //CARGA LAS IMAGENES DE LAS CARGAS QUE POSEE EL JUGADOR
-            foreach (Jugador item in Partida.Jugadores)
+            foreach (Jugador item in this.partida.Jugadores)
             {
                 this.CargarImagenesCartas(item);
 
             }
 
             //CARGA EL COLOR ACTUAL DE LA PARTIDA
-            switch (Partida.ColorActual)
+            switch (this.partida.ColorActual)
             {
                 case EColor.Rojo:
                     this.btnColorActual.BackgroundImage = Properties.Resources.colorRojo;
@@ -123,15 +125,15 @@ namespace InicioForm
             }
 
             //SALTEA EL TURNO DEL JUGADOR PORQUE LA ULTIMA CARTA TIRADA FUE SALTEO,+2,+4,INVERSION DE RONDA
-            if (!Partida.yaSeSalteo && (Partida.UltimaCartaTirada.Tipo != ETipo.Numero && Partida.UltimaCartaTirada.Tipo != ETipo.CambioColor))
+            if (!this.partida.yaSeSalteo && (this.partida.UltimaCartaTirada.Tipo != ETipo.Numero && this.partida.UltimaCartaTirada.Tipo != ETipo.CambioColor))
             {
-                Partida.SiguienteJugador();
-                Partida.yaSeSalteo = true;
+                this.partida.SiguienteJugador();
+                this.partida.yaSeSalteo = true;
             }
 
             //ACTUALIZA EL NOMBRE DEL JUGADOR ACTUAL
             //this.lblJ1.Text = Partida.JugadorActual.Nombre;
-            if(Partida.JugadorActual.NumeroJugador == 1)
+            if(this.partida.JugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
             {
                 this.pbManoJ1.Visible = true;
                 this.pbManoJ2.Visible = false;
@@ -151,7 +153,7 @@ namespace InicioForm
         {
             List<Button> lista = this.cartasJ1;
             Bitmap imagen = null;
-            Carta ultimaTirada = Partida.CartasTiradas.Peek();
+            Carta ultimaTirada = this.partida.CartasTiradas.Peek();
 
             if (jugador.NumeroJugador == 2)
             {
@@ -423,21 +425,21 @@ namespace InicioForm
         private void MensajeGanador(string jugador)
         {
             
-            int puntosGanador = Partida.JugadorActual.ObtenerPuntos();
+            int puntosGanador = this.partida.JugadorActual.ObtenerPuntos();
             string duracion = this.cronometro.DetenerCronometro();
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
             MessageBox.Show(texto);
 
             //AGREGO LOG GANADOR
-            Partida.log.AgregarAlLog($"[{DateTime.Now}][{texto}]");
-            Partida.log.AgregarAlLog($"[{DateTime.Now}][FIN DE PARTIDA]");
-            ArchivosDeTexto.AgregarAlArchivo(Partida.log);
+            this.partida.log.AgregarAlLog($"[{DateTime.Now}][{texto}]");
+            this.partida.log.AgregarAlLog($"[{DateTime.Now}][FIN DE PARTIDA]");
+            ArchivosDeTexto.AgregarAlArchivo(this.partida.log);
 
             //AGREGO DATO EN SQL
             PartidaSQL dato = new PartidaSQL();
             dato.Fecha = DateTime.Now.ToString();
-            dato.Jugador1 = Partida.Jugadores[0].Nombre;
-            dato.Jugador2 = Partida.Jugadores[1].Nombre;
+            dato.Jugador1 = this.partida.Jugadores[0].Nombre;
+            dato.Jugador2 = this.partida.Jugadores[1].Nombre;
             dato.Ganador = jugador;
             dato.PuntosGanador = puntosGanador.ToString();
             dato.Duracion = duracion;
@@ -475,46 +477,46 @@ namespace InicioForm
                 switch (boton.Name)
                 {
                     case "btnCarta1J1":
-                        this.btnCarta1J1.Visible = !this.jugadorUno.Jugar(0, out hayCambioColor);
+                        this.btnCarta1J1.Visible = !this.jugadorUno.Jugar(this.partida, 0, out hayCambioColor);
                         break;
                     case "btnCarta2J1":
-                        this.btnCarta2J1.Visible = !this.jugadorUno.Jugar(1, out hayCambioColor);
+                        this.btnCarta2J1.Visible = !this.jugadorUno.Jugar(this.partida, 1, out hayCambioColor);
                         break;
                     case "btnCarta3J1":
-                        this.btnCarta3J1.Visible = !this.jugadorUno.Jugar(2, out hayCambioColor);
+                        this.btnCarta3J1.Visible = !this.jugadorUno.Jugar(this.partida, 2, out hayCambioColor);
                         break;
                     case "btnCarta4J1":
-                        this.btnCarta4J1.Visible = !this.jugadorUno.Jugar(3, out hayCambioColor);
+                        this.btnCarta4J1.Visible = !this.jugadorUno.Jugar(this.partida, 3, out hayCambioColor);
                         break;
                     case "btnCarta5J1":
-                        this.btnCarta5J1.Visible = !this.jugadorUno.Jugar(4, out hayCambioColor);
+                        this.btnCarta5J1.Visible = !this.jugadorUno.Jugar(this.partida, 4, out hayCambioColor);
                         break;
                     case "btnCarta6J1":
-                        this.btnCarta6J1.Visible = !this.jugadorUno.Jugar(5, out hayCambioColor);
+                        this.btnCarta6J1.Visible = !this.jugadorUno.Jugar(this.partida, 5, out hayCambioColor);
                         break;
                     case "btnCarta7J1":
-                        this.btnCarta7J1.Visible = !this.jugadorUno.Jugar(6, out hayCambioColor);
+                        this.btnCarta7J1.Visible = !this.jugadorUno.Jugar(this.partida, 6, out hayCambioColor);
                         break;
                     case "btnCarta1J2":
-                        this.btnCarta1J2.Visible = !this.jugadorDos.Jugar(0, out hayCambioColor);
+                        this.btnCarta1J2.Visible = !this.jugadorDos.Jugar(this.partida, 0, out hayCambioColor);
                         break;
                     case "btnCarta2J2":
-                        this.btnCarta2J2.Visible = !this.jugadorDos.Jugar(1, out hayCambioColor);
+                        this.btnCarta2J2.Visible = !this.jugadorDos.Jugar(this.partida, 1, out hayCambioColor);
                         break;
                     case "btnCarta3J2":
-                        this.btnCarta3J2.Visible = !this.jugadorDos.Jugar(2, out hayCambioColor);
+                        this.btnCarta3J2.Visible = !this.jugadorDos.Jugar(this.partida, 2, out hayCambioColor);
                         break;
                     case "btnCarta4J2":
-                        this.btnCarta4J2.Visible = !this.jugadorDos.Jugar(3, out hayCambioColor);
+                        this.btnCarta4J2.Visible = !this.jugadorDos.Jugar(this.partida, 3, out hayCambioColor);
                         break;
                     case "btnCarta5J2":
-                        this.btnCarta5J2.Visible = !this.jugadorDos.Jugar(4, out hayCambioColor);
+                        this.btnCarta5J2.Visible = !this.jugadorDos.Jugar(this.partida, 4, out hayCambioColor);
                         break;
                     case "btnCarta6J2":
-                        this.btnCarta6J2.Visible = !this.jugadorDos.Jugar(5, out hayCambioColor);
+                        this.btnCarta6J2.Visible = !this.jugadorDos.Jugar(this.partida, 5, out hayCambioColor);
                         break;
                     case "btnCarta7J2":
-                        this.btnCarta7J2.Visible = !this.jugadorDos.Jugar(6, out hayCambioColor);
+                        this.btnCarta7J2.Visible = !this.jugadorDos.Jugar(this.partida, 6, out hayCambioColor);
                         break;
                 }
              
@@ -539,28 +541,28 @@ namespace InicioForm
 
             List<int> posiciones;
 
-            if (Partida.JugadorActual.CantidadCartas == 7)
+            if (this.partida.JugadorActual.CantidadCartas == 7)
             {
                 this.btnPasarTurno.Visible = true;
-            }else if (!Partida.JugadorActual.RecogioCarta)
+            }else if (!this.partida.JugadorActual.RecogioCarta)
             {
-                if (Partida.IndiceJugadorActual == 1)
+                if (this.partida.IndiceJugadorActual == 1)
                 {
-                    posiciones = this.jugadorUno.AgregarCartas(Mazo.ObtenerCartas(1));
+                    posiciones = this.jugadorUno.AgregarCartas(this.partida.Mazo.ObtenerCartas(this.partida,1));
                     if (posiciones.Count > 0)
                         this.cartasJ1[posiciones[0]].Visible = this.btnPasarTurno.Visible =  true;
                 }
                 else
                 {
-                    posiciones = this.jugadorDos.AgregarCartas(Mazo.ObtenerCartas(1));
+                    posiciones = this.jugadorDos.AgregarCartas(this.partida.Mazo.ObtenerCartas(this.partida,1));
                     if (posiciones.Count > 0)
                         this.cartasJ2[posiciones[0]].Visible = this.btnPasarTurno.Visible = true;
                 }
 
                 if(posiciones.Count > 0)
                 {
-                    Partida.JugadorActual.RecogioCarta = true;
-                    Partida.log.AgregarAlLog($"[{DateTime.Now}][{Partida.JugadorActual.Nombre}][AGARRA CARTA DEL MAZO]");
+                    this.partida.JugadorActual.RecogioCarta = true;
+                    this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][AGARRA CARTA DEL MAZO]");
                 }
                 this.actualizar();
             }
@@ -570,8 +572,8 @@ namespace InicioForm
 
         private void btnPasarTurno_Click(object sender, EventArgs e)
         {
-            Partida.log.AgregarAlLog($"[{DateTime.Now}][{Partida.JugadorActual.Nombre}][PASA TURNO]");
-            Partida.SiguienteJugador();
+            this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][PASA TURNO]");
+            this.partida.SiguienteJugador();
             this.actualizar();
 
         }
@@ -590,17 +592,17 @@ namespace InicioForm
                     respuesta = MessageBox.Show("Desea guardar los datos de la partida actual ?", "Uno Pac", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (respuesta == DialogResult.Yes)
                     {
-                        string duracion = Partida.CalcularTiempo();
+                        string duracion = this.cronometro.DetenerCronometro();
                         //AGREGO LOG GANADOR
-                        Partida.log.AgregarAlLog($"[{DateTime.Now}][GANADOR: sin ganador TIEMPO: {duracion} PUNTOS: -]");
-                        Partida.log.AgregarAlLog($"[{DateTime.Now}][PARTIDA CANCELADA]");
-                        ArchivosDeTexto.AgregarAlArchivo(Partida.log);
+                        this.partida.log.AgregarAlLog($"[{DateTime.Now}][GANADOR: sin ganador TIEMPO: {duracion} PUNTOS: -]");
+                        this.partida.log.AgregarAlLog($"[{DateTime.Now}][PARTIDA CANCELADA]");
+                        ArchivosDeTexto.AgregarAlArchivo(this.partida.log);
 
                         //AGREGO DATO EN SQL
                         PartidaSQL dato = new PartidaSQL();
                         dato.Fecha = DateTime.Now.ToString();
-                        dato.Jugador1 = Partida.Jugadores[0].Nombre;
-                        dato.Jugador2 = Partida.Jugadores[1].Nombre;
+                        dato.Jugador1 = this.partida.Jugadores[0].Nombre;
+                        dato.Jugador2 = this.partida.Jugadores[1].Nombre;
                         dato.Ganador = "sin ganador";
                         dato.PuntosGanador = "sin ganador";
                         dato.Duracion = duracion;
@@ -614,7 +616,18 @@ namespace InicioForm
 
         private void ActualizarTiempo(DateTime tiempo)
         {
-            this.lblDuracion.Text = $"Duracion: {tiempo.Hour}:{tiempo.Minute}:{tiempo.Second}";
+
+            if (this.lblDuracion.InvokeRequired)
+            {
+                DelegadoCronometro delegado = this.ActualizarTiempo;
+                object[] obj = new object[] { tiempo };
+                this.lblDuracion.Invoke(delegado, tiempo);
+            }
+            else
+            {
+                this.lblDuracion.Text = $"Duracion: {tiempo.Hour}:{tiempo.Minute}:{tiempo.Second}";
+            }
+ 
         }
 
 

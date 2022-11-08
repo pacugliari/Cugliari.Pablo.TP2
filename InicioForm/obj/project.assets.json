@@ -477,9 +477,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\InicioForm.csproj",
-      "projectName": "InicioForm",
-      "projectPath": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\InicioForm.csproj",
+      "projectUniqueName": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\UnoPacGUI.csproj",
+      "projectName": "UnoPacGUI",
+      "projectPath": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\UnoPacGUI.csproj",
       "packagesPath": "C:\\Users\\PACug\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\obj\\",
       "projectStyle": "PackageReference",

@@ -1,5 +1,5 @@
 ﻿
-namespace InicioForm
+namespace UnoPacGUI
 {
     partial class SeleccionColorForm
     {
@@ -40,7 +40,7 @@ namespace InicioForm
             // btnAmarillo
             // 
             this.btnAmarillo.BackColor = System.Drawing.Color.Transparent;
-            this.btnAmarillo.BackgroundImage = global::InicioForm.Properties.Resources.colorAmarillo;
+            this.btnAmarillo.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorAmarillo;
             this.btnAmarillo.FlatAppearance.BorderSize = 0;
             this.btnAmarillo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAmarillo.ForeColor = System.Drawing.Color.Transparent;
@@ -54,7 +54,7 @@ namespace InicioForm
             // btnAzul
             // 
             this.btnAzul.BackColor = System.Drawing.Color.Transparent;
-            this.btnAzul.BackgroundImage = global::InicioForm.Properties.Resources.colorAzul;
+            this.btnAzul.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorAzul;
             this.btnAzul.FlatAppearance.BorderSize = 0;
             this.btnAzul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAzul.ForeColor = System.Drawing.Color.Transparent;
@@ -68,7 +68,7 @@ namespace InicioForm
             // btnRojo
             // 
             this.btnRojo.BackColor = System.Drawing.Color.Transparent;
-            this.btnRojo.BackgroundImage = global::InicioForm.Properties.Resources.colorRojo;
+            this.btnRojo.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorRojo;
             this.btnRojo.FlatAppearance.BorderSize = 0;
             this.btnRojo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRojo.ForeColor = System.Drawing.Color.Transparent;
@@ -82,7 +82,7 @@ namespace InicioForm
             // btnVerde
             // 
             this.btnVerde.BackColor = System.Drawing.Color.Transparent;
-            this.btnVerde.BackgroundImage = global::InicioForm.Properties.Resources.colorVerde;
+            this.btnVerde.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorVerde;
             this.btnVerde.FlatAppearance.BorderSize = 0;
             this.btnVerde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerde.ForeColor = System.Drawing.Color.Transparent;
@@ -109,14 +109,13 @@ namespace InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InicioForm.Properties.Resources.fondo;
+            this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(300, 268);
             this.Controls.Add(this.lblJ2);
             this.Controls.Add(this.btnVerde);
             this.Controls.Add(this.btnRojo);
             this.Controls.Add(this.btnAzul);
             this.Controls.Add(this.btnAmarillo);
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(318, 315);

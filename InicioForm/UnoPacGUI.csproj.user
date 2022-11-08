@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="CustomTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="HistoricoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PartidaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SeleccionColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

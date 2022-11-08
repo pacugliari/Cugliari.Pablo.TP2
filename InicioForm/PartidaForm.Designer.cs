@@ -1,5 +1,5 @@
 ﻿
-namespace InicioForm
+namespace UnoPacGUI
 {
     partial class PartidaForm
     {
@@ -30,7 +30,6 @@ namespace InicioForm
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartidaForm));
-            this.btnAyuda = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCarta2J1 = new System.Windows.Forms.Button();
             this.btnCarta3J1 = new System.Windows.Forms.Button();
@@ -63,17 +62,6 @@ namespace InicioForm
             ((System.ComponentModel.ISupportInitialize)(this.pbManoJ2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManoJ1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnAyuda
-            // 
-            this.btnAyuda.BackColor = System.Drawing.SystemColors.WindowText;
-            this.btnAyuda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAyuda.BackgroundImage")));
-            this.btnAyuda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAyuda.Location = new System.Drawing.Point(26, 283);
-            this.btnAyuda.Name = "btnAyuda";
-            this.btnAyuda.Size = new System.Drawing.Size(49, 47);
-            this.btnAyuda.TabIndex = 0;
-            this.btnAyuda.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -276,7 +264,7 @@ namespace InicioForm
             // btnPasarTurno
             // 
             this.btnPasarTurno.BackColor = System.Drawing.SystemColors.WindowText;
-            this.btnPasarTurno.BackgroundImage = global::InicioForm.Properties.Resources.skip;
+            this.btnPasarTurno.BackgroundImage = global::UnoPacGUI.Properties.Resources.skip;
             this.btnPasarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPasarTurno.Location = new System.Drawing.Point(890, 254);
             this.btnPasarTurno.Name = "btnPasarTurno";
@@ -300,7 +288,7 @@ namespace InicioForm
             // pbUnoJ1
             // 
             this.pbUnoJ1.BackColor = System.Drawing.Color.Transparent;
-            this.pbUnoJ1.BackgroundImage = global::InicioForm.Properties.Resources.uno_;
+            this.pbUnoJ1.BackgroundImage = global::UnoPacGUI.Properties.Resources.uno_;
             this.pbUnoJ1.Location = new System.Drawing.Point(706, 355);
             this.pbUnoJ1.Name = "pbUnoJ1";
             this.pbUnoJ1.Size = new System.Drawing.Size(188, 138);
@@ -310,7 +298,7 @@ namespace InicioForm
             // pbUnoJ2
             // 
             this.pbUnoJ2.BackColor = System.Drawing.Color.Transparent;
-            this.pbUnoJ2.BackgroundImage = global::InicioForm.Properties.Resources.uno__21;
+            this.pbUnoJ2.BackgroundImage = global::UnoPacGUI.Properties.Resources.uno__21;
             this.pbUnoJ2.Location = new System.Drawing.Point(129, 238);
             this.pbUnoJ2.Name = "pbUnoJ2";
             this.pbUnoJ2.Size = new System.Drawing.Size(188, 138);
@@ -332,7 +320,7 @@ namespace InicioForm
             // pbManoJ2
             // 
             this.pbManoJ2.BackColor = System.Drawing.Color.Transparent;
-            this.pbManoJ2.BackgroundImage = global::InicioForm.Properties.Resources.mano1;
+            this.pbManoJ2.BackgroundImage = global::UnoPacGUI.Properties.Resources.mano1;
             this.pbManoJ2.Location = new System.Drawing.Point(2, 0);
             this.pbManoJ2.Name = "pbManoJ2";
             this.pbManoJ2.Size = new System.Drawing.Size(51, 51);
@@ -342,7 +330,7 @@ namespace InicioForm
             // pbManoJ1
             // 
             this.pbManoJ1.BackColor = System.Drawing.Color.Transparent;
-            this.pbManoJ1.BackgroundImage = global::InicioForm.Properties.Resources.mano1;
+            this.pbManoJ1.BackgroundImage = global::UnoPacGUI.Properties.Resources.mano1;
             this.pbManoJ1.Location = new System.Drawing.Point(2, 450);
             this.pbManoJ1.Name = "pbManoJ1";
             this.pbManoJ1.Size = new System.Drawing.Size(51, 51);
@@ -391,10 +379,8 @@ namespace InicioForm
             this.Controls.Add(this.btnCarta4J1);
             this.Controls.Add(this.btnCarta3J1);
             this.Controls.Add(this.btnCarta2J1);
-            this.Controls.Add(this.btnAyuda);
             this.Controls.Add(this.btnTiradas);
             this.Controls.Add(this.pictureBox1);
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 750);
@@ -415,8 +401,6 @@ namespace InicioForm
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnAyuda;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCarta2J1;
         private System.Windows.Forms.Button btnCarta3J1;
@@ -435,7 +419,6 @@ namespace InicioForm
         private System.Windows.Forms.Button btnMazo;
         private System.Windows.Forms.Button btnTiradas;
         private System.Windows.Forms.Button btnColorActual;
-        private System.Windows.Forms.Button btnGritarUno;
         private System.Windows.Forms.Button btnPasarTurno;
         private System.Windows.Forms.Label lblJ1;
         private System.Windows.Forms.PictureBox pbUnoJ1;

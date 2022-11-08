@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gMiT+pCsR98mEplNZ1cZWu4Wfp2h7i9EO9mC8ZsTCgJj+hAzmDf8D/cww1g9sHyMxSIFuJ0cTXrBLmOObJqJrw==",
+  "dgSpecHash": "8QvzKjO+9VclVRkvHUcoe8GaH49U16ef3t3VJN7Zn/KLrdHt1VeraJhto1kkzohz2Oc96GwzO2B7ApHun04eiQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\InicioForm.csproj",
+  "projectFilePath": "C:\\Users\\PACug\\OneDrive\\Escritorio\\TP2-PARCIAL2\\Cugliari.Pablo.TP2\\InicioForm\\UnoPacGUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PACug\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\PACug\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

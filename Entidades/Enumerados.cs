@@ -19,6 +19,6 @@ public enum ETipo
 
 public enum EJugadores
 {
-    Jugador1,
+    Jugador1 = 1,
     Jugador2
 }

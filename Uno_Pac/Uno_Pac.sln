@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnoPac", "UnoPac", "{926CC9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnoPacGUI", "UnoPacGUI", "{1CFEE777-061D-467C-B100-A28B1B1963E3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InicioForm", "..\InicioForm\InicioForm.csproj", "{F30B1F96-A259-4646-947E-4B8A76C74910}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoPacGUI", "..\InicioForm\UnoPacGUI.csproj", "{F30B1F96-A259-4646-947E-4B8A76C74910}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnoPacTest", "UnoPacTest", "{F463874A-F86E-49E8-9E79-67348DEEA9F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnoPacTest", "..\UnoPacTest\UnoPacTest.csproj", "{0BC48DA7-6BF1-4916-9E3C-50BC2FC534D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnoPacTest", "..\UnoPacTest\UnoPacTest.csproj", "{0BC48DA7-6BF1-4916-9E3C-50BC2FC534D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace InicioForm
+namespace UnoPacGUI
 {
     public partial class HistoricoForm : Form
     {

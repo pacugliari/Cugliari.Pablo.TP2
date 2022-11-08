@@ -1,5 +1,5 @@
 ﻿
-namespace InicioForm
+namespace UnoPacGUI
 {
     partial class Inicio
     {
@@ -41,6 +41,7 @@ namespace InicioForm
             this.txtNombreJ1 = new System.Windows.Forms.TextBox();
             this.pbCruzJ1 = new System.Windows.Forms.PictureBox();
             this.pbCruzJ2 = new System.Windows.Forms.PictureBox();
+            this.btnHome = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ2)).BeginInit();
@@ -71,7 +72,7 @@ namespace InicioForm
             // btnHistorial
             // 
             this.btnHistorial.BackColor = System.Drawing.SystemColors.WindowText;
-            this.btnHistorial.BackgroundImage = global::InicioForm.Properties.Resources.historial;
+            this.btnHistorial.BackgroundImage = global::UnoPacGUI.Properties.Resources.historial;
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHistorial.Location = new System.Drawing.Point(12, 257);
             this.btnHistorial.Name = "btnHistorial";
@@ -122,9 +123,9 @@ namespace InicioForm
             // btnSiguiente
             // 
             this.btnSiguiente.BackColor = System.Drawing.SystemColors.WindowText;
-            this.btnSiguiente.BackgroundImage = global::InicioForm.Properties.Resources.skip;
+            this.btnSiguiente.BackgroundImage = global::UnoPacGUI.Properties.Resources.skip;
             this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSiguiente.Location = new System.Drawing.Point(483, 631);
+            this.btnSiguiente.Location = new System.Drawing.Point(575, 631);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(60, 60);
             this.btnSiguiente.TabIndex = 32;
@@ -153,7 +154,7 @@ namespace InicioForm
             // pbCruzJ1
             // 
             this.pbCruzJ1.BackColor = System.Drawing.Color.Transparent;
-            this.pbCruzJ1.BackgroundImage = global::InicioForm.Properties.Resources.cruz;
+            this.pbCruzJ1.BackgroundImage = global::UnoPacGUI.Properties.Resources.cruz;
             this.pbCruzJ1.Location = new System.Drawing.Point(708, 529);
             this.pbCruzJ1.Name = "pbCruzJ1";
             this.pbCruzJ1.Size = new System.Drawing.Size(30, 30);
@@ -164,7 +165,7 @@ namespace InicioForm
             // pbCruzJ2
             // 
             this.pbCruzJ2.BackColor = System.Drawing.Color.Transparent;
-            this.pbCruzJ2.BackgroundImage = global::InicioForm.Properties.Resources.cruz;
+            this.pbCruzJ2.BackgroundImage = global::UnoPacGUI.Properties.Resources.cruz;
             this.pbCruzJ2.Location = new System.Drawing.Point(708, 586);
             this.pbCruzJ2.Name = "pbCruzJ2";
             this.pbCruzJ2.Size = new System.Drawing.Size(30, 30);
@@ -172,12 +173,26 @@ namespace InicioForm
             this.pbCruzJ2.TabStop = false;
             this.pbCruzJ2.Visible = false;
             // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnHome.BackgroundImage = global::UnoPacGUI.Properties.Resources.home1;
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnHome.Location = new System.Drawing.Point(371, 631);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(60, 60);
+            this.btnHome.TabIndex = 41;
+            this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Visible = false;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InicioForm.Properties.Resources.fondo;
+            this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.pbCruzJ2);
             this.Controls.Add(this.pbCruzJ1);
             this.Controls.Add(this.txtNombreJ1);
@@ -189,7 +204,6 @@ namespace InicioForm
             this.Controls.Add(this.btnHistorial);
             this.Controls.Add(this.btnJugar);
             this.Controls.Add(this.pbLogo);
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1000, 750);
@@ -220,5 +234,6 @@ namespace InicioForm
         private System.Windows.Forms.TextBox txtNombreJ1;
         private System.Windows.Forms.PictureBox pbCruzJ1;
         private System.Windows.Forms.PictureBox pbCruzJ2;
+        private System.Windows.Forms.Button btnHome;
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace InicioForm
+namespace UnoPacGUI
 {
     partial class HistoricoForm
     {
@@ -216,14 +216,19 @@ namespace InicioForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InicioForm.Properties.Resources.fondo;
+            this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(1005, 552);
             this.Controls.Add(this.dgvPartidas);
             this.Controls.Add(this.lbListaArchivos);
             this.Controls.Add(this.txtInfoLog);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1023, 599);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1023, 599);
             this.Name = "HistoricoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UnoPac";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

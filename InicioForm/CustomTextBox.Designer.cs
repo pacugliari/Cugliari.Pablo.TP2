@@ -1,5 +1,5 @@
 ﻿
-namespace InicioForm
+namespace UnoPacGUI
 {
     partial class CustomTextBox
     {

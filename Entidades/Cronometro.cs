@@ -9,8 +9,8 @@ namespace Entidades
 {
     public class Cronometro
     {
-        public delegate void DelegadoTemporizador(DateTime tiempo);
-        public event DelegadoTemporizador TiempoCumplido;
+        public delegate void DelegadoCronometro(DateTime tiempo);
+        public event DelegadoCronometro TiempoCumplido;
 
         private CancellationToken cancellationToken;
         private CancellationTokenSource cancellationTokenSource;

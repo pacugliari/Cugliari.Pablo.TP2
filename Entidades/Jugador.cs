@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class Jugador
     {
-        private int numeroJugador;
+        private EJugadores numeroJugador;
         private string nombre;
         private List<Carta> cartas;
         private IEstadoJugador estado;
@@ -18,7 +18,8 @@ namespace Entidades
 
         public string Nombre { get { return this.nombre; } }
 
-        public int NumeroJugador { get { return this.numeroJugador; } }
+        public int NumeroJugador { get { return (int)this.numeroJugador; } }
+
         public Carta this[int index]
         {
             get {
@@ -54,7 +55,7 @@ namespace Entidades
             this.RecogioCarta = false;
         }
 
-        public Jugador(string nombre,int numeroJugador,IEstadoJugador estado):this()
+        public Jugador(string nombre,EJugadores numeroJugador,IEstadoJugador estado):this()
         {
             this.nombre = nombre;
             this.estado = estado;
@@ -87,7 +88,7 @@ namespace Entidades
             return retorno;
         }
 
-        public bool Jugar(int posicionCarta,out bool esCambioColor)
+        public bool Jugar(Partida partida,int posicionCarta,out bool esCambioColor)
         {
             bool jugoCarta = false;
             esCambioColor = false;
@@ -95,26 +96,26 @@ namespace Entidades
             try
             {
                 Carta elegida = this.cartas[posicionCarta];
-                if (elegida.Color == Partida.ColorActual || (elegida.Numero == Partida.UltimaCartaTirada.Numero && Partida.UltimaCartaTirada.Color != EColor.Negro) 
+                if (elegida.Color == partida.ColorActual || (elegida.Numero == partida.UltimaCartaTirada.Numero && partida.UltimaCartaTirada.Color != EColor.Negro) 
                      || elegida.Color == EColor.Negro)
                 {
                     estado.Jugar();
-                    Partida.yaSeSalteo = false;
+                    partida.yaSeSalteo = false;
                     if (elegida.Tipo == ETipo.MasCuatro || elegida.Tipo == ETipo.CambioColor)
                     {
                         esCambioColor = true;
                     }
-                    Partida.ColorActual = elegida.Color;
-                    Partida.AgregarCartaTirada = elegida;
+                    partida.ColorActual = elegida.Color;
+                    partida.AgregarCartaTirada = elegida;
                     jugoCarta = true;
-                    Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Carta jugada -> Color: {elegida.Color} Numero: {elegida.Numero} " +
+                    partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Carta jugada -> Color: {elegida.Color} Numero: {elegida.Numero} " +
                         $"Tipo: {elegida.Tipo}]");
                     this.cartas[posicionCarta] = null;
                 }
             }
             catch (Exception ex)
             {
-                Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Exception: {ex.Message}]");
+                partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Exception: {ex.Message}]");
             }
             finally
             {
@@ -123,7 +124,7 @@ namespace Entidades
                     if (this.recogioCarta)
                         this.recogioCarta = false;
 
-                    Partida.SiguienteJugador();
+                    partida.SiguienteJugador();
 
                     if (this.CantidadCartas == 0)
                     {
@@ -131,8 +132,8 @@ namespace Entidades
                         throw new MensajeGanadorException(this.nombre);
                     }else if (this.CantidadCartas == 1)
                     {
-                        Partida.log.AgregarAlLog($"[{DateTime.Now}][{this.Nombre}][GRITA UNO!!!]");
-                        throw new MensajeUnoException(this.numeroJugador.ToString());
+                        partida.log.AgregarAlLog($"[{DateTime.Now}][{this.Nombre}][GRITA UNO!!!]");
+                        throw new MensajeUnoException(this.NumeroJugador.ToString());
                     }
                     
                 }
@@ -186,21 +187,21 @@ namespace Entidades
             this.estado = this.estado.AvanzarTurno();
         }
 
-        public List<int> ActualizarJugador()
+        public List<int> ActualizarJugador(Partida partida)
         {
             
-            Carta ultimaCartaTirada = Partida.UltimaCartaTirada;
+            Carta ultimaCartaTirada = partida.UltimaCartaTirada;
             List<int> posiciones = new List<int>();
 
-            if (!Partida.yaSeSalteo)
+            if (!partida.yaSeSalteo)
             {
                 if (ultimaCartaTirada.Tipo == ETipo.MasCuatro)
                 {
-                    posiciones = this.AgregarCartas(Mazo.ObtenerCartas(4));
+                    posiciones = this.AgregarCartas(partida.Mazo.ObtenerCartas(partida,4));
                 }
                 else if (ultimaCartaTirada.Tipo == ETipo.MasDos)
                 {
-                    posiciones = this.AgregarCartas(Mazo.ObtenerCartas(2));
+                    posiciones = this.AgregarCartas(partida.Mazo.ObtenerCartas(partida, 2));
 
                 }
             }

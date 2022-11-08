@@ -8,7 +8,7 @@ namespace Entidades
 {
     public class Mazo
     {
-        private static List<Carta> cartas;
+        private List<Carta> cartas;
 
         /*
          El mazo del UNO está compuesto de cuatro colores: azul, verde, rojo y amarillo. 
@@ -25,7 +25,7 @@ namespace Entidades
 
         public Mazo()
         {
-            Mazo.cartas = new List<Carta>();
+            this.cartas = new List<Carta>();
 
             //GENERO CARTAS DE COLOR
             foreach (EColor item in Enum.GetValues(typeof(EColor)))
@@ -34,54 +34,54 @@ namespace Entidades
                 {
                     for (int i = 0; i <= 9; i++)
                     {
-                        Mazo.cartas.Add(new Carta(ETipo.Numero, item, i));
+                        this.cartas.Add(new Carta(ETipo.Numero, item, i));
                         if (i != 0)
-                            Mazo.cartas.Add(new Carta(ETipo.Numero, item, i));
+                            this.cartas.Add(new Carta(ETipo.Numero, item, i));
                     }
-                    Mazo.cartas.Add(new Carta(ETipo.MasDos, item));
-                    Mazo.cartas.Add(new Carta(ETipo.MasDos, item));
-                    Mazo.cartas.Add(new Carta(ETipo.Invertir, item));
-                    Mazo.cartas.Add(new Carta(ETipo.Invertir, item));
-                    Mazo.cartas.Add(new Carta(ETipo.Salteo, item));
-                    Mazo.cartas.Add(new Carta(ETipo.Salteo, item));
+                    this.cartas.Add(new Carta(ETipo.MasDos, item));
+                    this.cartas.Add(new Carta(ETipo.MasDos, item));
+                    this.cartas.Add(new Carta(ETipo.Invertir, item));
+                    this.cartas.Add(new Carta(ETipo.Invertir, item));
+                    this.cartas.Add(new Carta(ETipo.Salteo, item));
+                    this.cartas.Add(new Carta(ETipo.Salteo, item));
                 }
             }
 
             //GENERO CARTAS ESPECIALES
             for (int i = 0; i < 4; i++)
             {
-                Mazo.cartas.Add(new Carta(ETipo.MasCuatro, EColor.Negro));
-                Mazo.cartas.Add(new Carta(ETipo.CambioColor, EColor.Negro));
+                this.cartas.Add(new Carta(ETipo.MasCuatro, EColor.Negro));
+                this.cartas.Add(new Carta(ETipo.CambioColor, EColor.Negro));
             }
 
 
-            Mazo.MezclarMazo();
+            this.MezclarMazo();
         }
 
-        private static void MezclarMazo()
+        private void MezclarMazo()
         {
             //MEZCLO CARTAS
             Random rand = new Random();
-            Mazo.cartas = Mazo.cartas.OrderBy(_ => rand.Next()).ToList();
+            this.cartas = this.cartas.OrderBy(_ => rand.Next()).ToList();
         }
 
-        public static List<Carta> ObtenerCartas (int cantidad)
+        public List<Carta> ObtenerCartas (Partida partida,int cantidad)
         {
             List<Carta> cartasObtenidas = null;
 
-            if(Mazo.cartas.Count <= cantidad)
+            if(this.cartas.Count <= cantidad)
             {
-                Mazo.MezclarCartasTiradas();
+                this.MezclarCartasTiradas(partida);
             }
             
-            if(cantidad <= Mazo.cartas.Count)
+            if(cantidad <= this.cartas.Count)
             {
                 cartasObtenidas = new List<Carta>();
 
                 for (int i = 0; i < cantidad; i++)
                 {
-                    cartasObtenidas.Add(Mazo.cartas[i]);
-                    Mazo.cartas.RemoveAt(i);
+                    cartasObtenidas.Add(this.cartas[i]);
+                    this.cartas.RemoveAt(i);
                 }
             }
 
@@ -89,14 +89,14 @@ namespace Entidades
             return cartasObtenidas;
         }
 
-        public static void MezclarCartasTiradas()
+        private void MezclarCartasTiradas(Partida partida)
         {
-            Stack<Carta> cartasTiradas = Partida.CartasTiradas;
+            Stack<Carta> cartasTiradas = partida.CartasTiradas;
             while(cartasTiradas.Count != 0)
             {
-                Mazo.cartas.Add(cartasTiradas.Pop());
+                this.cartas.Add(cartasTiradas.Pop());
             }
-            Mazo.MezclarMazo();
+            this.MezclarMazo();
         }
 
     }

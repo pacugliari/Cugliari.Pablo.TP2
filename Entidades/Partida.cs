@@ -6,88 +6,76 @@ namespace Entidades
 {
     public class Partida
     {
-        private static List<Jugador> jugadores;
-        private static Jugador jugadorActual;
-        private static Stopwatch tiempo;
+        private List<Jugador> jugadores;
+        private Jugador jugadorActual;
         private Mazo mazo;
-        private static Stack<Carta> cartasTiradas;
-        private static int indiceJugadorActual;
-        private static EColor colorActual;
-        public static bool yaSeSalteo;
-        public static Log log;
+        private Stack<Carta> cartasTiradas;
+        private int indiceJugadorActual;
+        private EColor colorActual;
+        public  bool yaSeSalteo;
+        public  Log log;
 
 
+        public Mazo Mazo { get { return this.mazo; } }
+        public  Carta UltimaCartaTirada { get { return this.cartasTiradas.Peek(); } }
+        public  Stack<Carta> CartasTiradas { get { return this.cartasTiradas; } }
+        public  Carta AgregarCartaTirada { set { this.cartasTiradas.Push(value); } }
 
-        public static Carta UltimaCartaTirada { get { return Partida.cartasTiradas.Peek(); } }
-        public static Stack<Carta> CartasTiradas { get { return Partida.cartasTiradas; } }
-        public static Carta AgregarCartaTirada { set { Partida.cartasTiradas.Push(value); } }
+        public  int IndiceJugadorActual { get { return this.indiceJugadorActual; } }
 
-        public static int IndiceJugadorActual { get { return Partida.indiceJugadorActual; } }
+        public  Jugador JugadorActual { get { return this.jugadorActual; } }
 
-        public static Jugador JugadorActual { get { return Partida.jugadorActual; } }
+        public  List<Jugador> Jugadores { get { return this.jugadores; } }
 
-        public static List<Jugador> Jugadores { get { return Partida.jugadores; } }
-
-        public static EColor ColorActual { get { return Partida.colorActual; } set { Partida.colorActual = value; } }
+        public  EColor ColorActual { get { return this.colorActual; } set { this.colorActual = value; } }
 
 
-        static Partida()
+        public Partida(string nombreJugadorUno, string nombreJugadorDos)
         {
-            Partida.cartasTiradas = new Stack<Carta>();
-            Partida.yaSeSalteo = false;
-            Partida.colorActual = EColor.Verde;
-        }
-        public Partida(string nombreJugadorUno,string nombreJugadorDos)
-        {
-            Partida.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,1,new JugadorDisponible()),
-                new Jugador(nombreJugadorDos, 2, new JugadorOcupado()) };
-            Partida.tiempo = Stopwatch.StartNew();
+            this.cartasTiradas = new Stack<Carta>();
+            this.yaSeSalteo = false;
+            this.colorActual = EColor.Verde;
+
+            this.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,EJugadores.Jugador1,new JugadorDisponible()),
+                new Jugador(nombreJugadorDos, EJugadores.Jugador2, new JugadorOcupado()) };
             this.mazo = new Mazo();
 
             //2022-10-30 at 17.59
             string hora = DateTime.Now.Year.ToString() + '-' + DateTime.Now.Month.ToString() + '-' + DateTime.Now.Day.ToString() + "_" +
                 DateTime.Now.Hour.ToString() + '.' + DateTime.Now.Minute.ToString();
+            this.log = new Log($"{nombreJugadorUno}vs{nombreJugadorDos}_{hora}");
 
-            Partida.log = new Log($"{nombreJugadorUno}vs{nombreJugadorDos}_{hora}");
-            Partida.log.AgregarAlLog($"[{DateTime.Now}][INICIO DE PARTIDA]");
+            this.log.AgregarAlLog($"[{DateTime.Now}][INICIO DE PARTIDA]");
 
-            Partida.jugadores[0].AgregarCartas(Mazo.ObtenerCartas(3));
-            Partida.jugadores[1].AgregarCartas(Mazo.ObtenerCartas(3));
-            Partida.cartasTiradas.Push(Mazo.ObtenerCartas(1)[0]);
-            Partida.colorActual = Partida.UltimaCartaTirada.Color;
-            if(Partida.colorActual == EColor.Negro)
-                Partida.colorActual = EColor.Verde;
-            Partida.indiceJugadorActual = 1;
-            Partida.jugadorActual = Partida.jugadores[0];
+            this.jugadores[0].AgregarCartas(this.mazo.ObtenerCartas(this, 3));
+            this.jugadores[1].AgregarCartas(this.mazo.ObtenerCartas(this, 3));
+            this.cartasTiradas.Push(this.mazo.ObtenerCartas(this, 1)[0]);
+            this.colorActual = this.UltimaCartaTirada.Color;
+            if (this.colorActual == EColor.Negro)
+                this.colorActual = EColor.Verde;
+            this.indiceJugadorActual = (int)EJugadores.Jugador1;//1
+            this.jugadorActual = this.jugadores[0];
+
         }
 
-        public static Jugador SiguienteJugador()
+        public Jugador SiguienteJugador()
         {
-            Partida.JugadorActual.RecogioCarta = false;
-            Partida.jugadorActual.CambiarEstado();
-            if (Partida.jugadorActual.NumeroJugador == 1)
+            this.JugadorActual.RecogioCarta = false;
+            this.jugadorActual.CambiarEstado();
+            if (this.jugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
             {
-                Partida.jugadorActual = Partida.jugadores[1];
-                Partida.indiceJugadorActual = 2;
+                this.jugadorActual = this.jugadores[1];//1
+                this.indiceJugadorActual = (int)EJugadores.Jugador2;//2
                 
             }
             else
             {
-                Partida.jugadorActual = Partida.jugadores[0];
-                Partida.indiceJugadorActual = 1;
+                this.jugadorActual = this.jugadores[0];//0
+                this.indiceJugadorActual = (int)EJugadores.Jugador1;//1
             }
-            Partida.jugadorActual.CambiarEstado();
-            return Partida.jugadorActual;
+            this.jugadorActual.CambiarEstado();
+            return this.jugadorActual;
         }
-
-        public static string CalcularTiempo()
-        {
-            Partida.tiempo.Stop();
-            return Partida.tiempo.Elapsed.ToString("hh\\:mm\\:ss");
-        }
-
-
-
 
     }
 }
