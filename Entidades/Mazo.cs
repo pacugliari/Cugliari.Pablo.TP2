@@ -20,7 +20,12 @@ namespace Entidades
         8 cartas especiales Pierde el Turno o Bloqueo (2 de cada color);
         4 cartas especiales Comodín Cambio de Color (cada una representa en sí a los cuatro colores); y
         4 cartas especiales Comodín Cambio de Color y Roba Cuatro (cada una representa a los cuatro colores y tiene un 4 antecedido del signo +).
+        
+        19+19+19+19+8+8+8+4+4 = 108
+         
          */
+
+        public int CantidadCartas { get { return this.cartas.Count; } }
 
 
         public Mazo()
@@ -69,7 +74,7 @@ namespace Entidades
         {
             List<Carta> cartasObtenidas = null;
 
-            if(this.cartas.Count <= cantidad)
+            if(this.cartas.Count < cantidad)
             {
                 this.MezclarCartasTiradas(partida);
             }
@@ -81,8 +86,14 @@ namespace Entidades
                 for (int i = 0; i < cantidad; i++)
                 {
                     cartasObtenidas.Add(this.cartas[i]);
-                    this.cartas.RemoveAt(i);
+                    
                 }
+
+                foreach (var item in cartasObtenidas)
+                {
+                    this.cartas.Remove(item);
+                }
+
             }
 
 

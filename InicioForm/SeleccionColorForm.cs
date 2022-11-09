@@ -20,7 +20,7 @@ namespace UnoPacGUI
             InitializeComponent();
             this.cerrar = false;
             this.partida = partida;
-            Inicio.MostrarAyuda(this.lblJ2, "Elija un color para cambiar el color actual de la partida");
+            this.MostrarAyuda(this.lblJ2, "Elija un color para cambiar el color actual de la partida");
 
         }
 

@@ -53,15 +53,15 @@ namespace UnoPacGUI
             this.cronometro.IniciarCronometro();
             this.actualizar();
 
-            Inicio.MostrarAyuda(this.btnColorActual, "Color actual de la partida");
-            Inicio.MostrarAyuda(this.btnMazo, "Click para agarrar una carta del mazo");
-            Inicio.MostrarAyuda(this.btnPasarTurno, "Click para pasar turno al siguiente jugador");
-            Inicio.MostrarAyuda(this.btnTiradas, "Cartas ya jugadas");
-            Inicio.MostrarAyuda(this.lblJ1, "Jugador 1");
-            Inicio.MostrarAyuda(this.lblJ2, "Jugador 2");
-            Inicio.MostrarAyuda(this.pbManoJ1, "Jugador Actual");
-            Inicio.MostrarAyuda(this.pbManoJ2, "Jugador Actual");
-            Inicio.MostrarAyuda(this.lblDuracion, "Tiempo transcurrido de la partida");
+            this.MostrarAyuda(this.btnColorActual, "Color actual de la partida");
+            this.MostrarAyuda(this.btnMazo, "Click para agarrar una carta del mazo");
+            this.MostrarAyuda(this.btnPasarTurno, "Click para pasar turno al siguiente jugador");
+            this.MostrarAyuda(this.btnTiradas, "Cartas ya jugadas");
+            this.MostrarAyuda(this.lblJ1, "Jugador 1");
+            this.MostrarAyuda(this.lblJ2, "Jugador 2");
+            this.MostrarAyuda(this.pbManoJ1, "Jugador Actual");
+            this.MostrarAyuda(this.pbManoJ2, "Jugador Actual");
+            this.MostrarAyuda(this.lblDuracion, "Tiempo transcurrido de la partida");
         }
 
 

@@ -19,7 +19,9 @@ namespace Entidades
         public Mazo Mazo { get { return this.mazo; } }
         public  Carta UltimaCartaTirada { get { return this.cartasTiradas.Peek(); } }
         public  Stack<Carta> CartasTiradas { get { return this.cartasTiradas; } }
-        public  Carta AgregarCartaTirada { set { this.cartasTiradas.Push(value); } }
+        public  Carta AgregarCartaTirada { set {
+                this.colorActual = value.Color;
+                this.cartasTiradas.Push(value); } }
 
         public  int IndiceJugadorActual { get { return this.indiceJugadorActual; } }
 

@@ -14,6 +14,8 @@ namespace Entidades
         private IEstadoJugador estado;
         private bool recogioCarta;
 
+        public IEstadoJugador Estado { get { return this.estado; } }
+
         public bool RecogioCarta { get { return this.recogioCarta; } set { this.recogioCarta = value; } }
 
         public string Nombre { get { return this.nombre; } }
@@ -234,7 +236,6 @@ namespace Entidades
 
         public void Jugar()
         {
-            //DEFINIR NUEVA EXEPCION
             throw new JugadorNoEsTurnoException("No es el turno del jugador seleccionado");
 
         }

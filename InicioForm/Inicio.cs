@@ -19,12 +19,12 @@ namespace UnoPacGUI
         {
             InitializeComponent();
             this.historial = new HistoricoForm();
-            Inicio.MostrarAyuda(this.btnHistorial, "Historial de partidas ganadas");
-            Inicio.MostrarAyuda(this.btnHome, "Volver al inicio");
-            Inicio.MostrarAyuda(this.btnJugar, "Iniciar partida nueva");
-            Inicio.MostrarAyuda(this.btnSiguiente, "Comenzar partida");
-            Inicio.MostrarAyuda(this.txtNombreJ1, "Nombre jugador 1");
-            Inicio.MostrarAyuda(this.txtNombreJ2, "Nombre jugador 2");
+            this.MostrarAyuda(this.btnHistorial, "Historial de partidas ganadas");
+            this.MostrarAyuda(this.btnHome, "Volver al inicio");
+            this.MostrarAyuda(this.btnJugar, "Iniciar partida nueva");
+            this.MostrarAyuda(this.btnSiguiente, "Comenzar partida");
+            this.MostrarAyuda(this.txtNombreJ1, "Nombre jugador 1");
+            this.MostrarAyuda(this.txtNombreJ2, "Nombre jugador 2");
 
         }
 
@@ -116,14 +116,6 @@ namespace UnoPacGUI
         }
 
 
-        public static void MostrarAyuda(Control control, string mensaje)
-        {
-            ToolTip yourToolTip = new ToolTip();
-            //yourToolTip.ToolTipIcon = ToolTipIcon.Info;
-            //yourToolTip.IsBalloon = true;
-            yourToolTip.ShowAlways = true;
-            yourToolTip.SetToolTip(control, mensaje);
-        }
     }
 
 }
