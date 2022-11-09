@@ -67,6 +67,7 @@ namespace UnoPacGUI
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(334, 122);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(327, 420);
@@ -76,6 +77,7 @@ namespace UnoPacGUI
             // btnCarta2J1
             // 
             this.btnCarta2J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta2J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta2J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta2J1.Location = new System.Drawing.Point(179, 508);
             this.btnCarta2J1.Name = "btnCarta2J1";
@@ -87,6 +89,7 @@ namespace UnoPacGUI
             // btnCarta3J1
             // 
             this.btnCarta3J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta3J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta3J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta3J1.Location = new System.Drawing.Point(311, 508);
             this.btnCarta3J1.Name = "btnCarta3J1";
@@ -98,6 +101,7 @@ namespace UnoPacGUI
             // btnCarta4J1
             // 
             this.btnCarta4J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta4J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta4J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta4J1.Location = new System.Drawing.Point(436, 508);
             this.btnCarta4J1.Name = "btnCarta4J1";
@@ -109,6 +113,7 @@ namespace UnoPacGUI
             // btnCarta5J1
             // 
             this.btnCarta5J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta5J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta5J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta5J1.Location = new System.Drawing.Point(567, 508);
             this.btnCarta5J1.Name = "btnCarta5J1";
@@ -120,6 +125,7 @@ namespace UnoPacGUI
             // btnCarta1J1
             // 
             this.btnCarta1J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta1J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta1J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta1J1.Location = new System.Drawing.Point(49, 508);
             this.btnCarta1J1.Name = "btnCarta1J1";
@@ -131,6 +137,7 @@ namespace UnoPacGUI
             // btnCarta6J1
             // 
             this.btnCarta6J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta6J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta6J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta6J1.Location = new System.Drawing.Point(694, 508);
             this.btnCarta6J1.Name = "btnCarta6J1";
@@ -142,6 +149,7 @@ namespace UnoPacGUI
             // btnCarta7J1
             // 
             this.btnCarta7J1.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta7J1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta7J1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta7J1.Location = new System.Drawing.Point(823, 508);
             this.btnCarta7J1.Name = "btnCarta7J1";
@@ -153,6 +161,7 @@ namespace UnoPacGUI
             // btnCarta7J2
             // 
             this.btnCarta7J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta7J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta7J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta7J2.Location = new System.Drawing.Point(823, 66);
             this.btnCarta7J2.Name = "btnCarta7J2";
@@ -164,6 +173,7 @@ namespace UnoPacGUI
             // btnCarta6J2
             // 
             this.btnCarta6J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta6J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta6J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta6J2.Location = new System.Drawing.Point(694, 66);
             this.btnCarta6J2.Name = "btnCarta6J2";
@@ -175,6 +185,7 @@ namespace UnoPacGUI
             // btnCarta1J2
             // 
             this.btnCarta1J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta1J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta1J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta1J2.Location = new System.Drawing.Point(49, 66);
             this.btnCarta1J2.Name = "btnCarta1J2";
@@ -186,6 +197,7 @@ namespace UnoPacGUI
             // btnCarta5J2
             // 
             this.btnCarta5J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta5J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta5J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta5J2.Location = new System.Drawing.Point(567, 66);
             this.btnCarta5J2.Name = "btnCarta5J2";
@@ -197,6 +209,7 @@ namespace UnoPacGUI
             // btnCarta4J2
             // 
             this.btnCarta4J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta4J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta4J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta4J2.Location = new System.Drawing.Point(436, 66);
             this.btnCarta4J2.Name = "btnCarta4J2";
@@ -208,6 +221,7 @@ namespace UnoPacGUI
             // btnCarta3J2
             // 
             this.btnCarta3J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta3J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta3J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta3J2.Location = new System.Drawing.Point(311, 66);
             this.btnCarta3J2.Name = "btnCarta3J2";
@@ -219,6 +233,7 @@ namespace UnoPacGUI
             // btnCarta2J2
             // 
             this.btnCarta2J2.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnCarta2J2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCarta2J2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCarta2J2.Location = new System.Drawing.Point(179, 66);
             this.btnCarta2J2.Name = "btnCarta2J2";
@@ -230,6 +245,7 @@ namespace UnoPacGUI
             // btnMazo
             // 
             this.btnMazo.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnMazo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnMazo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMazo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMazo.Location = new System.Drawing.Point(387, 283);
@@ -242,6 +258,7 @@ namespace UnoPacGUI
             // btnTiradas
             // 
             this.btnTiradas.BackColor = System.Drawing.Color.Black;
+            this.btnTiradas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTiradas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTiradas.Location = new System.Drawing.Point(513, 283);
             this.btnTiradas.Name = "btnTiradas";
@@ -252,6 +269,7 @@ namespace UnoPacGUI
             // btnColorActual
             // 
             this.btnColorActual.BackColor = System.Drawing.Color.Transparent;
+            this.btnColorActual.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnColorActual.FlatAppearance.BorderSize = 0;
             this.btnColorActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnColorActual.ForeColor = System.Drawing.Color.Transparent;
@@ -265,6 +283,7 @@ namespace UnoPacGUI
             // 
             this.btnPasarTurno.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnPasarTurno.BackgroundImage = global::UnoPacGUI.Properties.Resources.skip;
+            this.btnPasarTurno.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPasarTurno.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPasarTurno.Location = new System.Drawing.Point(890, 254);
             this.btnPasarTurno.Name = "btnPasarTurno";
@@ -289,6 +308,7 @@ namespace UnoPacGUI
             // 
             this.pbUnoJ1.BackColor = System.Drawing.Color.Transparent;
             this.pbUnoJ1.BackgroundImage = global::UnoPacGUI.Properties.Resources.uno_;
+            this.pbUnoJ1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUnoJ1.Location = new System.Drawing.Point(706, 355);
             this.pbUnoJ1.Name = "pbUnoJ1";
             this.pbUnoJ1.Size = new System.Drawing.Size(188, 138);
@@ -299,6 +319,7 @@ namespace UnoPacGUI
             // 
             this.pbUnoJ2.BackColor = System.Drawing.Color.Transparent;
             this.pbUnoJ2.BackgroundImage = global::UnoPacGUI.Properties.Resources.uno__21;
+            this.pbUnoJ2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbUnoJ2.Location = new System.Drawing.Point(129, 238);
             this.pbUnoJ2.Name = "pbUnoJ2";
             this.pbUnoJ2.Size = new System.Drawing.Size(188, 138);

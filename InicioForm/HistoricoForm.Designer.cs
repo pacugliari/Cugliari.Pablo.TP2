@@ -65,12 +65,14 @@ namespace UnoPacGUI
             // 
             // btnEliminar
             // 
+            this.btnEliminar.AutoSize = true;
             this.btnEliminar.BackColor = System.Drawing.Color.Orange;
+            this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnEliminar.Enabled = false;
             this.btnEliminar.ForeColor = System.Drawing.Color.Black;
             this.btnEliminar.Location = new System.Drawing.Point(711, 40);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 29);
+            this.btnEliminar.Size = new System.Drawing.Size(130, 31);
             this.btnEliminar.TabIndex = 2;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;

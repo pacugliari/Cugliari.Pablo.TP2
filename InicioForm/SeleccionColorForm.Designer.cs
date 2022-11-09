@@ -41,6 +41,7 @@ namespace UnoPacGUI
             // 
             this.btnAmarillo.BackColor = System.Drawing.Color.Transparent;
             this.btnAmarillo.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorAmarillo;
+            this.btnAmarillo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAmarillo.FlatAppearance.BorderSize = 0;
             this.btnAmarillo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAmarillo.ForeColor = System.Drawing.Color.Transparent;
@@ -55,6 +56,7 @@ namespace UnoPacGUI
             // 
             this.btnAzul.BackColor = System.Drawing.Color.Transparent;
             this.btnAzul.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorAzul;
+            this.btnAzul.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAzul.FlatAppearance.BorderSize = 0;
             this.btnAzul.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAzul.ForeColor = System.Drawing.Color.Transparent;
@@ -69,6 +71,7 @@ namespace UnoPacGUI
             // 
             this.btnRojo.BackColor = System.Drawing.Color.Transparent;
             this.btnRojo.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorRojo;
+            this.btnRojo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnRojo.FlatAppearance.BorderSize = 0;
             this.btnRojo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRojo.ForeColor = System.Drawing.Color.Transparent;
@@ -83,6 +86,7 @@ namespace UnoPacGUI
             // 
             this.btnVerde.BackColor = System.Drawing.Color.Transparent;
             this.btnVerde.BackgroundImage = global::UnoPacGUI.Properties.Resources.colorVerde;
+            this.btnVerde.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVerde.FlatAppearance.BorderSize = 0;
             this.btnVerde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerde.ForeColor = System.Drawing.Color.Transparent;

@@ -51,9 +51,12 @@ namespace UnoPacGUI
             // 
             this.pbLogo.BackColor = System.Drawing.Color.Transparent;
             this.pbLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLogo.BackgroundImage")));
-            this.pbLogo.Location = new System.Drawing.Point(339, 57);
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLogo.Location = new System.Drawing.Point(339, 58);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(327, 420);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 2;
             this.pbLogo.TabStop = false;
             // 
@@ -61,8 +64,10 @@ namespace UnoPacGUI
             // 
             this.btnJugar.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnJugar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJugar.BackgroundImage")));
+            this.btnJugar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnJugar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnJugar.Location = new System.Drawing.Point(454, 530);
+            this.btnJugar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJugar.Name = "btnJugar";
             this.btnJugar.Size = new System.Drawing.Size(115, 119);
             this.btnJugar.TabIndex = 3;
@@ -73,8 +78,10 @@ namespace UnoPacGUI
             // 
             this.btnHistorial.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnHistorial.BackgroundImage = global::UnoPacGUI.Properties.Resources.historial;
+            this.btnHistorial.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnHistorial.Location = new System.Drawing.Point(12, 257);
+            this.btnHistorial.Location = new System.Drawing.Point(12, 258);
+            this.btnHistorial.Margin = new System.Windows.Forms.Padding(2);
             this.btnHistorial.Name = "btnHistorial";
             this.btnHistorial.Size = new System.Drawing.Size(76, 76);
             this.btnHistorial.TabIndex = 21;
@@ -88,6 +95,7 @@ namespace UnoPacGUI
             this.lblJ2.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.lblJ2.ForeColor = System.Drawing.Color.Orange;
             this.lblJ2.Location = new System.Drawing.Point(190, 449);
+            this.lblJ2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblJ2.Name = "lblJ2";
             this.lblJ2.Size = new System.Drawing.Size(651, 42);
             this.lblJ2.TabIndex = 27;
@@ -101,6 +109,7 @@ namespace UnoPacGUI
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(275, 514);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(200, 42);
             this.label1.TabIndex = 28;
@@ -114,6 +123,7 @@ namespace UnoPacGUI
             this.label2.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(275, 574);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(201, 42);
             this.label2.TabIndex = 29;
@@ -124,8 +134,10 @@ namespace UnoPacGUI
             // 
             this.btnSiguiente.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnSiguiente.BackgroundImage = global::UnoPacGUI.Properties.Resources.skip;
+            this.btnSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSiguiente.Location = new System.Drawing.Point(575, 631);
+            this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(60, 60);
             this.btnSiguiente.TabIndex = 32;
@@ -136,6 +148,7 @@ namespace UnoPacGUI
             // txtNombreJ2
             // 
             this.txtNombreJ2.Location = new System.Drawing.Point(499, 589);
+            this.txtNombreJ2.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreJ2.Name = "txtNombreJ2";
             this.txtNombreJ2.Size = new System.Drawing.Size(203, 27);
             this.txtNombreJ2.TabIndex = 37;
@@ -145,6 +158,7 @@ namespace UnoPacGUI
             // txtNombreJ1
             // 
             this.txtNombreJ1.Location = new System.Drawing.Point(499, 529);
+            this.txtNombreJ1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreJ1.Name = "txtNombreJ1";
             this.txtNombreJ1.Size = new System.Drawing.Size(203, 27);
             this.txtNombreJ1.TabIndex = 38;
@@ -156,6 +170,7 @@ namespace UnoPacGUI
             this.pbCruzJ1.BackColor = System.Drawing.Color.Transparent;
             this.pbCruzJ1.BackgroundImage = global::UnoPacGUI.Properties.Resources.cruz;
             this.pbCruzJ1.Location = new System.Drawing.Point(708, 529);
+            this.pbCruzJ1.Margin = new System.Windows.Forms.Padding(2);
             this.pbCruzJ1.Name = "pbCruzJ1";
             this.pbCruzJ1.Size = new System.Drawing.Size(30, 30);
             this.pbCruzJ1.TabIndex = 39;
@@ -167,6 +182,7 @@ namespace UnoPacGUI
             this.pbCruzJ2.BackColor = System.Drawing.Color.Transparent;
             this.pbCruzJ2.BackgroundImage = global::UnoPacGUI.Properties.Resources.cruz;
             this.pbCruzJ2.Location = new System.Drawing.Point(708, 586);
+            this.pbCruzJ2.Margin = new System.Windows.Forms.Padding(2);
             this.pbCruzJ2.Name = "pbCruzJ2";
             this.pbCruzJ2.Size = new System.Drawing.Size(30, 30);
             this.pbCruzJ2.TabIndex = 40;
@@ -177,8 +193,10 @@ namespace UnoPacGUI
             // 
             this.btnHome.BackColor = System.Drawing.SystemColors.WindowText;
             this.btnHome.BackgroundImage = global::UnoPacGUI.Properties.Resources.home1;
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnHome.Location = new System.Drawing.Point(371, 631);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
             this.btnHome.Size = new System.Drawing.Size(60, 60);
             this.btnHome.TabIndex = 41;
@@ -188,10 +206,10 @@ namespace UnoPacGUI
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(982, 703);
+            this.ClientSize = new System.Drawing.Size(981, 701);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.pbCruzJ2);
             this.Controls.Add(this.pbCruzJ1);
@@ -205,10 +223,11 @@ namespace UnoPacGUI
             this.Controls.Add(this.btnJugar);
             this.Controls.Add(this.pbLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1000, 750);
+            this.MaximumSize = new System.Drawing.Size(999, 748);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1000, 750);
+            this.MinimumSize = new System.Drawing.Size(999, 725);
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inicio";
