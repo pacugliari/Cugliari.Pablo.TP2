@@ -29,6 +29,7 @@ namespace UnoPacGUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PartidaForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnCarta2J1 = new System.Windows.Forms.Button();
@@ -56,6 +57,8 @@ namespace UnoPacGUI
             this.pbManoJ2 = new System.Windows.Forms.PictureBox();
             this.pbManoJ1 = new System.Windows.Forms.PictureBox();
             this.lblDuracion = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnMusica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).BeginInit();
@@ -370,12 +373,32 @@ namespace UnoPacGUI
             this.lblDuracion.TabIndex = 29;
             this.lblDuracion.Text = "Duracion";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 2000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnMusica
+            // 
+            this.btnMusica.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnMusica.BackgroundImage = global::UnoPacGUI.Properties.Resources.musica;
+            this.btnMusica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMusica.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMusica.Location = new System.Drawing.Point(11, 254);
+            this.btnMusica.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMusica.Name = "btnMusica";
+            this.btnMusica.Size = new System.Drawing.Size(60, 60);
+            this.btnMusica.TabIndex = 43;
+            this.btnMusica.UseVisualStyleBackColor = false;
+            this.btnMusica.Click += new System.EventHandler(this.btnMusica_Click);
+            // 
             // PartidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.btnMusica);
             this.Controls.Add(this.lblDuracion);
             this.Controls.Add(this.pbManoJ1);
             this.Controls.Add(this.pbManoJ2);
@@ -448,6 +471,8 @@ namespace UnoPacGUI
         private System.Windows.Forms.PictureBox pbManoJ2;
         private System.Windows.Forms.PictureBox pbManoJ1;
         private System.Windows.Forms.Label lblDuracion;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnMusica;
     }
 }
 

@@ -42,6 +42,7 @@ namespace UnoPacGUI
             this.pbCruzJ1 = new System.Windows.Forms.PictureBox();
             this.pbCruzJ2 = new System.Windows.Forms.PictureBox();
             this.btnHome = new System.Windows.Forms.Button();
+            this.btnMusica = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCruzJ2)).BeginInit();
@@ -204,12 +205,27 @@ namespace UnoPacGUI
             this.btnHome.Visible = false;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
+            // btnMusica
+            // 
+            this.btnMusica.BackColor = System.Drawing.SystemColors.WindowText;
+            this.btnMusica.BackgroundImage = global::UnoPacGUI.Properties.Resources.musica;
+            this.btnMusica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMusica.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMusica.Location = new System.Drawing.Point(895, 22);
+            this.btnMusica.Margin = new System.Windows.Forms.Padding(2);
+            this.btnMusica.Name = "btnMusica";
+            this.btnMusica.Size = new System.Drawing.Size(60, 60);
+            this.btnMusica.TabIndex = 42;
+            this.btnMusica.UseVisualStyleBackColor = false;
+            this.btnMusica.Click += new System.EventHandler(this.btnMusica_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(981, 701);
+            this.Controls.Add(this.btnMusica);
             this.Controls.Add(this.btnHome);
             this.Controls.Add(this.pbCruzJ2);
             this.Controls.Add(this.pbCruzJ1);
@@ -254,5 +270,6 @@ namespace UnoPacGUI
         private System.Windows.Forms.PictureBox pbCruzJ1;
         private System.Windows.Forms.PictureBox pbCruzJ2;
         private System.Windows.Forms.Button btnHome;
+        private System.Windows.Forms.Button btnMusica;
     }
 }

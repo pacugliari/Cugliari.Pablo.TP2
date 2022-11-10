@@ -33,3 +33,4 @@ C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\Entidades\obj
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\Entidades\obj\Debug\net5.0\Entidades.dll
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\Entidades\obj\Debug\net5.0\ref\Entidades.dll
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\Entidades\obj\Debug\net5.0\Entidades.pdb
+C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\Entidades\obj\Debug\net5.0\Entidades.csproj.AssemblyReference.cache

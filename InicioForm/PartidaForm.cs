@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,27 @@ namespace UnoPacGUI
         private bool hayCambioColor;
         private Cronometro cronometro;
         private bool hayGanador;
+        private static SoundPlayer sonidoCarta;
+        private static SoundPlayer sonidoMazo;
+        private static SoundPlayer sonidoGanador;
+        private static SoundPlayer sonidoUno;
+        private bool quitarSonido;
+
+        static PartidaForm()
+        {
+
+            PartidaForm.sonidoCarta = new SoundPlayer();
+            PartidaForm.sonidoCarta.Stream = Properties.Resources.carta;
+
+            PartidaForm.sonidoMazo = new SoundPlayer();
+            PartidaForm.sonidoMazo.Stream = Properties.Resources.mazo;
+
+            PartidaForm.sonidoGanador = new SoundPlayer();
+            PartidaForm.sonidoGanador.Stream = Properties.Resources.victoria;
+
+            PartidaForm.sonidoUno = new SoundPlayer();
+            PartidaForm.sonidoUno.Stream = Properties.Resources.uno;
+        }
 
         public PartidaForm(string nombreJ1, string nombreJ2)
         {
@@ -62,12 +84,14 @@ namespace UnoPacGUI
             this.MostrarAyuda(this.pbManoJ1, "Jugador Actual");
             this.MostrarAyuda(this.pbManoJ2, "Jugador Actual");
             this.MostrarAyuda(this.lblDuracion, "Tiempo transcurrido de la partida");
+
+            this.quitarSonido = false;
+
         }
 
 
         private void actualizar()
         {
-
 
             //SI SE TIRO CARTA DE CAMBIO DE COLOR MUESTRA EL FORMULARIO DE SELECCION
             if (this.hayCambioColor)
@@ -424,11 +448,14 @@ namespace UnoPacGUI
 
         private void MensajeGanador(string jugador)
         {
-            
+            if(!this.quitarSonido)
+                PartidaForm.sonidoGanador.Play();
             int puntosGanador = this.partida.JugadorActual.ObtenerPuntos();
             string duracion = this.cronometro.DetenerCronometro();
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
-            MessageBox.Show(texto);
+            GanadorForm ganador = new GanadorForm(jugador, puntosGanador.ToString(), duracion);
+            ganador.ShowDialog();
+            //MessageBox.Show(texto);
 
             //AGREGO LOG GANADOR
             this.partida.log.AgregarAlLog($"[{DateTime.Now}][{texto}]");
@@ -443,7 +470,8 @@ namespace UnoPacGUI
             dato.Ganador = jugador;
             dato.PuntosGanador = puntosGanador.ToString();
             dato.Duracion = duracion;
-            SQL.AgregarDato(dato);
+            if(SQL.ProbarConexion())
+                SQL.AgregarDato(dato);
 
             this.hayGanador = true;
             this.Close();
@@ -456,6 +484,8 @@ namespace UnoPacGUI
 
         private void MensajeUno(int numeroJugador)
         {
+            if (!this.quitarSonido)
+                PartidaForm.sonidoUno.Play();
             if (numeroJugador == 1)
             {
                 this.pbUnoJ1.Visible = true;
@@ -466,60 +496,62 @@ namespace UnoPacGUI
             }
         }
 
+
         private void btnCarta_Click(object sender, EventArgs e)
         {
             Button boton = (Button)sender;
+            bool jugoCarta = false;
             try
             {
-                this.pbUnoJ1.Visible = false;
-                this.pbUnoJ2.Visible = false;
 
                 switch (boton.Name)
                 {
                     case "btnCarta1J1":
-                        this.btnCarta1J1.Visible = !this.jugadorUno.Jugar(this.partida, 0, out hayCambioColor);
+                        this.btnCarta1J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 0, out hayCambioColor));
                         break;
                     case "btnCarta2J1":
-                        this.btnCarta2J1.Visible = !this.jugadorUno.Jugar(this.partida, 1, out hayCambioColor);
+                        this.btnCarta2J1.Visible = !(jugoCarta= this.jugadorUno.Jugar(this.partida, 1, out hayCambioColor));
                         break;
                     case "btnCarta3J1":
-                        this.btnCarta3J1.Visible = !this.jugadorUno.Jugar(this.partida, 2, out hayCambioColor);
+                        this.btnCarta3J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 2, out hayCambioColor));
                         break;
                     case "btnCarta4J1":
-                        this.btnCarta4J1.Visible = !this.jugadorUno.Jugar(this.partida, 3, out hayCambioColor);
+                        this.btnCarta4J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 3, out hayCambioColor));
                         break;
                     case "btnCarta5J1":
-                        this.btnCarta5J1.Visible = !this.jugadorUno.Jugar(this.partida, 4, out hayCambioColor);
+                        this.btnCarta5J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 4, out hayCambioColor));
                         break;
                     case "btnCarta6J1":
-                        this.btnCarta6J1.Visible = !this.jugadorUno.Jugar(this.partida, 5, out hayCambioColor);
+                        this.btnCarta6J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 5, out hayCambioColor));
                         break;
                     case "btnCarta7J1":
-                        this.btnCarta7J1.Visible = !this.jugadorUno.Jugar(this.partida, 6, out hayCambioColor);
+                        this.btnCarta7J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 6, out hayCambioColor));
                         break;
                     case "btnCarta1J2":
-                        this.btnCarta1J2.Visible = !this.jugadorDos.Jugar(this.partida, 0, out hayCambioColor);
+                        this.btnCarta1J2.Visible = !(jugoCarta=this.jugadorDos.Jugar(this.partida, 0, out hayCambioColor));
                         break;
                     case "btnCarta2J2":
-                        this.btnCarta2J2.Visible = !this.jugadorDos.Jugar(this.partida, 1, out hayCambioColor);
+                        this.btnCarta2J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 1, out hayCambioColor));
                         break;
                     case "btnCarta3J2":
-                        this.btnCarta3J2.Visible = !this.jugadorDos.Jugar(this.partida, 2, out hayCambioColor);
+                        this.btnCarta3J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 2, out hayCambioColor));
                         break;
                     case "btnCarta4J2":
-                        this.btnCarta4J2.Visible = !this.jugadorDos.Jugar(this.partida, 3, out hayCambioColor);
+                        this.btnCarta4J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 3, out hayCambioColor));
                         break;
                     case "btnCarta5J2":
-                        this.btnCarta5J2.Visible = !this.jugadorDos.Jugar(this.partida, 4, out hayCambioColor);
+                        this.btnCarta5J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 4, out hayCambioColor));
                         break;
                     case "btnCarta6J2":
-                        this.btnCarta6J2.Visible = !this.jugadorDos.Jugar(this.partida, 5, out hayCambioColor);
+                        this.btnCarta6J2.Visible = !(jugoCarta =this.jugadorDos.Jugar(this.partida, 5, out hayCambioColor));
                         break;
                     case "btnCarta7J2":
-                        this.btnCarta7J2.Visible = !this.jugadorDos.Jugar(this.partida, 6, out hayCambioColor);
+                        this.btnCarta7J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 6, out hayCambioColor));
                         break;
                 }
-             
+                if (jugoCarta  && !this.quitarSonido)
+                    PartidaForm.sonidoCarta.Play();
+
             }
             catch (MensajeGanadorException ex)//0
             {
@@ -528,6 +560,8 @@ namespace UnoPacGUI
             catch (MensajeUnoException ex)//1
             {
                 this.MensajeUno(int.Parse(ex.Message));
+                this.timer1.Enabled = true;
+                this.timer1.Start();
             }
             finally
             {
@@ -561,6 +595,8 @@ namespace UnoPacGUI
 
                 if(posiciones.Count > 0)
                 {
+                    if (!this.quitarSonido)
+                        PartidaForm.sonidoMazo.Play();
                     this.partida.JugadorActual.RecogioCarta = true;
                     this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][AGARRA CARTA DEL MAZO]");
                 }
@@ -572,6 +608,7 @@ namespace UnoPacGUI
 
         private void btnPasarTurno_Click(object sender, EventArgs e)
         {
+            ((Button)sender).ReproducirRuido(quitarSonido);
             this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][PASA TURNO]");
             this.partida.SiguienteJugador();
             this.actualizar();
@@ -606,7 +643,8 @@ namespace UnoPacGUI
                         dato.Ganador = "sin ganador";
                         dato.PuntosGanador = "sin ganador";
                         dato.Duracion = duracion;
-                        SQL.AgregarDato(dato);
+                        if (SQL.ProbarConexion())
+                            SQL.AgregarDato(dato);
                     }
                 }
             }
@@ -630,6 +668,24 @@ namespace UnoPacGUI
  
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.pbUnoJ1.Visible = false;
+            this.pbUnoJ2.Visible = false;
+            this.timer1.Stop();
+        }
 
+        private void btnMusica_Click(object sender, EventArgs e)
+        {
+            if (!this.quitarSonido)
+            {
+                this.btnMusica.BackgroundImage = Properties.Resources.mutearMusica;
+            }
+            else
+            {
+                this.btnMusica.BackgroundImage = Properties.Resources.musica;
+            }
+            this.quitarSonido = !this.quitarSonido;
+        }
     }
 }

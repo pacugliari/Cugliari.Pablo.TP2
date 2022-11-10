@@ -52,7 +52,8 @@ namespace UnoPacGUI
         {
             if (this.lbListaArchivos.Visible)
             {
-                ArchivosDeTexto.EliminarArchivo(this.lbListaArchivos.SelectedItem.ToString());
+                if(this.lbListaArchivos.SelectedItem is not null)
+                    ArchivosDeTexto.EliminarArchivo(this.lbListaArchivos.SelectedItem.ToString());
                 this.rbLogs_CheckedChanged(sender, e);
             }
             else
@@ -76,6 +77,15 @@ namespace UnoPacGUI
             }
             else
                 this.btnEliminar.Enabled = false;
+        }
+
+        private void HistoricoForm_Load(object sender, EventArgs e)
+        {
+            if (!SQL.ProbarConexion())
+            {
+                this.rbPartidas.Enabled = false;
+            }else
+                this.rbPartidas.Enabled = true;
         }
     }
 }

@@ -232,6 +232,7 @@ namespace UnoPacGUI
             this.Name = "HistoricoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UnoPac";
+            this.Load += new System.EventHandler(this.HistoricoForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartidas)).EndInit();
