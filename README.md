@@ -12,7 +12,7 @@ Sobre mi
 
 Resumen
 =============
-###### La aplicacion es un simulador de juegos de mesa centrado en el juego UNO basado en el juevo 1vs1, una vez dentro de la aplicacion nos encontramos  la pantalla de inicio donde podemos jugar nuevas partidas o consultar los datos historicos,tambien tenemos la posibilidad de canselar el sonido del juego dandole al boton que tiene el simbolo (🔊),dentro del menu podremos hacer:
+###### La aplicacion es un simulador de juegos de mesa centrado en el juego UNO basado en el juevo 1vs1, una vez dentro de la aplicacion nos encontramos  la pantalla de inicio donde podemos jugar nuevas partidas o consultar los datos historicos,tambien tenemos la posibilidad de cancelar el sonido del juego dandole al boton que tiene el simbolo (🔊),dentro del menu podremos hacer:
 
 
 ##### 1. Crear nueva partida
@@ -30,6 +30,20 @@ jugador y de la partida.
 - **Ver estadisticas de partidas :** Podremos consultar las estadisticas de las partidas y los jugadores donde tendremos fecha, nombre de los jugadores,
 ganador , puntos del ganador y la duracion de la partida
 
+Juego vista
+=============
+<p align="center">
+<img src="https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/tablero.png">
+</p>
+
+- **1) Indicador jugador actual**<br>
+- **2) Tiempo transcurrido de la partida**<br>
+- **3) Mutear sonido**<br>
+- **4) Color actual de la partida**<br>
+- **5) Mazo de cartas (Click para recoger)**<br>
+- **6) Cartas ya jugadas**<br>
+- **7) Nombre jugador**<br>
+- **8) Cartas del jugador**<br>
 
 Consideraciones
 =============
