@@ -1,6 +1,9 @@
-IMAGEN LOGO
+<p align="center">
+<img src="https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/logo.png">
+</p>
 
-Proyecto UNO Pac
+
+UNO Pac
 =============
 
 Sobre mi
@@ -9,7 +12,7 @@ Sobre mi
 
 Resumen
 =============
-###### La aplicacion es un simulador de juegos de mesa centrado en el juego UNO basado en el juevo 1vs1, una vez dentro de la aplicacion nos encontramos  la pantalla de inicio donde podemos jugar nuevas partidas o consultar los datos historicos,dentro del menu podremos hacer
+###### La aplicacion es un simulador de juegos de mesa centrado en el juego UNO basado en el juevo 1vs1, una vez dentro de la aplicacion nos encontramos  la pantalla de inicio donde podemos jugar nuevas partidas o consultar los datos historicos,tambien tenemos la posibilidad de canselar el sonido del juego dandole al boton que tiene el simbolo (🔊),dentro del menu podremos hacer:
 
 
 ##### 1. Crear nueva partida
@@ -30,13 +33,25 @@ ganador , puntos del ganador y la duracion de la partida
 Diagrama de clases
 =============
 ### Enumerados:
-![](https://githb.com/pacugliari/Cugliari.Pablo.P1.LabII.2A/blob/main/diagramas/enumerados.png)
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/Enumerados.png)
+
+### Archivos:
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/Archivos.png)
+
+### Interfaces con clases que las implementan:
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/Interfaz.png)
+
+### Excepciones:
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/Excepciones.png)
+
+### SQL:
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/ClasesSQL.png)
 
 ### Clases de logica:
-![](https://githb.com/pacugliari/Cugliari.Pablo.P1.LabII.2A/blob/main/diagramas/diagramaClases.png)
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/Logica.png)
 
 ### Clases de GUI:
-![](https://githu.com/pacugliari/Cugliari.Pablo.P1.LabII.2A/blob/main/diagramas/diagramaClasesGUI.png)
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/GUI.png)
 
 Justificacion tecnica
 =============
@@ -56,7 +71,7 @@ excepciones propias del programa como:<br>
 Hay una clase del tipo TestClass por cada Class de la biblioteca Entidades probando todos los metodos y constructores publicos de toda la logica
 del programa, probando escenarios donde el codigo podria generar problemas al momento de su ejecucion.
 
-IMAGEN TEST
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/test.png)
 
 ### Tema 12 - Tipos genéricos
 ###### 
@@ -133,24 +148,138 @@ por el juego o el jugador, durante este manejo de archivos realizamos las siguie
 
 ### Tema 15 - Serialización
 ###### 
+Utilizamos la serializacion para guardar/consultar/eliminar la siguiente clase desde la base de datos SQL,esta clase almacena la informacion de la partida
+cuando es finalizada por cancelacion o por que alguno de los jugadores gano, guardando los datos en esta clase luego se realiza la serializacion en formato JSON que
+es guardado en la tabla partidas.
+```
+    public class PartidaSQL
+    {
+        public int id;
+        public string fecha;
+        public string jugador1;
+        public string jugador2;
+        public string ganador;
+        public string puntosGanador;
+        public string duracion;
+
+        public int Id { get => id; set => id = value; }
+        public string Fecha { get => fecha; set => fecha = value; }
+        public string Jugador1 { get => jugador1; set => jugador1 = value; }
+        public string Jugador2 { get => jugador2; set => jugador2 = value; }
+        public string Ganador { get => ganador; set => ganador = value; }
+        public string PuntosGanador { get => puntosGanador; set => puntosGanador = value; }
+        public string Duracion { get => duracion; set => duracion = value; }
+
+        public override string ToString()
+        {
+            return $"{this.id}-{this.fecha}-{this.jugador1}-{this.jugador2}-{this.ganador}-{this.puntosGanador}-{this.duracion}";
+        }
+    }
+```
 
 ### Tema 16 - Introducción a bases de datos y SQL
 ###### 
+Utilizando la clase PartidaSQL nombrada anteriormente, utilizamos el tema de base de datos para almacenar los datos de las partidas finalizadas, las acciones que se realizan hacia la base de datos son las siguientes:<br>
+
+- Probar la conexion, si se pudo conectar o no<br>
+- Obtener una lista de todos los datos <br>
+- Agregar un dato del tipo PartidaSQL serializado en formato JSON<br>
+- Eliminar dato por medio de ID<br>
 
 ### Tema 17 - Conexión a bases de datos
 ###### 
+**String de conexion:** Server=localhost;Database=UnoPac;Trusted_Connection=True; <br>
+**Estructura de la base de datos** <br>
+
+![](https://github.com/pacugliari/Cugliari.Pablo.TP2/blob/main/Imagenes/sql.png)
 
 ### Tema 18 - Delegados y expresiones lambda
-###### 
-
 ### Tema 19 - Programación multi-hilo y concurrencia
-###### 
-
 ### Tema 20 - Eventos
 ###### 
+Utilizamos ambos temas en la creacion de una clase Cronometro, el cual es una clase que lleva el tiempo que una partida se inicio, utilizando delegados y eventos para comunicar la informacion del tiempo desde la parte logica (Entidades) hacia la parte grafica (Forms), y por otro lado para que el tiempo no se detenga o congele
+debido al uso del hilo principal del programa se ejecuta en otro aparte
+
+**DECLARACIONES EN LA CLASE Cronometro.cs**
+```
+public delegate void DelegadoCronometro(DateTime tiempo);
+public event DelegadoCronometro TiempoCumplido;
+```
+
+**SUSCRIPCION AL EVENTO EN LA CLASE PartidaForm.cs**
+```
+this.cronometro = new Cronometro(1000);
+this.cronometro.TiempoCumplido += this.ActualizarTiempo;
+```
+
+**INVOCACION DEL EVENTO EN LA CLASE Cronometro.cs**
+```
+private void CorrerTiempo()
+{
+
+    while (!cancellationToken.IsCancellationRequested)
+    {
+        this.tiempo = this.tiempo.AddMilliseconds(this.intervalo);
+        this.TiempoCumplido.Invoke(this.tiempo);
+        Thread.Sleep(this.intervalo);
+    }
+
+}
+```
+**MANEJADOR DE EVENTO EN LA CLASE PartidaForm.cs**
+```
+private void ActualizarTiempo(DateTime tiempo)
+{
+    if (this.lblDuracion.InvokeRequired)
+    {
+        DelegadoCronometro delegado = this.ActualizarTiempo;
+        object[] obj = new object[] { tiempo };
+        this.lblDuracion.Invoke(delegado, tiempo);
+    }
+    else
+    {
+        this.lblDuracion.Text = $"Duracion: {tiempo.Hour}:{tiempo.Minute}:{tiempo.Second}";
+    }
+
+}
+```
+
+Por otro lado en la parte del los Forms, para poder ejecutar varias partidas al mismo tiempo independientes entre si, se hizo una ejecucion por cada Form de partida nueva en un hilo separado utilizando expresion lambda
+
+```
+private void EjecutarNuevaPartida()
+{
+    object[] nombres = new object[] { this.txtNombreJ1.Text.ToString(), this.txtNombreJ2.Text.ToString() };
+    Task.Run(() =>
+    {
+        PartidaForm partifaForm = new PartidaForm(nombres[0].ToString(), nombres[1].ToString());
+        partifaForm.ShowDialog();
+    });
+}
+```
 
 ### Tema 21 - Métodos de extensión
 ###### 
+Por ultimo se utilizo los metodos de extension en una clase Extensora.cs en la parte visual, agregando metodos nuevo a los formularios y a los botones,
 
 
+**AGREGA UNA AYUDA DE TEXTO CUANDO EL USUARIO PASA EL MOUSE SOBRE EL CONTROL DE UN FORM**
+```
+public static void MostrarAyuda(this Form formulario, Control control, string mensaje)
+{
+    ToolTip yourToolTip = new ToolTip();
+    //yourToolTip.ToolTipIcon = ToolTipIcon.Info;
+    //yourToolTip.IsBalloon = true;
+    yourToolTip.ShowAlways = true;
+    yourToolTip.SetToolTip(control, mensaje);
+}
+```
 
+**REPRODUCE UN SONIDO AL HACER CLICK EN UN BOTON DEPENDIENDO SI ESTA HABILIDADO O NO EL SONIDO**
+```
+public static void ReproducirRuido (this Button boton,bool quitarSonido)
+{
+    if(!quitarSonido)
+        sonidoUno.Play();
+}
+```
