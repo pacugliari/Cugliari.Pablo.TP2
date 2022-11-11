@@ -22,12 +22,23 @@ ademas tendremos la posibilidad de cancelar y volver al menu inicial (🏠) ante
 ##### 2. Consultar datos historicos
 Dandole click al boton del historico (🔍) nos lleva a una nueva pantalla donde tendremos 2 opciones:
 
+
 - **Ver logs de partidas :**
 Nos permite ver todos los archivos de texto pudiendo consultar su contenido, el cual tiene los logs de las partidas jugadas donde nos indica acciones del
 jugador y de la partida.
 
 - **Ver estadisticas de partidas :** Podremos consultar las estadisticas de las partidas y los jugadores donde tendremos fecha, nombre de los jugadores,
 ganador , puntos del ganador y la duracion de la partida
+
+
+Consideraciones
+=============
+El juego tiene la modalidad con las reglas del UNO,con lo cual, el mazo cuenta con 19 cartas azules, 19 cartas verdes, 19 cartas rojas y 19 cartas amarillas. 
+También vienen 8 cartas especiales Roba Dos (un 2 antecedido de un signo +, y vienen dos de cada color), 8 cartas especiales Cambio de Sentido (2 de cada color),8 cartas especiales Pierde el Turno o Bloqueo (2 de cada color),4 cartas especiales Comodín Cambio de Color (cada una representa en sí a los cuatro colores) y
+4 cartas especiales Comodín Cambio de Color y Roba Cuatro (cada una representa a los cuatro colores y tiene un 4 antecedido del signo +).
+Por otro lado, como parte de la consigna eran realizar partidas cortas el juego cuando inicia reparte 3 cartas para cada jugador con un maximo de 7 cartas (es decir el jugador no puede tener mas de 7 cartas en la mano, esto se hizo asi para reducir el tiempo de las partidas), ademas de tirar una carta aleatoria. Si esta carta aleatoria sale un +2, +4, Salteo de turno o cambio de ronda, se ve afectado el primer jugador que inicia que en este caso siempre es el jugador 1.
+Como el juego esta hecho para 1vs1, el cambio de ronda y el salteo de turno tiene el mismo efecto, al igual que el +2 y +4 , ademas que le hace sumar 2 o 4 cartas al oponente. El macheo de cartas se hace por numero o por color (este ultimo es indicado durante la partida por un color al lado de las cartas tiradas o por esta ultima).
+Por ultimo en el caso que ninguno de los jugadores pueda tirar ninguna carta/levantar una del mazo,etc se podra cancelar la partida con la cruz del cierre de programa (❌) preguntandole al usuario si desea guardar los datos de esa partida
 
 
 Diagrama de clases
