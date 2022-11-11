@@ -1,0 +1,8 @@
+[11/11/2022 15:37:44][INICIO DE PARTIDA]
+[11/11/2022 15:53:20][1][Carta jugada -> Color: Negro Numero: -5 Tipo: MasCuatro]
+[11/11/2022 15:53:23][1][Carta jugada -> Color: Negro Numero: -5 Tipo: MasCuatro]
+[11/11/2022 15:53:23][1][GRITA UNO!!!]
+[11/11/2022 15:53:27][1][Carta jugada -> Color: Rojo Numero: 9 Tipo: Numero]
+[11/11/2022 15:53:32][GANADOR: 1 TIEMPO: 00:15:25 PUNTOS: 79]
+[11/11/2022 15:53:32][FIN DE PARTIDA]
+

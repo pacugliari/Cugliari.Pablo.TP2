@@ -20,7 +20,6 @@ C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bi
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\Entidades.dll
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\bin\Debug\net5.0-windows\Entidades.pdb
-C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.CustomTextBox.resources
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.HistoricoForm.resources
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.Inicio.resources
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.PartidaForm.resources

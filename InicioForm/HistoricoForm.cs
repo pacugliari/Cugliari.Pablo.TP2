@@ -18,6 +18,11 @@ namespace UnoPacGUI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Si el radioButton Logs esta chequeado carga los paths de archivos de las partidas ganadas en el ListBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbLogs_CheckedChanged(object sender, EventArgs e)
         {
             this.txtInfoLog.Visible = true;
@@ -28,6 +33,11 @@ namespace UnoPacGUI
             this.lbListaArchivos.Items.AddRange(ArchivosDeTexto.ObtenerArchivos());
         }
 
+        /// <summary>
+        /// Si se selecciona algun item del ListBox de ListaArchivos, se carga todo su contenido en el TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbListaArchivos_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnEliminar.Enabled = true;
@@ -35,6 +45,11 @@ namespace UnoPacGUI
                 this.txtInfoLog.Text = ArchivosDeTexto.LeerArchivoHastaElFinal(this.lbListaArchivos.SelectedItem.ToString());
         }
 
+        /// <summary>
+        /// Si el radioButton Partidas esta chequeado, carga la base de datos y la muestra en un DataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rbPartidas_CheckedChanged(object sender, EventArgs e)
         {
             this.txtInfoLog.Visible = false;
@@ -48,6 +63,12 @@ namespace UnoPacGUI
             }
         }
 
+        /// <summary>
+        /// Si selecciona algun item del ListBox o DataGridView se habilita el boton de Eliminar permitiendo eliminar el archivo
+        /// o dato en el SQL segun corresponda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (this.lbListaArchivos.Visible)
@@ -68,6 +89,11 @@ namespace UnoPacGUI
             this.btnEliminar.Enabled = false;
         }
 
+        /// <summary>
+        /// Si selecciona alguna columna del DataGridView marca en azul toda la fila de la columna seleccionada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgvPartidas_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (this.dgvPartidas.Rows.Count > 0)
@@ -79,6 +105,11 @@ namespace UnoPacGUI
                 this.btnEliminar.Enabled = false;
         }
 
+        /// <summary>
+        /// Verifica si hay conexion con la base de datos, en caso de no haber bloquea el radioButton Partidas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void HistoricoForm_Load(object sender, EventArgs e)
         {
             if (!SQL.ProbarConexion())

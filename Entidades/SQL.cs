@@ -121,7 +121,7 @@ namespace Entidades
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 rta = false;
             }

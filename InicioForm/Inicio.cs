@@ -17,6 +17,10 @@ namespace UnoPacGUI
     {
         private HistoricoForm historial;
         private bool quitarSonido;
+
+        /// <summary>
+        /// Crea una instancia de Inicio cargando los mensajes de ayuda y poniendo el quitar sonido en false
+        /// </summary>
         public Inicio()
         {
             InitializeComponent();
@@ -32,6 +36,11 @@ namespace UnoPacGUI
 
         }
 
+        /// <summary>
+        /// Habilita todos los controles para cargar los datos de los jugadores
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnJugar_Click(object sender, EventArgs e)
         {
             ((Button)sender).ReproducirRuido(quitarSonido);
@@ -44,6 +53,9 @@ namespace UnoPacGUI
             this.pbCruzJ1.Visible = this.pbCruzJ2.Visible = false;
         }
 
+        /// <summary>
+        /// Ejecuta un task en un hilo distinto al principal permitiendo ejecutar varias partidas al mismo tiempo
+        /// </summary>
         private void EjecutarNuevaPartida()
         {
             object[] nombres = new object[] { this.txtNombreJ1.Text.ToString(), this.txtNombreJ2.Text.ToString() };
@@ -54,6 +66,12 @@ namespace UnoPacGUI
             });
         }
 
+        /// <summary>
+        /// Verifica los datos cargados y genera una nueva partida , limpiando los controles de inicio para 
+        /// dejarlo listo por si se quiere crear una nueva partida
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             ((Button)sender).ReproducirRuido(quitarSonido);
@@ -85,6 +103,11 @@ namespace UnoPacGUI
             }
         }
 
+        /// <summary>
+        /// Crea y muestra el formulario HistoricoForm de manera modal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHistorial_Click(object sender, EventArgs e)
         {
             ((Button)sender).ReproducirRuido(quitarSonido);
@@ -92,17 +115,32 @@ namespace UnoPacGUI
             this.historial = new HistoricoForm();
         }
 
+        /// <summary>
+        /// Oculta el pictureBox 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreJ1_TextChanged(object sender, EventArgs e)
         {
             this.pbCruzJ1.Visible = false;
       
         }
 
+        /// <summary>
+        /// Oculta el pictureBox 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNombreJ2_TextChanged(object sender, EventArgs e)
         {
             this.pbCruzJ2.Visible = false;
         }
 
+        /// <summary>
+        /// Pregunta si se quiere salir de la partida, en el caso afirmativo cierra sino permanece en el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult respuesta = MessageBox.Show("Esta seguro que desea salir de Uno Pac ?", "Uno Pac", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -112,6 +150,11 @@ namespace UnoPacGUI
             }
         }
 
+        /// <summary>
+        /// Carga los controles necesarios de la pantalla de inicio ocultando el resto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHome_Click(object sender, EventArgs e)
         {
             ((Button)sender).ReproducirRuido(quitarSonido);
@@ -125,6 +168,11 @@ namespace UnoPacGUI
             this.btnMusica.Visible = true;
         }
 
+        /// <summary>
+        /// Activa o Desactiva la musica del juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMusica_Click(object sender, EventArgs e)
         {
             if (!this.quitarSonido)

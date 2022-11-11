@@ -31,6 +31,9 @@ namespace UnoPacGUI
         private static SoundPlayer sonidoUno;
         private bool quitarSonido;
 
+        /// <summary>
+        /// Constructor estatico que inicializa los sonidos del juego
+        /// </summary>
         static PartidaForm()
         {
 
@@ -47,6 +50,12 @@ namespace UnoPacGUI
             PartidaForm.sonidoUno.Stream = Properties.Resources.uno;
         }
 
+        /// <summary>
+        /// Crea una instancia del tipo PartidaForm, inicializando el nombre de los jugadores con los del parametro,el cronometro,
+        /// mensajes de ayuda,la partida y controles a valores validos
+        /// </summary>
+        /// <param name="nombreJ1"></param>
+        /// <param name="nombreJ2"></param>
         public PartidaForm(string nombreJ1, string nombreJ2)
         {
             InitializeComponent();
@@ -89,24 +98,12 @@ namespace UnoPacGUI
 
         }
 
-
-        private void actualizar()
+        /// <summary>
+        /// Habilita la visibilidad de cartas sumadas por un +2 o +4 por el oponente
+        /// </summary>
+        private void HabilitarVisionCartasSumadas()
         {
-
-            //SI SE TIRO CARTA DE CAMBIO DE COLOR MUESTRA EL FORMULARIO DE SELECCION
-            if (this.hayCambioColor)
-            {
-                SeleccionColorForm color = new SeleccionColorForm(this.partida);
-                color.ShowDialog();
-                this.hayCambioColor = false;
-            }
-
-            //DESHABILITA EL BOTON DE SALTEAR TURNO SI NO RECOGIO CARTA O NO TIENE 7 CARTAS
-            if (!this.partida.JugadorActual.RecogioCarta && this.partida.JugadorActual.CantidadCartas != 7)
-                this.btnPasarTurno.Visible = false;
-
-
-            //HABILITA LA VISIBILIDAD CARTAS AGREGADAS POR UN +2,+4
+            
             List<int> posiciones = this.partida.JugadorActual.ActualizarJugador(this.partida);
 
             foreach (int item in posiciones)
@@ -120,17 +117,37 @@ namespace UnoPacGUI
                 {
                     this.cartasJ2[item].Visible = true;
                 }
-
             }
+        }
 
+        /// <summary>
+        /// Deshabilita el boton saltear turno si no recogio carta o no tiene 7 cartas
+        /// </summary>
+        private void HabilitarPasoTurno()
+        {
+            if (!this.partida.JugadorActual.RecogioCarta && this.partida.JugadorActual.CantidadCartas != 7)
+                this.btnPasarTurno.Visible = false;
+        }
 
-            //CARGA LAS IMAGENES DE LAS CARGAS QUE POSEE EL JUGADOR
-            foreach (Jugador item in this.partida.Jugadores)
+        /// <summary>
+        /// Muestra el formulario de cambio de color de partida si corresponde
+        /// </summary>
+        private void HabilitarCambioColor()
+        {
+            //SI SE TIRO CARTA DE CAMBIO DE COLOR MUESTRA EL FORMULARIO DE SELECCION
+            if (this.hayCambioColor)
             {
-                this.CargarImagenesCartas(item);
-
+                SeleccionColorForm color = new SeleccionColorForm(this.partida);
+                color.ShowDialog();
+                this.hayCambioColor = false;
             }
+        }
 
+        /// <summary>
+        /// Carga el color correspondiente a la partida
+        /// </summary>
+        private void ActualizarColorPartida()
+        {
             //CARGA EL COLOR ACTUAL DE LA PARTIDA
             switch (this.partida.ColorActual)
             {
@@ -147,17 +164,28 @@ namespace UnoPacGUI
                     this.btnColorActual.BackgroundImage = Properties.Resources.colorAzul;
                     break;
             }
+        }
 
+        /// <summary>
+        /// Verifica si la ultima carta tirada genera un salteo de jugador, caso afirmativo hace el cambio de turno
+        /// </summary>
+        private void SalteoJugadorActual()
+        {
             //SALTEA EL TURNO DEL JUGADOR PORQUE LA ULTIMA CARTA TIRADA FUE SALTEO,+2,+4,INVERSION DE RONDA
             if (!this.partida.yaSeSalteo && (this.partida.UltimaCartaTirada.Tipo != ETipo.Numero && this.partida.UltimaCartaTirada.Tipo != ETipo.CambioColor))
             {
                 this.partida.SiguienteJugador();
                 this.partida.yaSeSalteo = true;
             }
+        }
 
-            //ACTUALIZA EL NOMBRE DEL JUGADOR ACTUAL
-            //this.lblJ1.Text = Partida.JugadorActual.Nombre;
-            if(this.partida.JugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
+
+        /// <summary>
+        /// Habilita el pictureBox que indica el jugador actual
+        /// </summary>
+        private void ActualizarIndicadorJugadorActual()
+        {
+            if (this.partida.JugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
             {
                 this.pbManoJ1.Visible = true;
                 this.pbManoJ2.Visible = false;
@@ -167,65 +195,97 @@ namespace UnoPacGUI
                 this.pbManoJ1.Visible = false;
                 this.pbManoJ2.Visible = true;
             }
-
-                
         }
 
 
 
-        private void CargarImagenesCartas(Jugador jugador)
+        /// <summary>
+        /// Ejecuta serie de funciones para actualizar la vista,controles,etc cuando se realiza una accion y poder
+        /// reflejar tanto los cambios en la vista y en la logica
+        /// </summary>
+        private void actualizar()
         {
-            List<Button> lista = this.cartasJ1;
-            Bitmap imagen = null;
-            Carta ultimaTirada = this.partida.CartasTiradas.Peek();
-
-            if (jugador.NumeroJugador == 2)
-            {
-                lista = this.cartasJ2;
-            }
-
-            this.btnTiradas.BackgroundImage = this.BuscarImagenCarta(ultimaTirada);
-
-
-            foreach (Button item in lista)
-            {
-                switch (item.Name)
-                {
-                    case "btnCarta1J1":
-                    case "btnCarta1J2":
-                        imagen = this.BuscarImagenCarta(jugador[0]);
-                        break;
-                    case "btnCarta2J1":
-                    case "btnCarta2J2":
-                        imagen = this.BuscarImagenCarta(jugador[1]);
-                        break;
-                    case "btnCarta3J1":
-                    case "btnCarta3J2":
-                        imagen = this.BuscarImagenCarta(jugador[2]);
-                        break;
-                    case "btnCarta4J1":
-                    case "btnCarta4J2":
-                        imagen = this.BuscarImagenCarta(jugador[3]);
-                        break;
-                    case "btnCarta5J1":
-                    case "btnCarta5J2":
-                        imagen = this.BuscarImagenCarta(jugador[4]);
-                        break;
-                    case "btnCarta6J1":
-                    case "btnCarta6J2":
-                        imagen = this.BuscarImagenCarta(jugador[5]);
-                        break;
-                    case "btnCarta7J1":
-                    case "btnCarta7J2":
-                        imagen = this.BuscarImagenCarta(jugador[6]);
-                        break;
-                }
-                if (imagen is not null)
-                    item.BackgroundImage = imagen;
-                else
-                    item.Visible = false;
-            }
+            this.HabilitarCambioColor();
+            this.HabilitarPasoTurno();
+            this.HabilitarVisionCartasSumadas();
+            this.CargarImagenesCartas();
+            this.ActualizarColorPartida();
+            this.SalteoJugadorActual();
+            this.ActualizarIndicadorJugadorActual();        
         }
+
+
+        /// <summary>
+        /// Carga las imagenes de las cartas segun las cartas que tiene los jugadores
+        /// </summary>
+        private void CargarImagenesCartas()
+        {
+            List<Button> lista;
+            Bitmap imagen;
+            Carta ultimaTirada;
+
+            foreach (Jugador jugador in this.partida.Jugadores)
+            {
+                lista = this.cartasJ1;
+                imagen = null;
+                ultimaTirada = this.partida.CartasTiradas.Peek();
+
+                if (jugador.NumeroJugador == 2)
+                {
+                    lista = this.cartasJ2;
+                }
+
+                this.btnTiradas.BackgroundImage = this.BuscarImagenCarta(ultimaTirada);
+
+
+                foreach (Button botonCarta in lista)
+                {
+                    switch (botonCarta.Name)
+                    {
+                        case "btnCarta1J1":
+                        case "btnCarta1J2":
+                            imagen = this.BuscarImagenCarta(jugador[0]);
+                            break;
+                        case "btnCarta2J1":
+                        case "btnCarta2J2":
+                            imagen = this.BuscarImagenCarta(jugador[1]);
+                            break;
+                        case "btnCarta3J1":
+                        case "btnCarta3J2":
+                            imagen = this.BuscarImagenCarta(jugador[2]);
+                            break;
+                        case "btnCarta4J1":
+                        case "btnCarta4J2":
+                            imagen = this.BuscarImagenCarta(jugador[3]);
+                            break;
+                        case "btnCarta5J1":
+                        case "btnCarta5J2":
+                            imagen = this.BuscarImagenCarta(jugador[4]);
+                            break;
+                        case "btnCarta6J1":
+                        case "btnCarta6J2":
+                            imagen = this.BuscarImagenCarta(jugador[5]);
+                            break;
+                        case "btnCarta7J1":
+                        case "btnCarta7J2":
+                            imagen = this.BuscarImagenCarta(jugador[6]);
+                            break;
+                    }
+                    if (imagen is not null)
+                        botonCarta.BackgroundImage = imagen;
+                    else
+                        botonCarta.Visible = false;
+                }
+
+            }
+            
+        }
+
+        /// <summary>
+        /// Busca el Bitmap(imagen del Properties.Resources) de la carta pasada por parametro
+        /// </summary>
+        /// <param name="carta">Carta que se requiere el bitmap</param>
+        /// <returns>Bitmap buscado</returns>
         private Bitmap BuscarImagenCarta(Carta carta)
         {
             Bitmap retorno = null;
@@ -446,6 +506,11 @@ namespace UnoPacGUI
             return retorno;
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="jugador"></param>
         private void MensajeGanador(string jugador)
         {
             if(!this.quitarSonido)
@@ -455,7 +520,6 @@ namespace UnoPacGUI
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
             GanadorForm ganador = new GanadorForm(jugador, puntosGanador.ToString(), duracion);
             ganador.ShowDialog();
-            //MessageBox.Show(texto);
 
             //AGREGO LOG GANADOR
             this.partida.log.AgregarAlLog($"[{DateTime.Now}][{texto}]");

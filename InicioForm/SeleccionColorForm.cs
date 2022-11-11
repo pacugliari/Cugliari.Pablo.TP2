@@ -15,6 +15,11 @@ namespace UnoPacGUI
     {
         private bool cerrar;
         private Partida partida;
+
+        /// <summary>
+        /// Crea una instancia del tipo SeleccionColorForm cargando los mensajes de ayuda y atributos con valores validos
+        /// </summary>
+        /// <param name="partida"></param>
         public SeleccionColorForm(Partida partida)
         {
             InitializeComponent();
@@ -24,6 +29,11 @@ namespace UnoPacGUI
 
         }
 
+        /// <summary>
+        /// Asigna el color Amarillo como color actual de la partida y cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAmarillo_Click(object sender, EventArgs e)
         {
             this.partida.ColorActual = EColor.Amarillo;
@@ -31,6 +41,11 @@ namespace UnoPacGUI
             this.Close();
         }
 
+        /// <summary>
+        /// Asigna el color Azul como color actual de la partida y cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAzul_Click(object sender, EventArgs e)
         {
             this.partida.ColorActual = EColor.Azul;
@@ -38,6 +53,12 @@ namespace UnoPacGUI
             this.Close();
         }
 
+
+        /// <summary>
+        /// Asigna el color Rojo como color actual de la partida y cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRojo_Click(object sender, EventArgs e)
         {
             this.partida.ColorActual = EColor.Rojo;
@@ -45,6 +66,12 @@ namespace UnoPacGUI
             this.Close();
         }
 
+
+        /// <summary>
+        /// Asigna el color Verde como color actual de la partida y cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVerde_Click(object sender, EventArgs e)
         {
             this.partida.ColorActual = EColor.Verde;
@@ -52,6 +79,11 @@ namespace UnoPacGUI
             this.Close();
         }
 
+        /// <summary>
+        /// Evita que el usuario trate de cerrar la ventana, obligandolo a elegir un color
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SeleccionColorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if(!this.cerrar)

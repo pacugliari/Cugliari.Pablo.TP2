@@ -25,9 +25,14 @@ namespace Entidades
          
          */
 
+        /// <summary>
+        /// Propiedad del tipo get con la cantidad de cartas del mazo
+        /// </summary>
         public int CantidadCartas { get { return this.cartas.Count; } }
 
-
+        /// <summary>
+        /// Crea una instancia del tipo Mazo cargando todas las cartas mezcladas del uno en la lista
+        /// </summary>
         public Mazo()
         {
             this.cartas = new List<Carta>();
@@ -63,6 +68,9 @@ namespace Entidades
             this.MezclarMazo();
         }
 
+        /// <summary>
+        /// Mezcla aleatoriamente todas las cartas de la lista
+        /// </summary>
         private void MezclarMazo()
         {
             //MEZCLO CARTAS
@@ -70,6 +78,13 @@ namespace Entidades
             this.cartas = this.cartas.OrderBy(_ => rand.Next()).ToList();
         }
 
+        /// <summary>
+        /// Retira del mazo una cantidad de cartas segun el parametro cantidad, si el mazo no tiene suficientes cartas
+        /// mezcla las cartas tiradas en la Partida generando un nuevo mazo para consumir
+        /// </summary>
+        /// <param name="partida">Partida, contiene las cartas tiradas para volver a cargar el mazo</param>
+        /// <param name="cantidad">int, contiene la cantidad de cartas a retirar del mazo</param>
+        /// <returns>List<Carta> lista de cartas retiradas del mazo</returns>
         public List<Carta> ObtenerCartas (Partida partida,int cantidad)
         {
             List<Carta> cartasObtenidas = null;
@@ -100,6 +115,10 @@ namespace Entidades
             return cartasObtenidas;
         }
 
+        /// <summary>
+        /// Carga las cartas tiradas de la partida nuevamente al mazo mezclandolas
+        /// </summary>
+        /// <param name="partida">Partida, posee la lista de cartas tiradas </param>
         private void MezclarCartasTiradas(Partida partida)
         {
             Stack<Carta> cartasTiradas = partida.CartasTiradas;
