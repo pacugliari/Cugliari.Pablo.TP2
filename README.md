@@ -37,22 +37,36 @@ Juego vista
 </p>
 
 - **1) Indicador jugador actual**<br>
-- **2) Tiempo transcurrido de la partida**<br>
+- **2) Numero de pagina de cartas del jugador 2**<br>
 - **3) Mutear sonido**<br>
-- **4) Color actual de la partida**<br>
-- **5) Mazo de cartas (Click para recoger)**<br>
-- **6) Cartas ya jugadas**<br>
-- **7) Nombre jugador**<br>
-- **8) Cartas del jugador**<br>
-- **9) Boton para pasar de turno**<br>
+- **4) Nombre del jugador 1**<br>
+- **5) Cartas de la pagina 1 del jugador 1**<br>
+- **6) Cantidad de cartas restantes en el mazo**<br>
+- **7) Agarrar carta del mazo con click**<br>
+- **8) Cartas ya jugadas**<br>
+- **9) Cantidad de cartas ya jugadas**<br>
+- **10) Color actual de la partida**<br>
+- **11) Boton para pasar el turno**<br>
+- **12) Avanzar pagina de cartas del jugador 2**<br>
+- **13) Retroceder pagina de cartas del jugador 1**<br>
+
 
 Consideraciones
 =============
-El juego tiene la modalidad con las reglas del UNO,con lo cual, el mazo cuenta con 19 cartas azules, 19 cartas verdes, 19 cartas rojas y 19 cartas amarillas. 
-También vienen 8 cartas especiales Roba Dos (un 2 antecedido de un signo +, y vienen dos de cada color), 8 cartas especiales Cambio de Sentido (2 de cada color),8 cartas especiales Pierde el Turno o Bloqueo (2 de cada color),4 cartas especiales Comodín Cambio de Color (cada una representa en sí a los cuatro colores) y
-4 cartas especiales Comodín Cambio de Color y Roba Cuatro (cada una representa a los cuatro colores y tiene un 4 antecedido del signo +).
-Por otro lado, como parte de la consigna eran realizar partidas cortas el juego cuando inicia reparte 3 cartas para cada jugador con un maximo de 7 cartas (es decir el jugador no puede tener mas de 7 cartas en la mano, esto se hizo asi para reducir el tiempo de las partidas), ademas de tirar una carta aleatoria. Si esta carta aleatoria sale un +2, +4, Salteo de turno o cambio de ronda, se ve afectado el primer jugador que inicia que en este caso siempre es el jugador 1.
-Como el juego esta hecho para 1vs1, el cambio de ronda y el salteo de turno tiene el mismo efecto, al igual que el +2 y +4 , ademas que le hace sumar 2 o 4 cartas al oponente. El macheo de cartas se hace por numero o por color (este ultimo es indicado durante la partida por un color al lado de las cartas tiradas o por esta ultima).
+El juego tiene la modalidad con las reglas del UNO,con lo cual, el mazo cuenta con:
+ 
+- 19 cartas azules
+- 19 cartas verdes
+- 19 cartas rojas
+- 19 cartas amarillas. 
+- 8 cartas especiales Roba Dos (un 2 antecedido de un signo +, y vienen dos de cada color)
+- 8 cartas especiales Cambio de Sentido (2 de cada color)
+- 8 cartas especiales Pierde el Turno o Bloqueo (2 de cada color)
+- 4 cartas especiales Comodín Cambio de Color (cada una representa en sí a los cuatro colores)
+- 4 cartas especiales Comodín Cambio de Color y Roba Cuatro (cada una representa a los cuatro colores y tiene un 4 antecedido del signo +).
+
+Por otro lado, ademas de tirar una carta aleatoria al iniciar la partida, si sale un +2, +4, Salteo de turno o cambio de ronda, se ve afectado el primer jugador que inicia (el jugador inicial es obtenido de manera random) . Como el juego esta hecho para 1vs1, el cambio de ronda y el salteo de turno tiene el mismo efecto, al igual que el +2 y +4 , ademas que le hace sumar 2 o 4 cartas al oponente.
+El macheo de cartas se hace por numero o por color (este ultimo es indicado durante la partida por un color al lado de las cartas tiradas o por esta ultima).
 Por ultimo en el caso que ninguno de los jugadores pueda tirar ninguna carta/levantar una del mazo,etc se podra cancelar la partida con la cruz del cierre de programa (❌) preguntandole al usuario si desea guardar los datos de esa partida
 
 

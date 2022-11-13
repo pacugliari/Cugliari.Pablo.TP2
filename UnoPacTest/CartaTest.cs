@@ -136,7 +136,7 @@ namespace UnoPacTest
         {
             Carta c1 = new Carta(ETipo.MasDos, EColor.Azul);
 
-            Assert.AreEqual("Tipo: MasDos Color: Azul", c1.ToString());
+            Assert.AreEqual("MasDos Azul", c1.ToString());
 
         }
 
@@ -145,7 +145,7 @@ namespace UnoPacTest
         {
             Carta c1 = new Carta(ETipo.Numero, EColor.Azul,8);
 
-            Assert.AreEqual("Tipo: Numero Color: Azul Numero: 8", c1.ToString());
+            Assert.AreEqual("Azul 8", c1.ToString());
 
         }
 

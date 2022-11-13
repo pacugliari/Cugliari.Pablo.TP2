@@ -22,7 +22,6 @@ namespace UnoPacGUI
         private List<Button> cartasJ2;
         private Jugador jugadorUno;
         private Jugador jugadorDos;
-        private bool hayCambioColor;
         private Cronometro cronometro;
         private bool hayGanador;
         private static SoundPlayer sonidoCarta;
@@ -80,7 +79,9 @@ namespace UnoPacGUI
             this.pbUnoJ1.Visible = false;
             this.pbUnoJ2.Visible = false;
             this.pbManoJ1.Visible = this.pbManoJ2.Visible = false;
-            this.btnColorActual.BackgroundImage = Properties.Resources.colorVerde;
+            this.lblPaginaCartasJugador1.Text = this.jugadorUno.PaginaCartas.ToString();
+            this.lblPaginaCartasJugador2.Text = this.jugadorDos.PaginaCartas.ToString();
+            this.ActualizarColorPartida();
             this.cronometro.IniciarCronometro();
             this.Actualizar();
 
@@ -96,6 +97,11 @@ namespace UnoPacGUI
 
             this.quitarSonido = false;
 
+            //SUSCRIBO AL EVENTO CAMBIO DE COLOR DE LOS JUGADORES LA FUNCION QUE MUESTRA EL FORMULARIO
+            //DE SELECCION DE COLOR
+            this.jugadorUno.cambioColor += this.HabilitarCambioColor;
+            this.jugadorDos.cambioColor += this.HabilitarCambioColor;
+
         }
 
         /// <summary>
@@ -103,29 +109,16 @@ namespace UnoPacGUI
         /// </summary>
         private void HabilitarVisionCartasSumadas()
         {
-            
-            List<int> posiciones = this.partida.JugadorActual.ActualizarJugador(this.partida);
-
-            foreach (int item in posiciones)
-            {
-
-                if (this.partida.JugadorActual.NumeroJugador == (int)EJugadores.Jugador1)//1
-                {
-                    this.cartasJ1[item].Visible = true;
-                }
-                else
-                {
-                    this.cartasJ2[item].Visible = true;
-                }
-            }
+            this.partida.JugadorActual.ActualizarJugador(this.partida);
+            this.CargarImagenesCartas();
         }
 
         /// <summary>
-        /// Deshabilita el boton saltear turno si no recogio carta o no tiene 7 cartas
+        /// Deshabilita el boton saltear turno si no recogio carta
         /// </summary>
         private void HabilitarPasoTurno()
         {
-            if (!this.partida.JugadorActual.RecogioCarta && this.partida.JugadorActual.CantidadCartas != 7)
+            if (!this.partida.JugadorActual.RecogioCarta)
                 this.btnPasarTurno.Visible = false;
         }
 
@@ -135,12 +128,9 @@ namespace UnoPacGUI
         private void HabilitarCambioColor()
         {
             //SI SE TIRO CARTA DE CAMBIO DE COLOR MUESTRA EL FORMULARIO DE SELECCION
-            if (this.hayCambioColor)
-            {
-                SeleccionColorForm color = new SeleccionColorForm(this.partida);
-                color.ShowDialog();
-                this.hayCambioColor = false;
-            }
+            SeleccionColorForm color = new SeleccionColorForm(this.partida);
+            color.ShowDialog();
+            this.ActualizarColorPartida();
         }
 
         /// <summary>
@@ -148,6 +138,7 @@ namespace UnoPacGUI
         /// </summary>
         private void ActualizarColorPartida()
         {
+
             //CARGA EL COLOR ACTUAL DE LA PARTIDA
             switch (this.partida.ColorActual)
             {
@@ -164,6 +155,7 @@ namespace UnoPacGUI
                     this.btnColorActual.BackgroundImage = Properties.Resources.colorAzul;
                     break;
             }
+
         }
 
         /// <summary>
@@ -205,13 +197,22 @@ namespace UnoPacGUI
         /// </summary>
         private void Actualizar()
         {
-            this.HabilitarCambioColor();
             this.HabilitarPasoTurno();
             this.HabilitarVisionCartasSumadas();
             this.CargarImagenesCartas();
             this.ActualizarColorPartida();
             this.SalteoJugadorActual();
-            this.ActualizarIndicadorJugadorActual();        
+            this.ActualizarIndicadorJugadorActual();
+            this.ContarCartas();
+        }
+
+        /// <summary>
+        /// Actualiza los label que lleva el control de la cantidad de cartas en el mazo y las ya jugadas
+        /// </summary>
+        private void ContarCartas()
+        {
+            this.lblCantidadMazo.Text = this.partida.Mazo.CantidadCartas.ToString();
+            this.lblCantidadTiradas.Text = this.partida.CartasTiradas.Count.ToString();
         }
 
 
@@ -272,7 +273,10 @@ namespace UnoPacGUI
                             break;
                     }
                     if (imagen is not null)
+                    {
                         botonCarta.BackgroundImage = imagen;
+                        botonCarta.Visible = true;
+                    }
                     else
                         botonCarta.Visible = false;
                 }
@@ -584,46 +588,46 @@ namespace UnoPacGUI
                 switch (boton.Name)
                 {
                     case "btnCarta1J1":
-                        this.btnCarta1J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 0, out hayCambioColor));
+                        this.btnCarta1J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida,0));
                         break;
                     case "btnCarta2J1":
-                        this.btnCarta2J1.Visible = !(jugoCarta= this.jugadorUno.Jugar(this.partida, 1, out hayCambioColor));
+                        this.btnCarta2J1.Visible = !(jugoCarta= this.jugadorUno.Jugar(this.partida,1));
                         break;
                     case "btnCarta3J1":
-                        this.btnCarta3J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 2, out hayCambioColor));
+                        this.btnCarta3J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida,2));
                         break;
                     case "btnCarta4J1":
-                        this.btnCarta4J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 3, out hayCambioColor));
+                        this.btnCarta4J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida,3));
                         break;
                     case "btnCarta5J1":
-                        this.btnCarta5J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida, 4, out hayCambioColor));
+                        this.btnCarta5J1.Visible = !(jugoCarta = this.jugadorUno.Jugar(this.partida,4));
                         break;
                     case "btnCarta6J1":
-                        this.btnCarta6J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 5, out hayCambioColor));
+                        this.btnCarta6J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida,5));
                         break;
                     case "btnCarta7J1":
-                        this.btnCarta7J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida, 6, out hayCambioColor));
+                        this.btnCarta7J1.Visible = !(jugoCarta=this.jugadorUno.Jugar(this.partida,6));
                         break;
                     case "btnCarta1J2":
-                        this.btnCarta1J2.Visible = !(jugoCarta=this.jugadorDos.Jugar(this.partida, 0, out hayCambioColor));
+                        this.btnCarta1J2.Visible = !(jugoCarta=this.jugadorDos.Jugar(this.partida,0));
                         break;
                     case "btnCarta2J2":
-                        this.btnCarta2J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 1, out hayCambioColor));
+                        this.btnCarta2J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida,1));
                         break;
                     case "btnCarta3J2":
-                        this.btnCarta3J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 2, out hayCambioColor));
+                        this.btnCarta3J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida,2));
                         break;
                     case "btnCarta4J2":
-                        this.btnCarta4J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 3, out hayCambioColor));
+                        this.btnCarta4J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida,3));
                         break;
                     case "btnCarta5J2":
-                        this.btnCarta5J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 4, out hayCambioColor));
+                        this.btnCarta5J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida,4));
                         break;
                     case "btnCarta6J2":
-                        this.btnCarta6J2.Visible = !(jugoCarta =this.jugadorDos.Jugar(this.partida, 5, out hayCambioColor));
+                        this.btnCarta6J2.Visible = !(jugoCarta =this.jugadorDos.Jugar(this.partida,5));
                         break;
                     case "btnCarta7J2":
-                        this.btnCarta7J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida, 6, out hayCambioColor));
+                        this.btnCarta7J2.Visible = !(jugoCarta = this.jugadorDos.Jugar(this.partida,6));
                         break;
                 }
                 if (jugoCarta  && !this.quitarSonido)
@@ -638,6 +642,7 @@ namespace UnoPacGUI
             {
                 this.MensajeUno(int.Parse(ex.Message));
                 this.timer1.Enabled = true;
+                this.timer1.Stop();
                 this.timer1.Start();
             }
             finally
@@ -658,26 +663,15 @@ namespace UnoPacGUI
 
             List<int> posiciones;
 
-            if (this.partida.JugadorActual.CantidadCartas == 7)
+            if (this.partida.JugadorActual.CantidadCartas == 108)
             {
                 this.btnPasarTurno.Visible = true;
             }else if (!this.partida.JugadorActual.RecogioCarta)
             {
-                if (this.partida.IndiceJugadorActual == 1)
+                posiciones = this.partida.JugadorActual.AgregarCartas(this.partida.Mazo.ObtenerCartas(this.partida, 1));
+                if (posiciones.Count > 0)
                 {
-                    posiciones = this.jugadorUno.AgregarCartas(this.partida.Mazo.ObtenerCartas(this.partida,1));
-                    if (posiciones.Count > 0)
-                        this.cartasJ1[posiciones[0]].Visible = this.btnPasarTurno.Visible =  true;
-                }
-                else
-                {
-                    posiciones = this.jugadorDos.AgregarCartas(this.partida.Mazo.ObtenerCartas(this.partida,1));
-                    if (posiciones.Count > 0)
-                        this.cartasJ2[posiciones[0]].Visible = this.btnPasarTurno.Visible = true;
-                }
-
-                if(posiciones.Count > 0)
-                {
+                    this.btnPasarTurno.Visible = true;
                     if (!this.quitarSonido)
                         PartidaForm.sonidoMazo.Play();
                     this.partida.JugadorActual.RecogioCarta = true;
@@ -793,6 +787,67 @@ namespace UnoPacGUI
                 this.btnMusica.BackgroundImage = Properties.Resources.musica;
             }
             this.quitarSonido = !this.quitarSonido;
+        }
+
+        /// <summary>
+        /// Permite avanzar a las paginas de cartas superiores del jugador 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDerecha1_Click(object sender, EventArgs e)
+        {
+            if(this.partida.IndiceJugadorActual == (int)EJugadores.Jugador1)
+            {
+                this.partida.JugadorActual.AvanzarPaginaCartas();
+                this.CargarImagenesCartas();
+            }
+            this.lblPaginaCartasJugador1.Text = this.jugadorUno.PaginaCartas.ToString();
+            
+        }
+
+        /// <summary>
+        /// Permite avanzar a las paginas de cartas inferiores del jugador 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIzquierda1_Click(object sender, EventArgs e)
+        {
+            if (this.partida.IndiceJugadorActual == (int)EJugadores.Jugador1)
+            {
+                this.partida.JugadorActual.RetrocederPaginaCartas();
+                this.CargarImagenesCartas();
+            }
+            this.lblPaginaCartasJugador1.Text = this.jugadorUno.PaginaCartas.ToString();
+        }
+
+        /// <summary>
+        /// Permite avanzar a las paginas de cartas superiores del jugador 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnDerecha2_Click(object sender, EventArgs e)
+        {
+            if (this.partida.IndiceJugadorActual == (int)EJugadores.Jugador2)
+            {
+                this.partida.JugadorActual.AvanzarPaginaCartas();
+                this.CargarImagenesCartas();
+            }
+            this.lblPaginaCartasJugador2.Text = this.jugadorDos.PaginaCartas.ToString();
+        }
+
+        /// <summary>
+        /// Permite avanzar a las paginas de cartas inferiores del jugador 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnIzquierda2_Click(object sender, EventArgs e)
+        {
+            if (this.partida.IndiceJugadorActual == (int)EJugadores.Jugador2)
+            {
+                this.partida.JugadorActual.RetrocederPaginaCartas();
+                this.CargarImagenesCartas();
+            }
+            this.lblPaginaCartasJugador2.Text = this.jugadorDos.PaginaCartas.ToString();
         }
     }
 }

@@ -117,7 +117,6 @@ namespace UnoPacTest
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
             partida.AgregarCartaTirada = new Carta(ETipo.Numero, EColor.Rojo, 1);
             partida.JugadorActual.AgregarCartas(new List<Carta> { new Carta(ETipo.Numero, EColor.Rojo, 5) });
 
@@ -130,9 +129,8 @@ namespace UnoPacTest
 
 
 
-           Assert.AreEqual(true, partida.JugadorActual.Jugar(partida, 3, out esCambioColor));
-           Assert.AreEqual(partida.UltimaCartaTirada, cartas[3]);
-           Assert.AreEqual(partida.JugadorActual, jugador2);
+           Assert.AreEqual(true, partida.JugadorActual.Jugar(partida, 7));
+           Assert.AreEqual(partida.UltimaCartaTirada, cartas[7]);
 
         }
 
@@ -142,11 +140,10 @@ namespace UnoPacTest
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
 
             try
             {
-                jugador2.Jugar(partida, 3, out esCambioColor);
+                jugador2.Jugar(partida, 3);
             }
             catch (System.Exception ex)
             {
@@ -156,17 +153,29 @@ namespace UnoPacTest
 
         }
 
+        private void FuncionTestFormularioCambioColor()
+        {
+            Assert.Fail();
+        }
+
         [TestMethod]
         public void JugarValidoConCambioDeColorTest()
         {
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
             partida.JugadorActual.AgregarCartas(new List<Carta> { new Carta(ETipo.CambioColor, EColor.Negro) });
+            partida.JugadorActual.cambioColor += this.FuncionTestFormularioCambioColor;
 
-            partida.JugadorActual.Jugar(partida, 3, out esCambioColor);
-            Assert.AreEqual(true, esCambioColor);
+            try
+            {
+                partida.JugadorActual.Jugar(partida, 3);
+            }
+            catch (System.Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(AssertFailedException));
+            }
+
 
         }
 
@@ -176,11 +185,10 @@ namespace UnoPacTest
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
             partida.AgregarCartaTirada = new Carta(ETipo.Numero, EColor.Rojo, 1);
             partida.JugadorActual.AgregarCartas(new List<Carta> { new Carta(ETipo.Numero, EColor.Azul, 5) });
 
-            Assert.AreEqual(false, partida.JugadorActual.Jugar(partida, 3, out esCambioColor));
+            Assert.AreEqual(false, partida.JugadorActual.Jugar(partida, 7));
 
         }
 
@@ -190,7 +198,6 @@ namespace UnoPacTest
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
             partida.AgregarCartaTirada = new Carta(ETipo.Numero, EColor.Rojo, 1);
             Carta carta1 = partida.JugadorActual[0];
             carta1 = null;
@@ -207,7 +214,7 @@ namespace UnoPacTest
 
             try
             {
-                partida.JugadorActual.Jugar(partida, 0, out esCambioColor);
+                partida.JugadorActual.Jugar(partida, 0);
             }
             catch (System.Exception ex)
             {
@@ -225,7 +232,6 @@ namespace UnoPacTest
             Partida partida = new Partida("Test1", "Test2");
             Jugador jugador1 = partida.Jugadores[0];
             Jugador jugador2 = partida.Jugadores[1];
-            bool esCambioColor = false;
             partida.AgregarCartaTirada = new Carta(ETipo.Numero, EColor.Rojo, 1);
 
 
@@ -243,7 +249,7 @@ namespace UnoPacTest
 
             try
             {
-                partida.JugadorActual.Jugar(partida, 0, out esCambioColor);
+                partida.JugadorActual.Jugar(partida, 0);
             }
             catch (System.Exception ex)
             {

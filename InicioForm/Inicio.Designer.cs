@@ -141,7 +141,7 @@ namespace UnoPacGUI
             this.btnSiguiente.Margin = new System.Windows.Forms.Padding(2);
             this.btnSiguiente.Name = "btnSiguiente";
             this.btnSiguiente.Size = new System.Drawing.Size(60, 60);
-            this.btnSiguiente.TabIndex = 32;
+            this.btnSiguiente.TabIndex = 3;
             this.btnSiguiente.UseVisualStyleBackColor = false;
             this.btnSiguiente.Visible = false;
             this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
@@ -152,7 +152,7 @@ namespace UnoPacGUI
             this.txtNombreJ2.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreJ2.Name = "txtNombreJ2";
             this.txtNombreJ2.Size = new System.Drawing.Size(203, 27);
-            this.txtNombreJ2.TabIndex = 37;
+            this.txtNombreJ2.TabIndex = 2;
             this.txtNombreJ2.Visible = false;
             this.txtNombreJ2.TextChanged += new System.EventHandler(this.txtNombreJ2_TextChanged);
             // 
@@ -162,7 +162,7 @@ namespace UnoPacGUI
             this.txtNombreJ1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombreJ1.Name = "txtNombreJ1";
             this.txtNombreJ1.Size = new System.Drawing.Size(203, 27);
-            this.txtNombreJ1.TabIndex = 38;
+            this.txtNombreJ1.TabIndex = 0;
             this.txtNombreJ1.Visible = false;
             this.txtNombreJ1.TextChanged += new System.EventHandler(this.txtNombreJ1_TextChanged);
             // 

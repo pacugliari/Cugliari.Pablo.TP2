@@ -59,6 +59,14 @@ namespace UnoPacGUI
             this.lblDuracion = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnMusica = new System.Windows.Forms.Button();
+            this.btnIzquierda1 = new System.Windows.Forms.Button();
+            this.btnDerecha1 = new System.Windows.Forms.Button();
+            this.btnIzquierda2 = new System.Windows.Forms.Button();
+            this.btnDerecha2 = new System.Windows.Forms.Button();
+            this.lblPaginaCartasJugador2 = new System.Windows.Forms.Label();
+            this.lblPaginaCartasJugador1 = new System.Windows.Forms.Label();
+            this.lblCantidadMazo = new System.Windows.Forms.Label();
+            this.lblCantidadTiradas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUnoJ2)).BeginInit();
@@ -392,12 +400,96 @@ namespace UnoPacGUI
             this.btnMusica.UseVisualStyleBackColor = false;
             this.btnMusica.Click += new System.EventHandler(this.btnMusica_Click);
             // 
+            // btnIzquierda1
+            // 
+            this.btnIzquierda1.Location = new System.Drawing.Point(11, 577);
+            this.btnIzquierda1.Name = "btnIzquierda1";
+            this.btnIzquierda1.Size = new System.Drawing.Size(32, 29);
+            this.btnIzquierda1.TabIndex = 44;
+            this.btnIzquierda1.Text = "<";
+            this.btnIzquierda1.UseVisualStyleBackColor = true;
+            this.btnIzquierda1.Click += new System.EventHandler(this.btnIzquierda1_Click);
+            // 
+            // btnDerecha1
+            // 
+            this.btnDerecha1.Location = new System.Drawing.Point(938, 577);
+            this.btnDerecha1.Name = "btnDerecha1";
+            this.btnDerecha1.Size = new System.Drawing.Size(32, 29);
+            this.btnDerecha1.TabIndex = 45;
+            this.btnDerecha1.Text = ">";
+            this.btnDerecha1.UseVisualStyleBackColor = true;
+            this.btnDerecha1.Click += new System.EventHandler(this.btnDerecha1_Click);
+            // 
+            // btnIzquierda2
+            // 
+            this.btnIzquierda2.Location = new System.Drawing.Point(11, 122);
+            this.btnIzquierda2.Name = "btnIzquierda2";
+            this.btnIzquierda2.Size = new System.Drawing.Size(32, 29);
+            this.btnIzquierda2.TabIndex = 46;
+            this.btnIzquierda2.Text = "<";
+            this.btnIzquierda2.UseVisualStyleBackColor = true;
+            this.btnIzquierda2.Click += new System.EventHandler(this.btnIzquierda2_Click);
+            // 
+            // btnDerecha2
+            // 
+            this.btnDerecha2.Location = new System.Drawing.Point(938, 122);
+            this.btnDerecha2.Name = "btnDerecha2";
+            this.btnDerecha2.Size = new System.Drawing.Size(32, 29);
+            this.btnDerecha2.TabIndex = 47;
+            this.btnDerecha2.Text = ">";
+            this.btnDerecha2.UseVisualStyleBackColor = true;
+            this.btnDerecha2.Click += new System.EventHandler(this.btnDerecha2_Click);
+            // 
+            // lblPaginaCartasJugador2
+            // 
+            this.lblPaginaCartasJugador2.AutoSize = true;
+            this.lblPaginaCartasJugador2.Location = new System.Drawing.Point(12, 154);
+            this.lblPaginaCartasJugador2.Name = "lblPaginaCartasJugador2";
+            this.lblPaginaCartasJugador2.Size = new System.Drawing.Size(16, 20);
+            this.lblPaginaCartasJugador2.TabIndex = 48;
+            this.lblPaginaCartasJugador2.Text = "x";
+            // 
+            // lblPaginaCartasJugador1
+            // 
+            this.lblPaginaCartasJugador1.AutoSize = true;
+            this.lblPaginaCartasJugador1.Location = new System.Drawing.Point(12, 609);
+            this.lblPaginaCartasJugador1.Name = "lblPaginaCartasJugador1";
+            this.lblPaginaCartasJugador1.Size = new System.Drawing.Size(16, 20);
+            this.lblPaginaCartasJugador1.TabIndex = 49;
+            this.lblPaginaCartasJugador1.Text = "x";
+            // 
+            // lblCantidadMazo
+            // 
+            this.lblCantidadMazo.AutoSize = true;
+            this.lblCantidadMazo.Location = new System.Drawing.Point(351, 429);
+            this.lblCantidadMazo.Name = "lblCantidadMazo";
+            this.lblCantidadMazo.Size = new System.Drawing.Size(30, 20);
+            this.lblCantidadMazo.TabIndex = 50;
+            this.lblCantidadMazo.Text = "xxx";
+            // 
+            // lblCantidadTiradas
+            // 
+            this.lblCantidadTiradas.AutoSize = true;
+            this.lblCantidadTiradas.Location = new System.Drawing.Point(625, 429);
+            this.lblCantidadTiradas.Name = "lblCantidadTiradas";
+            this.lblCantidadTiradas.Size = new System.Drawing.Size(30, 20);
+            this.lblCantidadTiradas.TabIndex = 51;
+            this.lblCantidadTiradas.Text = "xxx";
+            // 
             // PartidaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UnoPacGUI.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(982, 703);
+            this.Controls.Add(this.lblCantidadTiradas);
+            this.Controls.Add(this.lblCantidadMazo);
+            this.Controls.Add(this.lblPaginaCartasJugador1);
+            this.Controls.Add(this.lblPaginaCartasJugador2);
+            this.Controls.Add(this.btnDerecha2);
+            this.Controls.Add(this.btnIzquierda2);
+            this.Controls.Add(this.btnDerecha1);
+            this.Controls.Add(this.btnIzquierda1);
             this.Controls.Add(this.btnMusica);
             this.Controls.Add(this.lblDuracion);
             this.Controls.Add(this.pbManoJ1);
@@ -473,6 +565,14 @@ namespace UnoPacGUI
         private System.Windows.Forms.Label lblDuracion;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnMusica;
+        private System.Windows.Forms.Button btnIzquierda1;
+        private System.Windows.Forms.Button btnDerecha1;
+        private System.Windows.Forms.Button btnIzquierda2;
+        private System.Windows.Forms.Button btnDerecha2;
+        private System.Windows.Forms.Label lblPaginaCartasJugador2;
+        private System.Windows.Forms.Label lblPaginaCartasJugador1;
+        private System.Windows.Forms.Label lblCantidadMazo;
+        private System.Windows.Forms.Label lblCantidadTiradas;
     }
 }
 

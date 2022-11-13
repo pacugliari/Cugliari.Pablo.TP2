@@ -64,29 +64,63 @@ namespace Entidades
         public Partida(string nombreJugadorUno, string nombreJugadorDos)
         {
             this.cartasTiradas = new Stack<Carta>();
-            this.yaSeSalteo = false;
-            this.colorActual = EColor.Verde;
-
-            this.jugadores = new List<Jugador> {new Jugador(nombreJugadorUno,EJugadores.Jugador1,new JugadorDisponible()),
-                new Jugador(nombreJugadorDos, EJugadores.Jugador2, new JugadorOcupado()) };
             this.mazo = new Mazo();
+            this.yaSeSalteo = false;
 
-            //2022-10-30 at 17.59
+            //AGREGO INFORMACION DE INICIO AL LOG
             string hora = DateTime.Now.Year.ToString() + '-' + DateTime.Now.Month.ToString() + '-' + DateTime.Now.Day.ToString() + "_" +
                 DateTime.Now.Hour.ToString() + '.' + DateTime.Now.Minute.ToString();
             this.log = new Log($"{nombreJugadorUno}vs{nombreJugadorDos}_{hora}");
-
             this.log.AgregarAlLog($"[{DateTime.Now}][INICIO DE PARTIDA]");
 
-            this.jugadores[0].AgregarCartas(this.mazo.ObtenerCartas(this, 3));
-            this.jugadores[1].AgregarCartas(this.mazo.ObtenerCartas(this, 3));
+
+            this.TirarCartaInicial();
+            this.CrearJugadores(nombreJugadorUno, nombreJugadorDos);
+
+        }
+
+        /// <summary>
+        /// Crea las 2 instancias de los jugadores, seleccionando de manera aleatoria quien arranca la partida
+        /// </summary>
+        /// <param name="nombreJ1">string, nombre del jugador 1</param>
+        /// <param name="nombreJ2">string, nombre del jugador 2</param>
+        private void CrearJugadores(string nombreJ1,string nombreJ2)
+        {
+            //RANDOM DEL JUGADOR QUE INICIA
+            EJugadores[] valoresJugadores = (EJugadores[])Enum.GetValues(typeof(EJugadores));
+            this.indiceJugadorActual = (int)valoresJugadores[new Random().Next(0, valoresJugadores.Length)];
+
+            this.jugadores = new List<Jugador> {new Jugador(nombreJ1,EJugadores.Jugador1,new JugadorDisponible()),
+                new Jugador(nombreJ2, EJugadores.Jugador2, new JugadorOcupado()) };
+
+            if (this.indiceJugadorActual != (int)EJugadores.Jugador1)
+            {
+                this.jugadores[0].CambiarEstado();
+                this.jugadores[1].CambiarEstado();
+            }
+
+            //ASIGNO 7 CARTAS A CADA JUGADOR
+            this.jugadores[0].AgregarCartas(this.mazo.ObtenerCartas(this, 7));
+            this.jugadores[1].AgregarCartas(this.mazo.ObtenerCartas(this, 7));
+            this.jugadorActual = this.jugadores[this.indiceJugadorActual - 1];
+        }
+
+        /// <summary>
+        /// Selecciona una carta del mazo para tirar en la mesa y poder comenzar la partida, si la carta tirada es de color
+        /// negro, se selecciona de manera aleatoria un color para empezar la partida.
+        /// </summary>
+        private void TirarCartaInicial()
+        {
             this.cartasTiradas.Push(this.mazo.ObtenerCartas(this, 1)[0]);
             this.colorActual = this.UltimaCartaTirada.Color;
-            if (this.colorActual == EColor.Negro)
-                this.colorActual = EColor.Verde;
-            this.indiceJugadorActual = (int)EJugadores.Jugador1;//1
-            this.jugadorActual = this.jugadores[0];
 
+            if (this.colorActual == EColor.Negro)
+            {
+                //this.colorActual = EColor.Verde;
+                EColor[] valoresColores = (EColor[])Enum.GetValues(typeof(EColor));
+                while (this.colorActual == EColor.Negro)
+                    this.colorActual = valoresColores[new Random().Next(0, valoresColores.Length)];
+            }
         }
 
         /// <summary>

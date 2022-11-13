@@ -8,11 +8,19 @@ namespace Entidades
 {
     public class Jugador
     {
+        public event Action cambioColor;
         private EJugadores numeroJugador;
         private string nombre;
         private List<Carta> cartas;
         private IEstadoJugador estado;
         private bool recogioCarta;
+        private int paginaCartas;
+
+        /// <summary>
+        /// Propiedad del tipo get que devuelve la cantidad de paginas de cartas, una pagina es
+        /// un grupo de 7 cartas
+        /// </summary>
+        public int PaginaCartas { get { return (this.paginaCartas/7)+1; } }
 
         /// <summary>
         /// Propiedad del tipo get que retorna el estado del jugador que es del tipo IEstadoJugador
@@ -43,6 +51,7 @@ namespace Entidades
         {
             get {
                 Carta rta = null;
+                index += this.paginaCartas;
                 if (index >= 0 && index < this.cartas.Count) {
                     rta = this.cartas[index];
                 }
@@ -71,12 +80,13 @@ namespace Entidades
         {
             this.cartas = new List<Carta>();
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 108; i++)
             {
                 this.cartas.Add(null);
             }
 
             this.RecogioCarta = false;
+            this.paginaCartas = 0;
         }
 
         /// <summary>
@@ -90,6 +100,25 @@ namespace Entidades
             this.nombre = nombre;
             this.estado = estado;
             this.numeroJugador = numeroJugador;
+
+        }
+
+        /// <summary>
+        /// Avanza a la siguiente pagina de cartas
+        /// </summary>
+        public void AvanzarPaginaCartas()
+        {
+            if (this.paginaCartas + 7 < 108)
+                this.paginaCartas = this.paginaCartas + 7;
+        }
+
+        /// <summary>
+        /// Retrocede a la pagina de cartas anterior
+        /// </summary>
+        public void RetrocederPaginaCartas()
+        {
+            if (this.paginaCartas >= 7)
+                this.paginaCartas = this.paginaCartas - 7;
 
         }
 
@@ -124,6 +153,34 @@ namespace Entidades
         }
 
         /// <summary>
+        /// Permite agrupar las cartas de la baraja de cartas del jugador para que no esten
+        /// desparramadas por las distintas paginas
+        /// </summary>
+        private void AgruparCartas()
+        {
+            List<Carta> cartasNoVacias = new List<Carta>();
+            int cartasVacias = 0;
+            foreach (Carta item in this.cartas)
+            {
+                if(item is not null)
+                {
+                    cartasNoVacias.Add(item);
+                }
+                else
+                {
+                    cartasVacias++;
+                } 
+            }
+
+            for (int i = 0; i < cartasVacias; i++)
+            {
+                cartasNoVacias.Add(null);
+            }
+            this.cartas = cartasNoVacias;
+
+        }
+
+        /// <summary>
         /// Verifica que el indice de la carta pasada por parametro se pueda jugar con respecto a la ultima carta tirada en la
         /// partida , si es posible tirar la carta ejecuta la funcion Jugar del estado, si el jugador estaba en un estado de tipo
         /// JugadorDisponible no hace nada y continua con la ejecucion indicando si la carta jugada es de cambio de color y agregando
@@ -133,13 +190,11 @@ namespace Entidades
         /// </summary>
         /// <param name="partida">de tipo Partida, partida actual donde se consulta la ultima carta tirada</param>
         /// <param name="posicionCarta">int, posee el index donde esta la carta a jugar por el Jugador</param>
-        /// <param name="esCambioColor">out bool, retorna si la carta jugada es de cambio de color</param>
         /// <returns>si pudo jugar la carta retorna true, sino false</returns>
-        public bool Jugar(Partida partida,int posicionCarta,out bool esCambioColor)
+        public bool Jugar(Partida partida,int posicionCarta)
         {
             bool jugoCarta = false;
-            esCambioColor = false;
-            IEstadoJugador estadoPrevio = this.estado;
+            posicionCarta = posicionCarta + this.paginaCartas;
             try
             {
                 Carta elegida = this.cartas[posicionCarta];
@@ -148,16 +203,20 @@ namespace Entidades
                 {
                     estado.Jugar();
                     partida.yaSeSalteo = false;
+                    partida.AgregarCartaTirada = elegida;
+                    partida.ColorActual = elegida.Color;
+                    jugoCarta = true;
+                    this.cartas[posicionCarta] = null;
+                    partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Carta jugada -> {elegida.ToString()}]");
+
                     if (elegida.Tipo == ETipo.MasCuatro || elegida.Tipo == ETipo.CambioColor)
                     {
-                        esCambioColor = true;
+                        this.cambioColor.Invoke();
                     }
-                    partida.ColorActual = elegida.Color;
-                    partida.AgregarCartaTirada = elegida;
-                    jugoCarta = true;
-                    partida.log.AgregarAlLog($"[{DateTime.Now}][{this.nombre}][Carta jugada -> Color: {elegida.Color} Numero: {elegida.Numero} " +
-                        $"Tipo: {elegida.Tipo}]");
-                    this.cartas[posicionCarta] = null;
+
+                    this.recogioCarta = false;
+                    this.AgruparCartas();
+                    partida.SiguienteJugador();
                 }
             }
             catch (Exception ex)
@@ -168,21 +227,14 @@ namespace Entidades
             {
                 if (jugoCarta)
                 {
-                    if (this.recogioCarta)
-                        this.recogioCarta = false;
-
-                    partida.SiguienteJugador();
-
                     if (this.CantidadCartas == 0)
                     {
-                        esCambioColor = false;
                         throw new MensajeGanadorException(this.nombre);
                     }else if (this.CantidadCartas == 1)
                     {
                         partida.log.AgregarAlLog($"[{DateTime.Now}][{this.Nombre}][GRITA UNO!!!]");
                         throw new MensajeUnoException(this.NumeroJugador.ToString());
                     }
-                    
                 }
                     
 
@@ -273,54 +325,6 @@ namespace Entidades
             }
             
             return posiciones;
-        }
-    }
-
-    /// <summary>
-    /// Clase que implementa la interfaz IEstadoJugador
-    /// </summary>
-    public class JugadorDisponible : IEstadoJugador
-    {
-        /// <summary>
-        /// Retorna una instancia de JugadorOcupado
-        /// </summary>
-        /// <returns>Retorna una instancia de JugadorOcupado</returns>
-        public IEstadoJugador AvanzarTurno()
-        {
-            return new JugadorOcupado();
-        }
-
-        /// <summary>
-        /// Implementacion vacia de jugar
-        /// </summary>
-        public void Jugar()
-        {
-            
-        }
-
-    }
-
-    /// <summary>
-    /// Clase que implementa la interfaz IEstadoJugador
-    /// </summary>
-    public class JugadorOcupado : IEstadoJugador
-    {
-        /// <summary>
-        /// Retorna una instancia de JugadorDisponible 
-        /// </summary>
-        /// <returns>Retorna una instancia de JugadorDisponible </returns>
-        public IEstadoJugador AvanzarTurno()
-        {
-            return new JugadorDisponible();
-        }
-
-        /// <summary>
-        /// Lanza una excepcion del tipo JugadorNoEsTurnoException con un mensaje
-        /// </summary>
-        public void Jugar()
-        {
-            throw new JugadorNoEsTurnoException("No es el turno del jugador seleccionado");
-
         }
     }
 

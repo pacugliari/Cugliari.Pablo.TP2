@@ -122,10 +122,14 @@ namespace Entidades
         private void MezclarCartasTiradas(Partida partida)
         {
             Stack<Carta> cartasTiradas = partida.CartasTiradas;
+            Carta aux = partida.UltimaCartaTirada;
+
             while(cartasTiradas.Count != 0)
             {
                 this.cartas.Add(cartasTiradas.Pop());
             }
+            partida.AgregarCartaTirada = this.cartas[this.cartas.IndexOf(aux)];
+            this.cartas.Remove(aux);
             this.MezclarMazo();
         }
 

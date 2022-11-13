@@ -115,9 +115,16 @@ namespace Entidades
         /// <returns></returns>
         public override string ToString()
         {
-            string texto = $"Tipo: {this.tipo.ToString()} Color: {this.color.ToString()}";
-
-            return (this.tipo != ETipo.Numero) ? texto : texto + ($" Numero: {this.numero}");
+            string texto="";
+            if(this.tipo == ETipo.Numero)
+            {
+                texto += $"{this.color.ToString()} {this.numero}";
+            }
+            else
+            {
+                texto += $"{this.Tipo.ToString()} {this.color.ToString()}";
+            }
+            return texto;
         }
 
         /// <summary>

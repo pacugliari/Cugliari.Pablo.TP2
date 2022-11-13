@@ -83,8 +83,8 @@ namespace UnoPacTest
 
             cartas = mazo.ObtenerCartas(partida, 1);
 
-            Assert.AreEqual(0, partida.CartasTiradas.Count);
-            Assert.AreEqual(107, mazo.CantidadCartas);
+            Assert.AreEqual(1, partida.CartasTiradas.Count);
+            Assert.AreEqual(106, mazo.CantidadCartas);
             Assert.AreEqual(1, cartas.Count);
 
         }
