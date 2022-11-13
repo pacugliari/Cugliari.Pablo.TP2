@@ -44,6 +44,7 @@ Juego vista
 - **6) Cartas ya jugadas**<br>
 - **7) Nombre jugador**<br>
 - **8) Cartas del jugador**<br>
+- **9) Boton para pasar de turno**<br>
 
 Consideraciones
 =============

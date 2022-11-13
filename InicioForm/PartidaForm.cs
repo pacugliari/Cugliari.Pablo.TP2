@@ -82,7 +82,7 @@ namespace UnoPacGUI
             this.pbManoJ1.Visible = this.pbManoJ2.Visible = false;
             this.btnColorActual.BackgroundImage = Properties.Resources.colorVerde;
             this.cronometro.IniciarCronometro();
-            this.actualizar();
+            this.Actualizar();
 
             this.MostrarAyuda(this.btnColorActual, "Color actual de la partida");
             this.MostrarAyuda(this.btnMazo, "Click para agarrar una carta del mazo");
@@ -203,7 +203,7 @@ namespace UnoPacGUI
         /// Ejecuta serie de funciones para actualizar la vista,controles,etc cuando se realiza una accion y poder
         /// reflejar tanto los cambios en la vista y en la logica
         /// </summary>
-        private void actualizar()
+        private void Actualizar()
         {
             this.HabilitarCambioColor();
             this.HabilitarPasoTurno();
@@ -508,13 +508,15 @@ namespace UnoPacGUI
 
 
         /// <summary>
-        /// 
+        /// Muestra el formulario con el jugador ganador, cargando el acontecimiento en el log de la partida, agregando dicha
+        /// partida finalizada en la base de datos y cerrando el formulario principal de la partida
         /// </summary>
         /// <param name="jugador"></param>
         private void MensajeGanador(string jugador)
         {
             if(!this.quitarSonido)
                 PartidaForm.sonidoGanador.Play();
+
             int puntosGanador = this.partida.JugadorActual.ObtenerPuntos();
             string duracion = this.cronometro.DetenerCronometro();
             string texto = $"GANADOR: {jugador} TIEMPO: {duracion} PUNTOS: {puntosGanador}";
@@ -546,6 +548,10 @@ namespace UnoPacGUI
             }
         }
 
+        /// <summary>
+        /// Habilita una imagen para indicar que el jugador tiene 1 sola carta
+        /// </summary>
+        /// <param name="numeroJugador">int, numero del jugador que se quedo con 1 sola carta</param>
         private void MensajeUno(int numeroJugador)
         {
             if (!this.quitarSonido)
@@ -561,6 +567,13 @@ namespace UnoPacGUI
         }
 
 
+        /// <summary>
+        /// Evento click de la carta seleccionada por el jugador al momento de hacer una jugada, comprobando que pudo tirar la
+        /// carta, ocultandola si fue tirada con exito y capturando las excepciones MensajeGanadorException o MensajeUnoException
+        /// si fuese necesario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCarta_Click(object sender, EventArgs e)
         {
             Button boton = (Button)sender;
@@ -629,11 +642,17 @@ namespace UnoPacGUI
             }
             finally
             {
-                this.actualizar();
+                this.Actualizar();
             }
 
         }
 
+        /// <summary>
+        /// Agrega una carta a la mano del jugador que hizo el click sobre el mazo, agregando dicho acontecimiento 
+        /// al log y actualizando la vista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMazo_Click(object sender, EventArgs e)
         {
 
@@ -664,21 +683,30 @@ namespace UnoPacGUI
                     this.partida.JugadorActual.RecogioCarta = true;
                     this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][AGARRA CARTA DEL MAZO]");
                 }
-                this.actualizar();
+                this.Actualizar();
             }
   
         }
 
-
+        /// <summary>
+        /// Permite pasar el turno al siguiente jugador en el caso que no pueda realizar ninguna accion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnPasarTurno_Click(object sender, EventArgs e)
         {
             ((Button)sender).ReproducirRuido(quitarSonido);
             this.partida.log.AgregarAlLog($"[{DateTime.Now}][{this.partida.JugadorActual.Nombre}][PASA TURNO]");
             this.partida.SiguienteJugador();
-            this.actualizar();
+            this.Actualizar();
 
         }
 
+        /// <summary>
+        /// Pregunta de confirmacion si desea cancelar la partida con posibilidiad de guardarla
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PartidaForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!this.hayGanador)
@@ -716,6 +744,10 @@ namespace UnoPacGUI
            
         }
 
+        /// <summary>
+        /// Actualiza el Label que lleva la duracion de la partida
+        /// </summary>
+        /// <param name="tiempo"></param>
         private void ActualizarTiempo(DateTime tiempo)
         {
 
@@ -732,6 +764,12 @@ namespace UnoPacGUI
  
         }
 
+        /// <summary>
+        /// Una vez pasado el tiempo de intervalo del timer , deshabilita el picture box del jugador que mostro
+        /// la imagen de ultima carta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.pbUnoJ1.Visible = false;
@@ -739,6 +777,11 @@ namespace UnoPacGUI
             this.timer1.Stop();
         }
 
+        /// <summary>
+        /// Permite deshabilitar el sonido del juego
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnMusica_Click(object sender, EventArgs e)
         {
             if (!this.quitarSonido)
