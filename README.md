@@ -238,7 +238,8 @@ Utilizando la clase PartidaSQL nombrada anteriormente, utilizamos el tema de bas
 ### Tema 20 - Eventos
 ###### 
 Utilizamos ambos temas en la creacion de una clase Cronometro, el cual es una clase que lleva el tiempo que una partida se inicio, utilizando delegados y eventos para comunicar la informacion del tiempo desde la parte logica (Entidades) hacia la parte grafica (Forms), y por otro lado para que el tiempo no se detenga o congele
-debido al uso del hilo principal del programa se ejecuta en otro aparte
+debido al uso del hilo principal del programa se ejecuta en otro aparte.<br>
+Tambien aplicamos el uso de eventos en la clase jugador para invocar desde esta un metodo en la parte visual que se encargue de mostrar un formulario y el jugador pueda seleccionar el color de cambio de partida.
 
 **DECLARACIONES EN LA CLASE Cronometro.cs**
 ```
