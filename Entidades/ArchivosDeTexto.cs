@@ -105,7 +105,6 @@ namespace Entidades
             }
             catch (Exception)
             {
-
                 throw;
             }
 

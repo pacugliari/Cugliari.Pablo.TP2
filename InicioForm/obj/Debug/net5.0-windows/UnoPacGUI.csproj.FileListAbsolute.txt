@@ -30,5 +30,3 @@ C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\ob
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.pdb
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.genruntimeconfig.cache
 C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.GanadorForm.resources
-C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\Interop.WMPLib.dll
-C:\Users\PACug\OneDrive\Escritorio\TP2-PARCIAL2\Cugliari.Pablo.TP2\InicioForm\obj\Debug\net5.0-windows\UnoPacGUI.csproj.ResolveComReference.cache
